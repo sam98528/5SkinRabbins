@@ -23,8 +23,10 @@
 		148BD1972BBA8B28008036AC /* Cake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD1962BBA8B28008036AC /* Cake.swift */; };
 		14BBABB42BBAB267002E118C /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BBABB12BBAB267002E118C /* DetailsViewController.swift */; };
 		14BBABB62BBAB2EC002E118C /* DetailsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABB52BBAB2EC002E118C /* DetailsView.storyboard */; };
-		14BBABB92BBABB8A002E118C /* DetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABB82BBABB8A002E118C /* DetailsCollectionViewCell.xib */; };
-		14BBABBA2BBABB8A002E118C /* DetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BBABB72BBABB8A002E118C /* DetailsCollectionViewCell.swift */; };
+		14BBABB92BBABB8A002E118C /* FlavorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABB82BBABB8A002E118C /* FlavorCollectionViewCell.xib */; };
+		14BBABBA2BBABB8A002E118C /* FlavorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BBABB72BBABB8A002E118C /* FlavorCollectionViewCell.swift */; };
+		14BBABBE2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BBABBC2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.swift */; };
+		14BBABBF2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABBD2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +67,10 @@
 		148BD1962BBA8B28008036AC /* Cake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cake.swift; sourceTree = "<group>"; };
 		14BBABB12BBAB267002E118C /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		14BBABB52BBAB2EC002E118C /* DetailsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailsView.storyboard; sourceTree = "<group>"; };
-		14BBABB72BBABB8A002E118C /* DetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollectionViewCell.swift; sourceTree = "<group>"; };
-		14BBABB82BBABB8A002E118C /* DetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsCollectionViewCell.xib; sourceTree = "<group>"; };
+		14BBABB72BBABB8A002E118C /* FlavorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorCollectionViewCell.swift; sourceTree = "<group>"; };
+		14BBABB82BBABB8A002E118C /* FlavorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlavorCollectionViewCell.xib; sourceTree = "<group>"; };
+		14BBABBC2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFlavorCollectionViewCell.swift; sourceTree = "<group>"; };
+		14BBABBD2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedFlavorCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,8 +184,10 @@
 			children = (
 				14BBABB12BBAB267002E118C /* DetailsViewController.swift */,
 				14BBABB52BBAB2EC002E118C /* DetailsView.storyboard */,
-				14BBABB72BBABB8A002E118C /* DetailsCollectionViewCell.swift */,
-				14BBABB82BBABB8A002E118C /* DetailsCollectionViewCell.xib */,
+				14BBABB72BBABB8A002E118C /* FlavorCollectionViewCell.swift */,
+				14BBABB82BBABB8A002E118C /* FlavorCollectionViewCell.xib */,
+				14BBABBC2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.swift */,
+				14BBABBD2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib */,
 			);
 			path = DetailsView;
 			sourceTree = "<group>";
@@ -292,7 +298,8 @@
 			files = (
 				148BD1652BBA8399008036AC /* Assets.xcassets in Resources */,
 				148BD1682BBA8399008036AC /* Base in Resources */,
-				14BBABB92BBABB8A002E118C /* DetailsCollectionViewCell.xib in Resources */,
+				14BBABB92BBABB8A002E118C /* FlavorCollectionViewCell.xib in Resources */,
+				14BBABBF2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib in Resources */,
 				148BD1632BBA8398008036AC /* Base in Resources */,
 				14BBABB62BBAB2EC002E118C /* DetailsView.storyboard in Resources */,
 			);
@@ -320,13 +327,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				148BD1602BBA8398008036AC /* ViewController.swift in Sources */,
+				14BBABBE2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.swift in Sources */,
 				148BD1972BBA8B28008036AC /* Cake.swift in Sources */,
 				14BBABB42BBAB267002E118C /* DetailsViewController.swift in Sources */,
 				148BD1912BBA8666008036AC /* IceCream.swift in Sources */,
 				148BD15C2BBA8398008036AC /* AppDelegate.swift in Sources */,
 				148BD18F2BBA861F008036AC /* Flavor.swift in Sources */,
 				148BD15E2BBA8398008036AC /* SceneDelegate.swift in Sources */,
-				14BBABBA2BBABB8A002E118C /* DetailsCollectionViewCell.swift in Sources */,
+				14BBABBA2BBABB8A002E118C /* FlavorCollectionViewCell.swift in Sources */,
 				148BD1932BBA86F0008036AC /* Coffee.swift in Sources */,
 				148BD1952BBA89F4008036AC /* Beverage.swift in Sources */,
 			);

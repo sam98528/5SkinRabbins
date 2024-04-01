@@ -43,14 +43,18 @@
                                 <rect key="frame" x="0.0" y="657" width="393" height="195"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7YW-Qn-Okm">
-                                        <rect key="frame" x="15" y="110" width="75" height="35"/>
-                                        <color key="backgroundColor" red="0.99512821439999999" green="0.90664631129999995" blue="0.081195063890000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="15" y="110" width="80" height="35"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="U06-z0-laa"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.90980386729999996" green="0.45490193369999998" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="취소"/>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="o6f-HM-YPg">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <color key="backgroundColor" red="0.98431372640000003" green="0.95686274770000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="ipL-pE-o2d"/>
                                         </constraints>
@@ -64,12 +68,13 @@
                                     </collectionView>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LT4-Qj-K7l">
                                         <rect key="frame" x="100" y="110" width="278" height="35"/>
-                                        <color key="backgroundColor" red="0.98018258810000003" green="0.3244538307" blue="0.094074048100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.90980386729999996" green="0.45490193369999998" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" red="0.98431372640000003" green="0.95686274770000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="담기"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.98431372640000003" green="0.95686274770000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="o6f-HM-YPg" firstAttribute="leading" secondItem="62t-kH-1Ja" secondAttribute="leading" id="7V1-zv-xLb"/>
                                     <constraint firstItem="7YW-Qn-Okm" firstAttribute="leading" secondItem="62t-kH-1Ja" secondAttribute="leading" constant="15" id="9fp-Z4-c4v"/>
@@ -80,14 +85,14 @@
                                     <constraint firstAttribute="bottom" secondItem="LT4-Qj-K7l" secondAttribute="bottom" constant="50" id="Tff-iD-jKY"/>
                                     <constraint firstItem="7YW-Qn-Okm" firstAttribute="height" secondItem="LT4-Qj-K7l" secondAttribute="height" id="fuM-gK-7kW"/>
                                     <constraint firstAttribute="trailing" secondItem="LT4-Qj-K7l" secondAttribute="trailing" constant="15" id="icp-by-7p1"/>
-                                    <constraint firstItem="LT4-Qj-K7l" firstAttribute="leading" secondItem="7YW-Qn-Okm" secondAttribute="trailing" constant="10" id="piI-1x-wdJ"/>
+                                    <constraint firstItem="LT4-Qj-K7l" firstAttribute="leading" secondItem="7YW-Qn-Okm" secondAttribute="trailing" constant="5" id="piI-1x-wdJ"/>
                                     <constraint firstItem="LT4-Qj-K7l" firstAttribute="top" secondItem="o6f-HM-YPg" secondAttribute="bottom" constant="10" id="sIk-m7-Zcy"/>
                                 </constraints>
                             </view>
-                            <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dty-hv-KTw">
+                            <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dty-hv-KTw">
                                 <rect key="frame" x="0.0" y="183" width="393" height="464"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6ST-10-oBZ">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6ST-10-oBZ">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -136,9 +141,6 @@
         <image name="lessthan" catalog="system" width="128" height="108"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

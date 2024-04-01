@@ -7,15 +7,15 @@
 
 import UIKit
 
-class DetailsCollectionViewCell: UICollectionViewCell {
+class FlavorCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var flavorImageView: UIImageView!
     @IBOutlet weak var flavorNameLabel: UILabel!
     
-    static let identifier = "DetailsCollectionViewCell"
+    static let identifier = "FlavorCollectionViewCell"
     
     static func nib() -> UINib {
-        return UINib(nibName: "DetailsCollectionViewCell", bundle: nil)
+        return UINib(nibName: "FlavorCollectionViewCell", bundle: nil)
     }
     
     override func awakeFromNib() {
