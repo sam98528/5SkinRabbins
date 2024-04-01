@@ -99,10 +99,11 @@
 		148BD15A2BBA8398008036AC /* 5SkinRabbins */ = {
 			isa = PBXGroup;
 			children = (
+				148BD18D2BBA84F6008036AC /* Resources */,
+				148BD18C2BBA84F2008036AC /* Model */,
+				148BD18B2BBA84EA008036AC /* ViewController */,
 				148BD15B2BBA8398008036AC /* AppDelegate.swift */,
 				148BD15D2BBA8398008036AC /* SceneDelegate.swift */,
-				148BD15F2BBA8398008036AC /* ViewController.swift */,
-				148BD1612BBA8398008036AC /* Main.storyboard */,
 				148BD1642BBA8399008036AC /* Assets.xcassets */,
 				148BD1662BBA8399008036AC /* LaunchScreen.storyboard */,
 				148BD1692BBA8399008036AC /* Info.plist */,
@@ -125,6 +126,29 @@
 				148BD17E2BBA8399008036AC /* _SkinRabbinsUITestsLaunchTests.swift */,
 			);
 			path = 5SkinRabbinsUITests;
+			sourceTree = "<group>";
+		};
+		148BD18B2BBA84EA008036AC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				148BD15F2BBA8398008036AC /* ViewController.swift */,
+				148BD1612BBA8398008036AC /* Main.storyboard */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		148BD18C2BBA84F2008036AC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		148BD18D2BBA84F6008036AC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
