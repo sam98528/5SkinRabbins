@@ -16,6 +16,11 @@
 		148BD1732BBA8399008036AC /* _SkinRabbinsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD1722BBA8399008036AC /* _SkinRabbinsTests.swift */; };
 		148BD17D2BBA8399008036AC /* _SkinRabbinsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD17C2BBA8399008036AC /* _SkinRabbinsUITests.swift */; };
 		148BD17F2BBA8399008036AC /* _SkinRabbinsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD17E2BBA8399008036AC /* _SkinRabbinsUITestsLaunchTests.swift */; };
+		148BD18F2BBA861F008036AC /* Flavor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD18E2BBA861E008036AC /* Flavor.swift */; };
+		148BD1912BBA8666008036AC /* IceCream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD1902BBA8666008036AC /* IceCream.swift */; };
+		148BD1932BBA86F0008036AC /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD1922BBA86F0008036AC /* Coffee.swift */; };
+		148BD1952BBA89F4008036AC /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD1942BBA89F4008036AC /* Beverage.swift */; };
+		148BD1972BBA8B28008036AC /* Cake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD1962BBA8B28008036AC /* Cake.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		148BD1782BBA8399008036AC /* 5SkinRabbinsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 5SkinRabbinsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		148BD17C2BBA8399008036AC /* _SkinRabbinsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _SkinRabbinsUITests.swift; sourceTree = "<group>"; };
 		148BD17E2BBA8399008036AC /* _SkinRabbinsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _SkinRabbinsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		148BD18E2BBA861E008036AC /* Flavor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flavor.swift; sourceTree = "<group>"; };
+		148BD1902BBA8666008036AC /* IceCream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceCream.swift; sourceTree = "<group>"; };
+		148BD1922BBA86F0008036AC /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		148BD1942BBA89F4008036AC /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
+		148BD1962BBA8B28008036AC /* Cake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cake.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +150,11 @@
 		148BD18C2BBA84F2008036AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				148BD18E2BBA861E008036AC /* Flavor.swift */,
+				148BD1902BBA8666008036AC /* IceCream.swift */,
+				148BD1922BBA86F0008036AC /* Coffee.swift */,
+				148BD1942BBA89F4008036AC /* Beverage.swift */,
+				148BD1962BBA8B28008036AC /* Cake.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,8 +298,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				148BD1602BBA8398008036AC /* ViewController.swift in Sources */,
+				148BD1972BBA8B28008036AC /* Cake.swift in Sources */,
+				148BD1912BBA8666008036AC /* IceCream.swift in Sources */,
 				148BD15C2BBA8398008036AC /* AppDelegate.swift in Sources */,
+				148BD18F2BBA861F008036AC /* Flavor.swift in Sources */,
 				148BD15E2BBA8398008036AC /* SceneDelegate.swift in Sources */,
+				148BD1932BBA86F0008036AC /* Coffee.swift in Sources */,
+				148BD1952BBA89F4008036AC /* Beverage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
