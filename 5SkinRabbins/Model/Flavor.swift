@@ -10,6 +10,7 @@ struct Flavor{
 }
 
 extension Flavor {
+    /*
     static var flavors: [Flavor] = [
         Flavor(name: "아이스 도코바나나", image: UIImage(named: "아이스도쿄바나나")! ),
         Flavor(name: "팥있는 말차당", image: UIImage(named: "팥있는말차당")!),
@@ -24,4 +25,5 @@ extension Flavor {
         Flavor(name: "뉴욕 치즈케이크", image: UIImage(named: "뉴욕치크케이크")!),
         Flavor(name: "레인보우 샤베트", image: UIImage(named: "레인보우샤베트")!),
     ]
+     */
 }
