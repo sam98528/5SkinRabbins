@@ -8,22 +8,28 @@
 import UIKit
 
 class DetailsViewController: UIViewController  {
-
-    var selectedFlavor : [Flavor] = [Flavor(name: "", image: UIImage(named: "icecream_line")!),Flavor(name: "", image: UIImage(named: "icecream_line")!),Flavor(name: "", image: UIImage(named: "icecream_line")!)]
+    let fontB = "BRB"
+    let fontR = "BRR"
     
+    var selectedFlavor : [Flavor] = []
+    var selectedMenu : IceCream = IceCream(name: "", choice: 2, flavor: [], price: 123, image: UIImage(), isCorn: true)
+    
+    @IBOutlet weak var selectedMenuButton: UIButton!
+    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var selectedFlavorCollectionView: UICollectionView!
     @IBOutlet weak var flavorCollectionView: UICollectionView!
-    @IBOutlet weak var selectedMenuImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureCollectionViews()
         configureView()
+        configureCollectionViews()
+        configureEditMenu()
+        configureData()
     }
-
+    
     
 }
 
@@ -76,11 +82,12 @@ extension DetailsViewController : UICollectionViewDataSource, UICollectionViewDe
                 }
             }
         case selectedFlavorCollectionView:
-            selectedFlavor[indexPath.row].image = UIImage(named: "icecream_line")!
-            selectedFlavorCollectionView.reloadItems(at: [indexPath])
+            selectedFlavor.remove(at: indexPath.row)
+            selectedFlavor.append(Flavor(name: "", image: UIImage(named: "icecream_line")!))
+            selectedFlavorCollectionView.reloadData()
             
         default:
-           print("ERROR")
+            print("ERROR")
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -90,6 +97,7 @@ extension DetailsViewController : UICollectionViewDataSource, UICollectionViewDe
             
             cell.flavorImageView.image = Flavor.flavors[indexPath.row].image
             cell.flavorNameLabel.text = Flavor.flavors[indexPath.row].name
+            cell.flavorNameLabel.font = UIFont(name: fontR, size: 13)
             return cell
         case selectedFlavorCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectedFlavorCollectionViewCell.identifier, for: indexPath) as! SelectedFlavorCollectionViewCell
@@ -99,10 +107,9 @@ extension DetailsViewController : UICollectionViewDataSource, UICollectionViewDe
             cell.layer.borderWidth = 3
             cell.clipsToBounds = true
             cell.layer.borderColor = UIColor(red: 0.95, green: 0.82, blue: 0.82, alpha: 1.00).cgColor
-            
             return cell
         default:
-           return UICollectionViewCell()
+            return UICollectionViewCell()
         }
         
     }
@@ -112,14 +119,104 @@ extension DetailsViewController : UICollectionViewDataSource, UICollectionViewDe
 extension DetailsViewController {
     
     func configureView(){
-        confirmButton.layer.cornerRadius = confirmButton.layer.bounds.height / 2
+        confirmButton.layer.cornerRadius = confirmButton.bounds.height / 2
         confirmButton.clipsToBounds = true
         confirmButton.layer.borderColor = UIColor.black.cgColor
         confirmButton.layer.borderWidth = 2
         
-        cancelButton.layer.cornerRadius = cancelButton.layer.bounds.height / 2
+        cancelButton.layer.cornerRadius = cancelButton.bounds.height / 2
         cancelButton.clipsToBounds = true
         cancelButton.layer.borderColor = UIColor.black.cgColor
         cancelButton.layer.borderWidth = 2
+        
+        titleLabel.textColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
+        navigationBar.shadowImage = UIImage()
+    }
+    
+    func configureData(){
+        let choice = selectedMenu.choice
+        selectedFlavor = []
+        for i in 0..<choice{
+            selectedFlavor.append(Flavor(name: "", image: UIImage(named: "icecream_line")!))
+        }
+    }
+    
+}
+
+extension DetailsViewController {
+    var items: [UIAction] {
+        
+        let single = UIAction(
+            title: "싱글",
+            image: UIImage(named: "Cherry Water Blast")!,
+            handler: {[unowned self] _ in 
+                self.selectedMenuButton.setImage(UIImage(named: "Cherry Water Blast")!, for: .normal)
+                self.selectedMenu.choice = 1
+                self.configureData()
+                self.selectedFlavorCollectionView.reloadData()
+            })
+        
+        let double = UIAction(
+            title: "더블",
+            image: UIImage(named: "Cherry Water Blast")!,
+            handler: {[unowned self] _ in
+                self.selectedMenuButton.setImage(UIImage(named: "Cherry Water Blast")!, for: .normal)
+                self.selectedMenu.choice = 2
+                self.configureData()
+                self.selectedFlavorCollectionView.reloadData()
+            })
+        
+        let pint = UIAction(
+            title: "파인트",
+            image: UIImage(named: "Cherry Water Blast")!,
+            handler: {[unowned self] _ in
+                self.selectedMenuButton.setImage(UIImage(named: "Cherry Water Blast")!, for: .normal)
+                self.selectedMenu.choice = 3
+                self.configureData()
+                self.selectedFlavorCollectionView.reloadData()
+            })
+        
+        let quater = UIAction(
+            title: "쿼터",
+            image: UIImage(named: "Cherry Water Blast")!,
+            handler: {[unowned self] _ in 
+                self.selectedMenuButton.setImage(UIImage(named: "Cherry Water Blast")!, for: .normal)
+                self.selectedMenu.choice = 4
+                self.configureData()
+                self.selectedFlavorCollectionView.reloadData()
+            })
+        
+        let halfGallon = UIAction(
+            title: "패밀리",
+            image: UIImage(named: "Cherry Water Blast")!,
+            handler: {[unowned self] _ in 
+                self.selectedMenuButton.setImage(UIImage(named: "Cherry Water Blast")!, for: .normal)
+                self.selectedMenu.choice = 5
+                self.configureData()
+                self.selectedFlavorCollectionView.reloadData()
+            })
+        
+        let family = UIAction(
+            title: "하브갤런",
+            image: UIImage(named: "Cherry Water Blast")!,
+            handler: {[unowned self] _ in 
+                self.selectedMenuButton.setImage(UIImage(named: "Cherry Water Blast")!, for: .normal)
+                self.selectedMenu.choice = 6
+                self.configureData()
+                self.selectedFlavorCollectionView.reloadData()
+            })
+        
+        let Items = [single, double, pint, quater, halfGallon, family]
+        
+        return Items
+    }
+    
+    func configureEditMenu(){
+        let menu = UIMenu(title: "메뉴",
+                             children: items)
+        
+           selectedMenuButton.menu = menu
+        selectedMenuButton.showsMenuAsPrimaryAction = true
+        
     }
 }
