@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  5SkinRabbins
-//
-//  Created by Sam.Lee on 4/1/24.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -13,6 +6,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    let test : String = "123"
 
 }
 
