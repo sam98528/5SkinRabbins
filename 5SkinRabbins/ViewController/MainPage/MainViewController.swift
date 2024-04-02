@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        IceCreamCakeImage.image = UIImage(named: "Cake")
+        IceCreamCakeImage.image = UIImage(named: "Cake1")
         CoffeeImage.image = UIImage(named: "Coffee")
         BeverageImage.image = UIImage(named: "Beverage")
         QuartImage.image = UIImage(named: "Quart")
