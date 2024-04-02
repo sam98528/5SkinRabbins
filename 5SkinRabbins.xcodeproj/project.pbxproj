@@ -21,6 +21,14 @@
 		148BD1932BBA86F0008036AC /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD1922BBA86F0008036AC /* Coffee.swift */; };
 		148BD1952BBA89F4008036AC /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD1942BBA89F4008036AC /* Beverage.swift */; };
 		148BD1972BBA8B28008036AC /* Cake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD1962BBA8B28008036AC /* Cake.swift */; };
+		14BBABB42BBAB267002E118C /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BBABB12BBAB267002E118C /* DetailsViewController.swift */; };
+		14BBABB62BBAB2EC002E118C /* DetailsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABB52BBAB2EC002E118C /* DetailsView.storyboard */; };
+		14BBABB92BBABB8A002E118C /* FlavorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABB82BBABB8A002E118C /* FlavorCollectionViewCell.xib */; };
+		14BBABBA2BBABB8A002E118C /* FlavorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BBABB72BBABB8A002E118C /* FlavorCollectionViewCell.swift */; };
+		14BBABBE2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BBABBC2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.swift */; };
+		14BBABBF2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABBD2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib */; };
+		14BBABC82BBAF3BF002E118C /* BaskinRabbinsR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABC62BBAF3BF002E118C /* BaskinRabbinsR.ttf */; };
+		14BBABCE2BBAF413002E118C /* BaskinRabbinsB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABCD2BBAF413002E118C /* BaskinRabbinsB.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +67,14 @@
 		148BD1922BBA86F0008036AC /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		148BD1942BBA89F4008036AC /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		148BD1962BBA8B28008036AC /* Cake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cake.swift; sourceTree = "<group>"; };
+		14BBABB12BBAB267002E118C /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		14BBABB52BBAB2EC002E118C /* DetailsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailsView.storyboard; sourceTree = "<group>"; };
+		14BBABB72BBABB8A002E118C /* FlavorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorCollectionViewCell.swift; sourceTree = "<group>"; };
+		14BBABB82BBABB8A002E118C /* FlavorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlavorCollectionViewCell.xib; sourceTree = "<group>"; };
+		14BBABBC2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFlavorCollectionViewCell.swift; sourceTree = "<group>"; };
+		14BBABBD2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedFlavorCollectionViewCell.xib; sourceTree = "<group>"; };
+		14BBABC62BBAF3BF002E118C /* BaskinRabbinsR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaskinRabbinsR.ttf; sourceTree = "<group>"; };
+		14BBABCD2BBAF413002E118C /* BaskinRabbinsB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaskinRabbinsB.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +159,7 @@
 			children = (
 				148BD15F2BBA8398008036AC /* ViewController.swift */,
 				148BD1612BBA8398008036AC /* Main.storyboard */,
+				14BBABBB2BBABB94002E118C /* DetailsView */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -162,8 +179,31 @@
 		148BD18D2BBA84F6008036AC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				14BBABC02BBAF0F6002E118C /* Font */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		14BBABBB2BBABB94002E118C /* DetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				14BBABB12BBAB267002E118C /* DetailsViewController.swift */,
+				14BBABB52BBAB2EC002E118C /* DetailsView.storyboard */,
+				14BBABB72BBABB8A002E118C /* FlavorCollectionViewCell.swift */,
+				14BBABB82BBABB8A002E118C /* FlavorCollectionViewCell.xib */,
+				14BBABBC2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.swift */,
+				14BBABBD2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib */,
+			);
+			path = DetailsView;
+			sourceTree = "<group>";
+		};
+		14BBABC02BBAF0F6002E118C /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				14BBABCD2BBAF413002E118C /* BaskinRabbinsB.ttf */,
+				14BBABC62BBAF3BF002E118C /* BaskinRabbinsR.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,7 +312,12 @@
 			files = (
 				148BD1652BBA8399008036AC /* Assets.xcassets in Resources */,
 				148BD1682BBA8399008036AC /* Base in Resources */,
+				14BBABCE2BBAF413002E118C /* BaskinRabbinsB.ttf in Resources */,
+				14BBABB92BBABB8A002E118C /* FlavorCollectionViewCell.xib in Resources */,
+				14BBABBF2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib in Resources */,
+				14BBABC82BBAF3BF002E118C /* BaskinRabbinsR.ttf in Resources */,
 				148BD1632BBA8398008036AC /* Base in Resources */,
+				14BBABB62BBAB2EC002E118C /* DetailsView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,11 +343,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				148BD1602BBA8398008036AC /* ViewController.swift in Sources */,
+				14BBABBE2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.swift in Sources */,
 				148BD1972BBA8B28008036AC /* Cake.swift in Sources */,
+				14BBABB42BBAB267002E118C /* DetailsViewController.swift in Sources */,
 				148BD1912BBA8666008036AC /* IceCream.swift in Sources */,
 				148BD15C2BBA8398008036AC /* AppDelegate.swift in Sources */,
 				148BD18F2BBA861F008036AC /* Flavor.swift in Sources */,
 				148BD15E2BBA8398008036AC /* SceneDelegate.swift in Sources */,
+				14BBABBA2BBABB8A002E118C /* FlavorCollectionViewCell.swift in Sources */,
 				148BD1932BBA86F0008036AC /* Coffee.swift in Sources */,
 				148BD1952BBA89F4008036AC /* Beverage.swift in Sources */,
 			);
