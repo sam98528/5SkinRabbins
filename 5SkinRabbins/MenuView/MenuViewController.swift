@@ -13,6 +13,7 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productPriceLabel: UILabel!
+    
     // 각 카테고리에 해당하는 상품 데이터
     var iceCreams: [IceCream] = []
     var cakes: [Cake] = []
