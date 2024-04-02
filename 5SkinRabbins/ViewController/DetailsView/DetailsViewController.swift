@@ -12,7 +12,7 @@ class DetailsViewController: UIViewController  {
     let fontR = "BRR"
     
     var selectedFlavor : [Flavor] = []
-    var selectedMenu : IceCream = IceCream(name: "", choice: 2, flavor: [], price: 123, image: UIImage(), isCorn: true)
+    var selectedMenu : IceCream = IceCream(koreanName: "",englishName: "" choice: 2, flavor: [], price: 123, image: UIImage(), isCorn: true)
     
     
     var currentPage: Int = 0
