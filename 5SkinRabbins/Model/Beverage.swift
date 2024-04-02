@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 //음료
 struct Beverage {
