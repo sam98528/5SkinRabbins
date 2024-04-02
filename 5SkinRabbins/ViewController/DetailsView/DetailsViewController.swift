@@ -14,6 +14,11 @@ class DetailsViewController: UIViewController  {
     var selectedFlavor : [Flavor] = []
     var selectedMenu : IceCream = IceCream(name: "", choice: 2, flavor: [], price: 123, image: UIImage(), isCorn: true)
     
+    
+    var currentPage: Int = 0
+    
+    
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var selectedMenuButton: UIButton!
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var confirmButton: UIButton!
@@ -41,7 +46,7 @@ extension DetailsViewController : UICollectionViewDataSource, UICollectionViewDe
         selectedFlavorCollectionView.register(SelectedFlavorCollectionViewCell.nib(), forCellWithReuseIdentifier: SelectedFlavorCollectionViewCell.identifier)
         
         let selectedFlowLayout = UICollectionViewFlowLayout()
-        selectedFlowLayout.sectionInset = UIEdgeInsets(top: 10, left: 30, bottom: 10, right: 30)
+        selectedFlowLayout.sectionInset = UIEdgeInsets(top: 10, left: 30, bottom: 0, right: 30)
         selectedFlowLayout.minimumLineSpacing = 20
         selectedFlowLayout.minimumInteritemSpacing = 10
         selectedFlowLayout.scrollDirection = .horizontal
@@ -111,7 +116,12 @@ extension DetailsViewController : UICollectionViewDataSource, UICollectionViewDe
         default:
             return UICollectionViewCell()
         }
-        
+    }
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let page = Int(targetContentOffset.pointee.x / self.flavorCollectionView.frame.width)
+        self.pageControl.currentPage = page
+
+
     }
     
 }
@@ -121,22 +131,26 @@ extension DetailsViewController {
     func configureView(){
         confirmButton.layer.cornerRadius = confirmButton.bounds.height / 2
         confirmButton.clipsToBounds = true
-        confirmButton.layer.borderColor = UIColor.black.cgColor
+        confirmButton.layer.borderColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 0.05).cgColor
         confirmButton.layer.borderWidth = 2
         
         cancelButton.layer.cornerRadius = cancelButton.bounds.height / 2
         cancelButton.clipsToBounds = true
-        cancelButton.layer.borderColor = UIColor.black.cgColor
+        cancelButton.layer.borderColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 0.05).cgColor
         cancelButton.layer.borderWidth = 2
         
         titleLabel.textColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
         navigationBar.shadowImage = UIImage()
+        
+        pageControl.numberOfPages = Int(ceil(Double(Flavor.flavors.count) / Double(9)))
+        pageControl.pageIndicatorTintColor = UIColor.systemGray
+        pageControl.currentPageIndicatorTintColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
     }
     
     func configureData(){
         let choice = selectedMenu.choice
         selectedFlavor = []
-        for i in 0..<choice{
+        for _ in 0..<choice{
             selectedFlavor.append(Flavor(name: "", image: UIImage(named: "icecream_line")!))
         }
     }
@@ -149,7 +163,7 @@ extension DetailsViewController {
         let single = UIAction(
             title: "싱글",
             image: UIImage(named: "Cherry Water Blast")!,
-            handler: {[unowned self] _ in 
+            handler: {[unowned self] _ in
                 self.selectedMenuButton.setImage(UIImage(named: "Cherry Water Blast")!, for: .normal)
                 self.selectedMenu.choice = 1
                 self.configureData()
@@ -179,7 +193,7 @@ extension DetailsViewController {
         let quater = UIAction(
             title: "쿼터",
             image: UIImage(named: "Cherry Water Blast")!,
-            handler: {[unowned self] _ in 
+            handler: {[unowned self] _ in
                 self.selectedMenuButton.setImage(UIImage(named: "Cherry Water Blast")!, for: .normal)
                 self.selectedMenu.choice = 4
                 self.configureData()
@@ -189,7 +203,7 @@ extension DetailsViewController {
         let halfGallon = UIAction(
             title: "패밀리",
             image: UIImage(named: "Cherry Water Blast")!,
-            handler: {[unowned self] _ in 
+            handler: {[unowned self] _ in
                 self.selectedMenuButton.setImage(UIImage(named: "Cherry Water Blast")!, for: .normal)
                 self.selectedMenu.choice = 5
                 self.configureData()
@@ -199,7 +213,7 @@ extension DetailsViewController {
         let family = UIAction(
             title: "하브갤런",
             image: UIImage(named: "Cherry Water Blast")!,
-            handler: {[unowned self] _ in 
+            handler: {[unowned self] _ in
                 self.selectedMenuButton.setImage(UIImage(named: "Cherry Water Blast")!, for: .normal)
                 self.selectedMenu.choice = 6
                 self.configureData()
@@ -212,11 +226,11 @@ extension DetailsViewController {
     }
     
     func configureEditMenu(){
-        let menu = UIMenu(title: "메뉴",
-                             children: items)
+        let menu = UIMenu(title: "메뉴", children: items)
         
-           selectedMenuButton.menu = menu
+        selectedMenuButton.menu = menu
         selectedMenuButton.showsMenuAsPrimaryAction = true
         
     }
 }
+

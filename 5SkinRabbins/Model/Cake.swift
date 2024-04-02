@@ -1,8 +1,13 @@
 import Foundation
+import UIKit
 
 struct Cake {
-    // 케이크 이름
-    var name : String
-    // 케이크 가격
+    // 커피 종류 한국어
+    var koreanName: String
+    // 커피 종류 영어
+    var englishName: String
+    // 가격
     var price : Int
+    // 이미지
+    var image : UIImage
 }

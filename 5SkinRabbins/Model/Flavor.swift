@@ -35,7 +35,6 @@ extension Flavor {
         Flavor(name: "초콜릿 무스", image: UIImage(named: "Chocolate Mousse")!),
         Flavor(name: "그린티", image: UIImage(named: "Green Tea")!),
         Flavor(name: "피스타치오 아몬드", image: UIImage(named: "Pistachio Almond")!),
-        Flavor(name: "초콜릿", image: UIImage(named: "Chocolate")!),
         Flavor(name: "월넛", image: UIImage(named: "Walnut")!),
         Flavor(name: "자모카 아몬드 훠지", image: UIImage(named: "Jamoca Almond Fudge")!),
         Flavor(name: "아몬드 봉봉", image: UIImage(named: "Almond Bon Bon")!),
