@@ -10,11 +10,10 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var productImageView: UIImageView!
-    @IBOutlet weak var productNameLabel: UILabel!
-    @IBOutlet weak var productPriceLabel: UILabel!
+//    @IBOutlet weak var productImageView: UIImageView!
+//    @IBOutlet weak var productNameLabel: UILabel!
+//    @IBOutlet weak var productPriceLabel: UILabel!
     
-    // 각 카테고리에 해당하는 상품 데이터
     var iceCreams: [IceCream] = []
     var cakes: [Cake] = []
     var beverages: [Beverage] = []
@@ -27,13 +26,11 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         loadIceCreams()
     }
     
-    // 컬렉션 뷰 설정
     func setupCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
     
-    // 세그먼트 컨트롤 값 변경 시 호출되는 메서드
     @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -49,7 +46,6 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
-    // 컬렉션 뷰 데이터 소스 메서드
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
@@ -86,24 +82,20 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         return cell
     }
     
-    // 각 카테고리에 해당하는 상품을 로드하는 메서드들
     func loadIceCreams() {
-        // iceCreams 배열에 아이스크림 상품 데이터를 로드하는 코드
         collectionView.reloadData()
     }
     
     func loadCakes() {
-        // cakes 배열에 케이크 상품 데이터를 로드하는 코드
         collectionView.reloadData()
     }
     
     func loadBeverages() {
-        // beverages 배열에 음료 상품 데이터를 로드하는 코드
         collectionView.reloadData()
     }
     
     func loadCoffees() {
-        // coffees 배열에 커피 상품 데이터를 로드하는 코드
         collectionView.reloadData()
     }
 }
+
