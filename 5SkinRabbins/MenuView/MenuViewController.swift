@@ -4,14 +4,15 @@
 //
 //  Created by Jeong-bok Lee on 4/2/24.
 //
-
 import UIKit
 
 class MenuViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet weak var productNameLabel: UILabel!
+    @IBOutlet weak var productPriceLabel: UILabel!
     // 각 카테고리에 해당하는 상품 데이터
     var iceCreams: [IceCream] = []
     var cakes: [Cake] = []
@@ -20,9 +21,7 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         setupCollectionView()
-        // 초기에는 아이스크림 카테고리를 표시
         segmentedControl.selectedSegmentIndex = 0
         loadIceCreams()
     }
@@ -51,14 +50,38 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     // 컬렉션 뷰 데이터 소스 메서드
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return iceCreams.count // 선택된 카테고리에 해당하는 상품 수 반환
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            return iceCreams.count
+        case 1:
+            return cakes.count
+        case 2:
+            return beverages.count
+        case 3:
+            return coffees.count
+        default:
+            return 0
+        }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCollectionViewCell
-        let iceCream = iceCreams[indexPath.item]
-        // 상품 정보 설정
-        cell.configure(with: iceCream)
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            let iceCream = iceCreams[indexPath.item]
+            cell.configure(with: iceCream)
+        case 1:
+            let cake = cakes[indexPath.item]
+            cell.configure(with: cake)
+        case 2:
+            let beverage = beverages[indexPath.item]
+            cell.configure(with: beverage)
+        case 3:
+            let coffee = coffees[indexPath.item]
+            cell.configure(with: coffee)
+        default:
+            break
+        }
         return cell
     }
     
