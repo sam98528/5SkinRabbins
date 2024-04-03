@@ -15,16 +15,14 @@ struct IceCream {
     var price : Int
     // 이미지
     var image : UIImage
-    // 콘인지 컵인지
-    // 1 이면 콘 ,0 이면 컵
-    var isCorn : Bool
 }
 
 extension IceCream {
-    /*
-    static var data : [IceCream] = [
-        IceCream(name: "싱글 컵", choice: 1, flavor: [], price: 4700, image: UIImage(), isCorn: true)
+    static var iceCream : [IceCream] = [
+        IceCream(koreanName: "파인트", EnglishName: "TEST", choice: 2, flavor: [], price: 1234, image: UIImage(named: "31 Yogurt")!),
+        IceCream(koreanName: "파인트", EnglishName: "TEST", choice: 2, flavor: [], price: 1234, image: UIImage(named: "31 Yogurt")!),
+        IceCream(koreanName: "파인트", EnglishName: "TEST", choice: 2, flavor: [], price: 1234, image: UIImage(named: "31 Yogurt")!),
+        IceCream(koreanName: "파인트", EnglishName: "TEST", choice: 2, flavor: [], price: 1234, image: UIImage(named: "31 Yogurt")!),
     
     ]
-    */
 }

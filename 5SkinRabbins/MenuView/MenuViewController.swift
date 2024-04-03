@@ -14,7 +14,7 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
 //    @IBOutlet weak var productNameLabel: UILabel!
 //    @IBOutlet weak var productPriceLabel: UILabel!
     
-    var iceCreams: [IceCream] = []
+    var iceCreams: [IceCream] = IceCream.iceCream
     var cakes: [Cake] = Cake.cake
     var beverages: [Beverage] = Beverage.beverage
     var coffees: [Coffee] = Coffee.coffee
@@ -69,6 +69,28 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
             return coffees.count
         default:
             return 0
+        }
+    }
+    // 다른 뷰 호출
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            print(iceCreams[indexPath.row].koreanName)
+            let storyboard: UIStoryboard? = UIStoryboard(name: "DetailsView", bundle: Bundle.main)
+            guard let vc = storyboard?.instantiateViewController(identifier: "DetailsViewController") else {
+                return
+            }
+            vc.modalPresentationStyle = .automatic
+            vc.modalTransitionStyle = .coverVertical
+            self.present(vc, animated: true,completion: nil)
+        case 1:
+            print(cakes[indexPath.row].koreanName)
+        case 2:
+            print(beverages[indexPath.row].koreanName)
+        case 3:
+            print(coffees[indexPath.row].koreanName)
+        default:
+            print("error")
         }
     }
 
