@@ -15,20 +15,31 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
 //    @IBOutlet weak var productPriceLabel: UILabel!
     
     var iceCreams: [IceCream] = []
-    var cakes: [Cake] = []
-    var beverages: [Beverage] = []
-    var coffees: [Coffee] = []
+    var cakes: [Cake] = Cake.cake
+    var beverages: [Beverage] = Beverage.beverage
+    var coffees: [Coffee] = Coffee.coffee
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        flowLayout.minimumLineSpacing = 5
+        flowLayout.minimumInteritemSpacing = 5
+        flowLayout.scrollDirection = .vertical
+        flowLayout.itemSize = CGSize(width: Int(collectionView.frame.size.width / 2 - 20) , height: Int(collectionView.frame.size.height / 3) - 20)
+        collectionView.collectionViewLayout = flowLayout
+        
         setupCollectionView()
         segmentedControl.selectedSegmentIndex = 0
         loadIceCreams()
+        
+        
     }
     
     func setupCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
+        self.collectionView.register(ProductCollectionViewCell.nib(), forCellWithReuseIdentifier: ProductCollectionViewCell.identifier)
     }
     
     @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
@@ -62,7 +73,12 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.identifier, for: indexPath) as! ProductCollectionViewCell
+        
+        cell.layer.cornerRadius = 10
+        cell.layer.borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.05).cgColor
+        cell.layer.borderWidth = 2
+        
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             let iceCream = iceCreams[indexPath.item]
