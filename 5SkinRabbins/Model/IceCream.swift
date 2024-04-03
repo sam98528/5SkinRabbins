@@ -15,6 +15,12 @@ struct IceCream {
     var price : Int
     // 이미지
     var image : UIImage
+    // 가격 표기 변경 함수
+    func formattedPrice() -> String {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            return formatter.string(from: NSNumber(value: price)) ?? ""
+        }
 }
 
 extension IceCream {

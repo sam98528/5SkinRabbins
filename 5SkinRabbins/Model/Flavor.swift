@@ -7,6 +7,7 @@ struct Flavor{
     var name : String
     // 아이스크림 이미지
     var image : UIImage
+    
 }
 
 extension Flavor {

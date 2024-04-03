@@ -24,25 +24,25 @@ class ProductCollectionViewCell: UICollectionViewCell {
         productImageView.image = product.image
         productNameLabel.text = product.koreanName
         englishNameLabel.text = product.englishName
-        productPriceLabel.text = "\(product.price)원"
+        productPriceLabel.text = "\(product.formattedPrice())원"
     }
     func configure(with product: Cake) {
         productImageView.image = product.image
         productNameLabel.text = product.koreanName
         englishNameLabel.text = product.englishName
-        productPriceLabel.text = "\(product.price)원"
+        productPriceLabel.text = "\(product.formattedPrice())원"
     }
     func configure(with product: Beverage) {
         productImageView.image = product.image
         productNameLabel.text = product.koreanName
         englishNameLabel.text = product.englishName
-        productPriceLabel.text = "\(product.price)원"
+        productPriceLabel.text = "\(product.formattedPrice())원"
     }
     func configure(with product: Coffee) {
         productImageView.image = product.image
         productNameLabel.text = product.koreanName
         englishNameLabel.text = product.englishName
-        productPriceLabel.text = "\(product.price)원"
+        productPriceLabel.text = "\(product.formattedPrice())원"
     }
     
     override func awakeFromNib() {
