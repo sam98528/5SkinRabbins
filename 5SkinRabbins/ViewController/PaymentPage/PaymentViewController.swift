@@ -15,12 +15,26 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell = tableView.dequeueReusableCell(withIdentifier: "paymentCell", for: indexPath) as! PaymentTableViewCell
         cell.payNameLabel.font = UIFont.boldSystemFont(ofSize: 14)
         cell.payPriceLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        cell.plusButton.tintColor = .black
+        cell.minusButton.tintColor = .gray
         
+        if let iceCream = things[indexPath.row] as? IceCream {
+            cell.thingPrice = iceCream.price // thingPrice 값을 iceCream.price로 설정
+        } else if let coffee = things[indexPath.row] as? Coffee {
+            cell.thingPrice = coffee.price // thingPrice 값을 coffee.price로 설정
+        } else if let cake = things[indexPath.row] as? Cake {
+            cell.thingPrice = cake.price // thingPrice 값을 cake.price로 설정
+        } else if let beverage = things[indexPath.row] as? Beverage {
+            cell.thingPrice = beverage.price // thingPrice 값을 beverage.price로 설정
+        }
+        
+        // ice cream
         if let thing = things[indexPath.row] as? IceCream {
-            // ice cream
+            // 이름
             cell.payNameLabel.text = thing.koreanName
+            // 가격
             cell.payPriceLabel.text = "\(thing.price)원"
-            
+            // 선택한 맛
             var flavorText = ""
             for (index, flavor) in thing.flavor.enumerated() {
                 flavorText += flavor.name
@@ -29,12 +43,20 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
                 }
             }
             cell.payDetailLabel.text = flavorText
-            
+            //이미지
             if let firstFlavorImage = thing.flavor.first?.image {
                 cell.payImageView.image = firstFlavorImage
             } else {
                 cell.payImageView.image = nil
             }
+            //버튼
+            cell.minusButtonAction = {
+                if cell.cnt > 1 { cell.cnt -= 1 }
+            }
+            cell.plusButtonAction = {
+                cell.cnt += 1
+            }
+            
         } else if let thing = things[indexPath.row] as? Coffee {
             // coffee
             cell.payNameLabel.text = thing.koreanName
@@ -53,6 +75,10 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func viewDidLoad() {
