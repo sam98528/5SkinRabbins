@@ -29,6 +29,10 @@
 		14BBABBF2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABBD2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib */; };
 		14BBABC82BBAF3BF002E118C /* BaskinRabbinsR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABC62BBAF3BF002E118C /* BaskinRabbinsR.ttf */; };
 		14BBABCE2BBAF413002E118C /* BaskinRabbinsB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABCD2BBAF413002E118C /* BaskinRabbinsB.ttf */; };
+		FBE6D7152BBCF401007FEC35 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6D7142BBCF401007FEC35 /* PaymentViewController.swift */; };
+		FBE6D7172BBCF424007FEC35 /* PaymentStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBE6D7162BBCF424007FEC35 /* PaymentStoryboard.storyboard */; };
+		FBE6D71A2BBCF467007FEC35 /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6D7182BBCF467007FEC35 /* PaymentTableViewCell.swift */; };
+		FBE6D71B2BBCF467007FEC35 /* PaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBE6D7192BBCF467007FEC35 /* PaymentTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +79,10 @@
 		14BBABBD2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedFlavorCollectionViewCell.xib; sourceTree = "<group>"; };
 		14BBABC62BBAF3BF002E118C /* BaskinRabbinsR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaskinRabbinsR.ttf; sourceTree = "<group>"; };
 		14BBABCD2BBAF413002E118C /* BaskinRabbinsB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaskinRabbinsB.ttf; sourceTree = "<group>"; };
+		FBE6D7142BBCF401007FEC35 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		FBE6D7162BBCF424007FEC35 /* PaymentStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaymentStoryboard.storyboard; sourceTree = "<group>"; };
+		FBE6D7182BBCF467007FEC35 /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
+		FBE6D7192BBCF467007FEC35 /* PaymentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +165,7 @@
 		148BD18B2BBA84EA008036AC /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				FBE6D7132BBCF3C6007FEC35 /* PaymentPage */,
 				148BD15F2BBA8398008036AC /* ViewController.swift */,
 				148BD1612BBA8398008036AC /* Main.storyboard */,
 				14BBABBB2BBABB94002E118C /* DetailsView */,
@@ -204,6 +213,17 @@
 				14BBABC62BBAF3BF002E118C /* BaskinRabbinsR.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		FBE6D7132BBCF3C6007FEC35 /* PaymentPage */ = {
+			isa = PBXGroup;
+			children = (
+				FBE6D7142BBCF401007FEC35 /* PaymentViewController.swift */,
+				FBE6D7162BBCF424007FEC35 /* PaymentStoryboard.storyboard */,
+				FBE6D7182BBCF467007FEC35 /* PaymentTableViewCell.swift */,
+				FBE6D7192BBCF467007FEC35 /* PaymentTableViewCell.xib */,
+			);
+			path = PaymentPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,9 +334,11 @@
 				148BD1682BBA8399008036AC /* Base in Resources */,
 				14BBABCE2BBAF413002E118C /* BaskinRabbinsB.ttf in Resources */,
 				14BBABB92BBABB8A002E118C /* FlavorCollectionViewCell.xib in Resources */,
+				FBE6D71B2BBCF467007FEC35 /* PaymentTableViewCell.xib in Resources */,
 				14BBABBF2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib in Resources */,
 				14BBABC82BBAF3BF002E118C /* BaskinRabbinsR.ttf in Resources */,
 				148BD1632BBA8398008036AC /* Base in Resources */,
+				FBE6D7172BBCF424007FEC35 /* PaymentStoryboard.storyboard in Resources */,
 				14BBABB62BBAB2EC002E118C /* DetailsView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,7 +370,9 @@
 				14BBABB42BBAB267002E118C /* DetailsViewController.swift in Sources */,
 				148BD1912BBA8666008036AC /* IceCream.swift in Sources */,
 				148BD15C2BBA8398008036AC /* AppDelegate.swift in Sources */,
+				FBE6D71A2BBCF467007FEC35 /* PaymentTableViewCell.swift in Sources */,
 				148BD18F2BBA861F008036AC /* Flavor.swift in Sources */,
+				FBE6D7152BBCF401007FEC35 /* PaymentViewController.swift in Sources */,
 				148BD15E2BBA8398008036AC /* SceneDelegate.swift in Sources */,
 				14BBABBA2BBABB8A002E118C /* FlavorCollectionViewCell.swift in Sources */,
 				148BD1932BBA86F0008036AC /* Coffee.swift in Sources */,
