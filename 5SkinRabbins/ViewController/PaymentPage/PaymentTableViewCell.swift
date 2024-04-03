@@ -8,7 +8,14 @@ class PaymentTableViewCell: UITableViewCell {
     @IBOutlet weak var payDetailLabel: UILabel!
     @IBOutlet weak var payPriceLabel: UILabel!
     
-    //버튼
+    //셀 삭제 "X" 버튼
+    var deleteButtonAction: (() -> Void)?
+    
+    @IBAction func xTapped(_ sender: Any) {
+        deleteButtonAction?()
+    }
+    
+    //증가 감소 버튼
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var cntLabel: UILabel!

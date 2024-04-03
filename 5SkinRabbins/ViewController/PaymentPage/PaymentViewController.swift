@@ -18,6 +18,11 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.plusButton.tintColor = .black
         cell.minusButton.tintColor = .gray
         
+        //셀 삭제
+        cell.deleteButtonAction = { [weak self] in
+            self?.deleteThing(at: indexPath) // 셀 삭제 메서드 호출
+        }
+        
         if let iceCream = things[indexPath.row] as? IceCream {
             cell.thingPrice = iceCream.price // thingPrice 값을 iceCream.price로 설정
         } else if let coffee = things[indexPath.row] as? Coffee {
@@ -43,7 +48,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
                 }
             }
             cell.payDetailLabel.text = flavorText
-            //이미지
+            //이미지 (일단은 고른 맛에 첫번째 이미지로..)
             if let firstFlavorImage = thing.flavor.first?.image {
                 cell.payImageView.image = firstFlavorImage
             } else {
@@ -79,6 +84,12 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    //셀 삭제 메서드
+    private func deleteThing(at indexPath: IndexPath) {
+        things.remove(at: indexPath.row) // 데이터 배열에서 해당 항목 삭제
+        tableView.deleteRows(at: [indexPath], with: .left) // 테이블 뷰에서 해당 셀 삭제
     }
     
     override func viewDidLoad() {
