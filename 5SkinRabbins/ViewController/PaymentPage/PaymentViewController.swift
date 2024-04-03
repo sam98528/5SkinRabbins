@@ -13,6 +13,8 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "paymentCell", for: indexPath) as! PaymentTableViewCell
+        cell.payNameLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        cell.payPriceLabel.font = UIFont.boldSystemFont(ofSize: 14)
         
         if let thing = things[indexPath.row] as? IceCream {
             // ice cream
@@ -20,8 +22,11 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.payPriceLabel.text = "\(thing.price)원"
             
             var flavorText = ""
-            for flavor in thing.flavor {
-                flavorText += "\(flavor.name), "
+            for (index, flavor) in thing.flavor.enumerated() {
+                flavorText += flavor.name
+                if index < thing.flavor.count - 1 {
+                    flavorText += ", "
+                }
             }
             cell.payDetailLabel.text = flavorText
             
@@ -59,16 +64,28 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
                      EnglishName: "pint",
                      choice: 3,
                      flavor: [
-                        Flavor(name: "바닐라", image: UIImage(named: "Vanilla IceCream")!),
-                        Flavor(name: "월넛", image: UIImage(named:"Walnut IceCream")!)],
+                        Flavor(name: "바닐라", image: UIImage(named: "Vanilla")!),
+                        Flavor(name: "월넛", image: UIImage(named:"Walnut")!)],
                      price: 452,
-                     image: UIImage(named: "Vanilla IceCream")!,
+                     image: UIImage(named: "Vanilla")!,
+                     isCorn: true))
+        
+        things.append(
+            IceCream(koreanName: "패밀리",
+                     EnglishName: "family",
+                     choice: 4,
+                     flavor: [
+                        Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
+                        Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
+                     price: 452,
+                     image: UIImage(named: "New York CheeseCake")!,
                      isCorn: true))
         
         tableView.delegate = self
         tableView.dataSource = self
         
-        let nibName = UINib(nibName: "paymentCell", bundle: nil)
+        let nibName = UINib(nibName: "PaymentTableViewCell", bundle: Bundle(for: type(of: self)))
+        
         tableView.register(nibName, forCellReuseIdentifier: "paymentCell")
         
         tableView.reloadData()

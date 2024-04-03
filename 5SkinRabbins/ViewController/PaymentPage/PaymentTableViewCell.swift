@@ -11,6 +11,9 @@ class PaymentTableViewCell: UITableViewCell {
     
     @IBOutlet weak var payPriceLabel: UILabel!
     
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
