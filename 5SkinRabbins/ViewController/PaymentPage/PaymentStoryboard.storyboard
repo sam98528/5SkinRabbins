@@ -17,18 +17,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pvH-uS-Em2">
-                                <rect key="frame" x="0.0" y="122" width="390" height="500"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pvH-uS-Em2">
+                                <rect key="frame" x="0.0" y="121" width="390" height="723"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="723" id="IMV-uZ-W3x"/>
+                                </constraints>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcf-82-LjH">
+                                <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="장바구니" id="54v-lS-jQa">
+                                        <barButtonItem key="leftBarButtonItem" title="  &lt;" id="j8B-3e-SWK">
+                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="pvH-uS-Em2" secondAttribute="bottom" constant="188" id="MDp-Rb-0eK"/>
-                            <constraint firstItem="pvH-uS-Em2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="NE7-88-hhL"/>
-                            <constraint firstItem="pvH-uS-Em2" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="VFl-LN-tjw"/>
-                            <constraint firstItem="pvH-uS-Em2" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="75" id="bfj-K4-sd1"/>
+                            <constraint firstItem="pvH-uS-Em2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="9Yq-Ib-73y"/>
+                            <constraint firstItem="pvH-uS-Em2" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Gbe-MU-ntF"/>
+                            <constraint firstItem="pvH-uS-Em2" firstAttribute="leading" secondItem="Hcf-82-LjH" secondAttribute="leading" id="H7E-1g-ZbL"/>
+                            <constraint firstItem="pvH-uS-Em2" firstAttribute="top" secondItem="Hcf-82-LjH" secondAttribute="bottom" constant="30" id="WIh-v8-SH7"/>
+                            <constraint firstItem="pvH-uS-Em2" firstAttribute="trailing" secondItem="Hcf-82-LjH" secondAttribute="trailing" id="cCj-rO-E0f"/>
+                            <constraint firstItem="Hcf-82-LjH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="ewm-al-Nev"/>
+                            <constraint firstAttribute="bottom" secondItem="pvH-uS-Em2" secondAttribute="bottom" id="tme-yV-uIS"/>
                         </constraints>
                     </view>
                     <connections>
@@ -37,12 +53,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-183" y="33"/>
+            <point key="canvasLocation" x="-229.23076923076923" y="31.990521327014218"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
