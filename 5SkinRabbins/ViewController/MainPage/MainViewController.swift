@@ -30,6 +30,9 @@ class MainViewController: UIViewController {
         self.MainPageCollectionView.dataSource = self
         bannerTime()
         
+        MainPageCollectionView.layer.cornerRadius = 20
+        MainPageCollectionView.clipsToBounds = true
+        
         IceCreamCakeImage.image = UIImage(named: "Cake1")
         CoffeeImage.image = UIImage(named: "Coffee")
         BeverageImage.image = UIImage(named: "Beverage")
