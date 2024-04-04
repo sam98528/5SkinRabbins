@@ -8,7 +8,7 @@ import UIKit
 
 class MenuViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    @IBOutlet weak var paymentButton: UIButton!
+    @IBOutlet weak var cartButton: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -25,7 +25,7 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     var selectedIndex = 0
     
-    @IBAction func paymentButtonTouched(_ sender: Any) {
+    @IBAction func cartButtonTouched(_ sender: Any) {
         let storyboard: UIStoryboard? = UIStoryboard(name: "PaymentStoryboard", bundle: Bundle.main)
         guard let vc = storyboard?.instantiateViewController(identifier: "PaymentViewController") as? PaymentViewController else {
             return
@@ -35,7 +35,7 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        paymentButton.tintColor = UIColor(red: 1.00, green: 0.49, blue: 0.59, alpha: 1.00)
+        cartButton.tintColor = UIColor(red: 1.00, green: 0.49, blue: 0.59, alpha: 1.00)
         // UICollectionViewFlowLayout을 사용하여 컬렉션 뷰의 레이아웃 설정
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -118,14 +118,17 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
             // 케이크 상품 선택 시 동작
             //print(cakes[indexPath.row].koreanName)
             things.append(cakes[indexPath.row])
+            updateCartBadge()
         case 2:
             // 음료 상품 선택 시 동작
             //print(beverages[indexPath.row].koreanName)
-            things.append(cakes[indexPath.row])
+            things.append(beverages[indexPath.row])
+            updateCartBadge()
         case 3:
             // 커피 상품 선택 시 동작
             //print(coffees[indexPath.row].koreanName)
-            things.append(cakes[indexPath.row])
+            things.append(coffees[indexPath.row])
+            updateCartBadge()
         default:
             print("error")
         }
@@ -177,5 +180,29 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     func loadCoffees() {
         collectionView.reloadData()
     }
+    func updateCartBadge() {
+        cartButton.addBadge(number: things.count)
+    }
 }
 
+extension UIButton {
+  func addBadge(number: Int) {
+    let badgeLabel = UILabel(frame: CGRect(x: self.frame.size.width - 15, y: -5, width: 20, height: 20))
+    badgeLabel.backgroundColor = .red
+    badgeLabel.textColor = .white
+    badgeLabel.textAlignment = .center
+    badgeLabel.layer.cornerRadius = badgeLabel.bounds.size.width / 2
+    badgeLabel.layer.masksToBounds = true
+    badgeLabel.text = "\(number)"
+    badgeLabel.font = UIFont.systemFont(ofSize: 12)
+    // Remove previous badge views
+    for subview in self.subviews {
+      if subview.tag == 99 {
+        subview.removeFromSuperview()
+      }
+    }
+    // Add new badge view
+    badgeLabel.tag = 99
+    self.addSubview(badgeLabel)
+  }
+}

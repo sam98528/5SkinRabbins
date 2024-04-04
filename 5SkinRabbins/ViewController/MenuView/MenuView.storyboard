@@ -41,7 +41,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="bag.fill" catalog="system"/>
                                 <connections>
-                                    <action selector="paymentButtonTouched:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="L45-yN-WEg"/>
+                                    <action selector="cartButtonTouched:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="L45-yN-WEg"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tY0-fs-lH1">
@@ -73,8 +73,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cartButton" destination="UI9-dF-4mY" id="7Xa-Ne-8x9"/>
                         <outlet property="collectionView" destination="tY0-fs-lH1" id="hK0-pb-9qC"/>
-                        <outlet property="paymentButton" destination="UI9-dF-4mY" id="7Xa-Ne-8x9"/>
                         <outlet property="segmentedControl" destination="CLd-Dy-h1K" id="WjX-tv-tqI"/>
                         <outlet property="titleLabel" destination="ky5-wO-EcK" id="dgI-AC-sAb"/>
                     </connections>
