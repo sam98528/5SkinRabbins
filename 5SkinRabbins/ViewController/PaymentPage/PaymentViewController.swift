@@ -211,6 +211,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         self.title = "주문 내역"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: font, size: 18)!, NSAttributedString.Key.foregroundColor:UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)]
+        
         //footerView 수정
         let footerView = createFooterView()
         view.addSubview(footerView)
@@ -222,6 +223,11 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             footerView.heightAnchor.constraint(equalToConstant: 150) // 필요한 높이로 설정
         ])
         updateTotalAmount() //총 금액 초기화
+        
+        //footerView에 가려지지 않게
+        let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: footerView.bounds.height, right: 0)
+        tableView.contentInset = contentInset
+        tableView.scrollIndicatorInsets = contentInset
         
         tableView.delegate = self
         tableView.dataSource = self
