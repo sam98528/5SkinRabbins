@@ -7,7 +7,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var things: [Any] = []
     var totalPriceLabel: UILabel?
-    
+    let font = "BRR"
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return things.count
     }
@@ -186,7 +186,8 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        self.title = "주문 내역"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: font, size: 18)!, NSAttributedString.Key.foregroundColor:UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)]
         //footerView 수정
         let footerView = createFooterView()
         view.addSubview(footerView)

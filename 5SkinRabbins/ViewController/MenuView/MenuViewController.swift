@@ -8,6 +8,7 @@ import UIKit
 
 class MenuViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    @IBOutlet weak var paymentButton: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -18,6 +19,15 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     var beverages: [Beverage] = Beverage.beverage
     var coffees: [Coffee] = Coffee.coffee
     
+    var selectedIndex = 0
+    
+    @IBAction func paymentButtonTouched(_ sender: Any) {
+        let storyboard: UIStoryboard? = UIStoryboard(name: "PaymentStoryboard", bundle: Bundle.main)
+        guard let vc = storyboard?.instantiateViewController(identifier: "PaymentViewController") as? PaymentViewController else {
+            return
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,10 +40,15 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         flowLayout.itemSize = CGSize(width: Int(collectionView.frame.size.width / 2 - 20) , height: Int(collectionView.frame.size.height / 3) - 20)
         collectionView.collectionViewLayout = flowLayout
         
+        let backBarButtonItem = UIBarButtonItem(title: "돌아가기", style: .plain, target: self, action: nil) // title 부분 수정
+        backBarButtonItem.tintColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+        
+        
         // 컬렉션 뷰 설정
         setupCollectionView()
         // 초기에는 세그먼트 인덱스 0으로 설정하고 아이스크림 상품을 로드
-        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.selectedSegmentIndex = selectedIndex
         loadIceCreams()
     }
     
@@ -87,9 +102,10 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
             // 아이스크림 상품 선택 시 상세 화면으로 이동
             print(iceCreams[indexPath.row].koreanName)
             let storyboard: UIStoryboard? = UIStoryboard(name: "DetailsView", bundle: Bundle.main)
-            guard let vc = storyboard?.instantiateViewController(identifier: "DetailsViewController") else {
+            guard let vc = storyboard?.instantiateViewController(identifier: "DetailsViewController") as? DetailsViewController else {
                 return
             }
+            
             vc.modalPresentationStyle = .automatic
             vc.modalTransitionStyle = .coverVertical
             self.present(vc, animated: true,completion: nil)
