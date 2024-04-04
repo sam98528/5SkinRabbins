@@ -23,6 +23,25 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var englishNameLabel: UILabel!
     
+    //LINESeedSansKR-Regular
+    //LINESeedSansKR-Thin
+    //LINESeedSansKR-Bold
+    //YANGJIN
+    // 폰트 설정
+    let lineFontB = UIFont(name: "LINESeedSansKR-Bold", size: 22.0)
+    let lineFontR = UIFont(name: "LINESeedSansKR-Regular", size: 12.0)
+    
+     override func awakeFromNib() {
+         super.awakeFromNib()
+         
+         // 셀 내 레이블에 폰트 일괄 적용
+         productNameLabel.font = lineFontB
+         productNameLabel.textColor = UIColor(hex: 0x222222)
+         englishNameLabel.font = lineFontR
+         productPriceLabel.font = lineFontB
+         productPriceLabel.textColor = UIColor(hex: 0x222222)
+     }
+    
     // IceCream 셀 설정
     func configure(with product: IceCream) {
         productImageView.image = product.image
@@ -54,9 +73,4 @@ class ProductCollectionViewCell: UICollectionViewCell {
         englishNameLabel.text = product.englishName
         productPriceLabel.text = "\(product.formattedPrice())원"
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
 }

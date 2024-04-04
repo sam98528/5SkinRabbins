@@ -13,6 +13,8 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    let yangJinFont = UIFont(name: "YANGJIN", size: 34.0)
+    
     var things: [Any] = []
     
     // 각 카테고리별 상품 배열
@@ -31,29 +33,35 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         vc.things = self.things
         navigationController?.pushViewController(vc, animated: true)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //titleLabel 폰트 설정
+        titleLabel.font = yangJinFont
+       
+        //cartButton 컬러 설정
         cartButton.tintColor = UIColor(red: 1.00, green: 0.49, blue: 0.59, alpha: 1.00)
+        
         // UICollectionViewFlowLayout을 사용하여 컬렉션 뷰의 레이아웃 설정
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        flowLayout.minimumLineSpacing = 20
+        flowLayout.minimumLineSpacing = 16
         flowLayout.minimumInteritemSpacing = 15
         flowLayout.scrollDirection = .vertical
-        flowLayout.itemSize = CGSize(width: Int(collectionView.frame.size.width / 2 - 20) , height: Int(collectionView.frame.size.height / 3) - 20)
+        flowLayout.itemSize = CGSize(width: Int(collectionView.frame.size.width / 2 - 18) , height: Int(collectionView.frame.size.height / 3) - 20)
         collectionView.collectionViewLayout = flowLayout
         
         let backBarButtonItem = UIBarButtonItem(title: "돌아가기", style: .plain, target: self, action: nil) // title 부분 수정
         backBarButtonItem.tintColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
         self.navigationItem.backBarButtonItem = backBarButtonItem
         
-        
         // 컬렉션 뷰 설정
         setupCollectionView()
         // 초기에는 세그먼트 인덱스 0으로 설정하고 아이스크림 상품을 로드
         segmentedControl.selectedSegmentIndex = selectedIndex
         loadIceCreams()
-    }
+      }
     
     // 컬렉션 뷰 데이터 소스 설정
     func setupCollectionView() {
