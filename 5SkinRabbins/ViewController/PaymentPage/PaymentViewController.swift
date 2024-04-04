@@ -6,7 +6,6 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var tableView: UITableView!
     
     var things: [Any] = []
-    var footerView: UIView?
     var totalPriceLabel: UILabel?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -178,91 +177,28 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    //footerView
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerHeight: CGFloat = 150
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: footerHeight))
-        footerView.backgroundColor = .white
-            
-        let label = UILabel()
-        let formattedAmount = formatCurrency(amount: totalAmount)
-        label.text = "총 결제금액  \(formattedAmount)원"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        footerView.addSubview(label)
-        self.totalPriceLabel = label
-            
-        let button1 = UIButton(type: .system)
-        button1.setTitle("취소하기", for: .normal)
-        button1.addTarget(self, action: #selector(button1Tapped), for: .touchUpInside)
-        button1.translatesAutoresizingMaskIntoConstraints = false
-        footerView.addSubview(button1)
-            
-        button1.setTitleColor(.systemPink, for: .normal)
-        button1.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        button1.backgroundColor = .white
-        button1.layer.cornerRadius = 10
-        button1.layer.borderWidth = 0.5
-        button1.layer.borderColor = UIColor.gray.cgColor
-        
-        let button2 = UIButton(type: .system)
-        button2.setTitle("주문하기", for: .normal)
-        button2.addTarget(self, action: #selector(button2Tapped), for: .touchUpInside)
-        button2.translatesAutoresizingMaskIntoConstraints = false
-        footerView.addSubview(button2)
-        
-        button2.setTitleColor(.white, for: .normal)
-        button2.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        button2.backgroundColor = .systemPink
-        button2.layer.cornerRadius = 10
-        
-        NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: footerView.topAnchor, constant: 30),
-            label.trailingAnchor.constraint(equalTo: footerView.trailingAnchor, constant: -30), // 오른쪽으로 정렬
-            
-            button1.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20),
-            button1.leadingAnchor.constraint(equalTo: footerView.leadingAnchor, constant: 20),
-            button1.widthAnchor.constraint(equalToConstant: 160),
-            
-            button2.leadingAnchor.constraint(equalTo: button1.trailingAnchor, constant: 20),
-            button2.topAnchor.constraint(equalTo: button1.topAnchor),
-            button2.trailingAnchor.constraint(lessThanOrEqualTo: footerView.trailingAnchor, constant: -20),
-            button2.bottomAnchor.constraint(lessThanOrEqualTo: footerView.bottomAnchor, constant: -20),
-            button2.widthAnchor.constraint(equalToConstant: 160),
-        ])
-        
-        return footerView
-    }
-    
-    @objc func button1Tapped() {
-        //장바구니가 비어있음
-    }
-
-    @objc func button2Tapped() {
-        let alertController = UIAlertController(title: "", message: "결제 하시겠습니까?", preferredStyle: .alert)
-            
-        let confirmAction = UIAlertAction(title: "예", style: .default) { _ in
-            // 예 선택 시
-            self.confirmOrder()
-        }
-        let cancelAction = UIAlertAction(title: "아니오", style: .cancel, handler: nil)
-            
-        alertController.addAction(confirmAction)
-        alertController.addAction(cancelAction)
-            
-        present(alertController, animated: true, completion: nil)
-    }
-    private func confirmOrder() {
-        // 장바구니가 비어있음
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        // FooterView의 높이
-        return 150
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // 총 금액 업데이트
+        updateTotalAmount()
     }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        //footerView 수정
+        let footerView = createFooterView()
+        view.addSubview(footerView)
+        footerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            footerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            footerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            footerView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            footerView.heightAnchor.constraint(equalToConstant: 150) // 필요한 높이로 설정
+        ])
+        updateTotalAmount() //총 금액 초기화
+        
         
         things.append(
             IceCream(koreanName: "파인트",
@@ -328,6 +264,111 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         
         tableView.reloadData()
         
+    }
+    
+    //footerView
+    private func createFooterView() -> UIView {
+        var footerView = UIView()
+        let footerHeight: CGFloat = 150
+        footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: footerHeight))
+        footerView.backgroundColor = .white
+            
+        let label = UILabel()
+        let formattedAmount = formatCurrency(amount: totalAmount)
+        label.text = "총 결제금액  \(formattedAmount)원"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        footerView.addSubview(label)
+        self.totalPriceLabel = label
+            
+        let button1 = UIButton(type: .system)
+        button1.setTitle("취소하기", for: .normal)
+        button1.addTarget(self, action: #selector(button1Tapped), for: .touchUpInside)
+        button1.translatesAutoresizingMaskIntoConstraints = false
+        footerView.addSubview(button1)
+            
+        button1.setTitleColor(.systemPink, for: .normal)
+        button1.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button1.backgroundColor = .white
+        button1.layer.cornerRadius = 10
+        button1.layer.borderWidth = 0.5
+        button1.layer.borderColor = UIColor.gray.cgColor
+        
+        let button2 = UIButton(type: .system)
+        button2.setTitle("주문하기", for: .normal)
+        button2.addTarget(self, action: #selector(button2Tapped), for: .touchUpInside)
+        button2.translatesAutoresizingMaskIntoConstraints = false
+        footerView.addSubview(button2)
+        
+        button2.setTitleColor(.white, for: .normal)
+        button2.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button2.backgroundColor = .systemPink
+        button2.layer.cornerRadius = 10
+        
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: footerView.topAnchor, constant: 30),
+            label.trailingAnchor.constraint(equalTo: footerView.trailingAnchor, constant: -30), // 오른쪽으로 정렬
+            
+            button1.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20),
+            button1.leadingAnchor.constraint(equalTo: footerView.leadingAnchor, constant: 20),
+            button1.widthAnchor.constraint(equalToConstant: 160),
+            
+            button2.leadingAnchor.constraint(equalTo: button1.trailingAnchor, constant: 20),
+            button2.topAnchor.constraint(equalTo: button1.topAnchor),
+            button2.trailingAnchor.constraint(lessThanOrEqualTo: footerView.trailingAnchor, constant: -20),
+            button2.bottomAnchor.constraint(lessThanOrEqualTo: footerView.bottomAnchor, constant: -20),
+            button2.widthAnchor.constraint(equalToConstant: 160),
+        ])
+        
+        return footerView
+    }
+    
+    @objc func button1Tapped() {
+        let alertController = UIAlertController(title: "", message: "주문을 취소하시겠습니까?", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "확인", style: .destructive) { _ in
+            // 확인 버튼을 눌렀을 때 장바구니를 비움
+            self.things.removeAll()
+            self.tableView.reloadData()
+            self.updateTotalAmount()
+            self.updateFooterView()
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+            
+        present(alertController, animated: true, completion: nil)
+    }
+
+    @objc func button2Tapped() {
+        let alertController = UIAlertController(title: "", message: "결제 하시겠습니까?", preferredStyle: .alert)
+            
+        let confirmAction = UIAlertAction(title: "예", style: .default) { _ in
+            // 예 선택 시
+            self.confirmOrder()
+        }
+        let cancelAction = UIAlertAction(title: "아니오", style: .cancel, handler: nil)
+            
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+            
+        present(alertController, animated: true, completion: nil)
+    }
+    private func confirmOrder() {
+        let alertController = UIAlertController(title: "", message: "결제가 완료되었습니다.", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "확인", style: .default) { _ in
+            // 결제가 완료되었으므로 장바구니를 비우고 화면을 업데이트합니다.
+            self.things.removeAll()
+            self.tableView.reloadData()
+            self.updateTotalAmount()
+            self.updateFooterView()
+        }
+        alertController.addAction(confirmAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    private func updateFooterView() {
+        let isEmpty = things.isEmpty
+        updateFooterView(for: isEmpty)
     }
 
 }
