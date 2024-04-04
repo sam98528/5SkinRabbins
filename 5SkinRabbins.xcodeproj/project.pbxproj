@@ -43,6 +43,9 @@
 		14BBABBF2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABBD2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib */; };
 		14BBABC82BBAF3BF002E118C /* BaskinRabbinsR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABC62BBAF3BF002E118C /* BaskinRabbinsR.ttf */; };
 		14BBABCE2BBAF413002E118C /* BaskinRabbinsB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABCD2BBAF413002E118C /* BaskinRabbinsB.ttf */; };
+		53FA68C82BBE9B9000E71FF4 /* LINESeedKR-Bd.otf in Resources */ = {isa = PBXBuildFile; fileRef = 53FA68C52BBE9B9000E71FF4 /* LINESeedKR-Bd.otf */; };
+		53FA68C92BBE9B9000E71FF4 /* LINESeedKR-Th.otf in Resources */ = {isa = PBXBuildFile; fileRef = 53FA68C62BBE9B9000E71FF4 /* LINESeedKR-Th.otf */; };
+		53FA68CA2BBE9B9000E71FF4 /* LINESeedKR-Rg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 53FA68C72BBE9B9000E71FF4 /* LINESeedKR-Rg.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +106,9 @@
 		14BBABBD2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedFlavorCollectionViewCell.xib; sourceTree = "<group>"; };
 		14BBABC62BBAF3BF002E118C /* BaskinRabbinsR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaskinRabbinsR.ttf; sourceTree = "<group>"; };
 		14BBABCD2BBAF413002E118C /* BaskinRabbinsB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaskinRabbinsB.ttf; sourceTree = "<group>"; };
+		53FA68C52BBE9B9000E71FF4 /* LINESeedKR-Bd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Bd.otf"; sourceTree = "<group>"; };
+		53FA68C62BBE9B9000E71FF4 /* LINESeedKR-Th.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Th.otf"; sourceTree = "<group>"; };
+		53FA68C72BBE9B9000E71FF4 /* LINESeedKR-Rg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Rg.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,8 +226,8 @@
 			children = (
 				149DFB052BBE65A700F177A3 /* MenuView.storyboard */,
 				149DFB062BBE65A700F177A3 /* MenuViewController.swift */,
-				149DFB072BBE65A700F177A3 /* ProductCollectionViewCell.swift */,
 				149DFB082BBE65A700F177A3 /* ProductCollectionViewCell.xib */,
+				149DFB072BBE65A700F177A3 /* ProductCollectionViewCell.swift */,
 			);
 			path = MenuView;
 			sourceTree = "<group>";
@@ -229,8 +235,8 @@
 		149DFB142BBE667300F177A3 /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
-				149DFB0E2BBE667300F177A3 /* CollectionViewCell.swift */,
 				149DFB0F2BBE667300F177A3 /* CollectionViewCell.xib */,
+				149DFB0E2BBE667300F177A3 /* CollectionViewCell.swift */,
 				149DFB102BBE667300F177A3 /* MainPageStoryboard.storyboard */,
 				149DFB112BBE667300F177A3 /* MainViewController.swift */,
 				149DFB122BBE667300F177A3 /* testStoryboard.storyboard */,
@@ -253,12 +259,12 @@
 		14BBABBB2BBABB94002E118C /* DetailsView */ = {
 			isa = PBXGroup;
 			children = (
-				14BBABB12BBAB267002E118C /* DetailsViewController.swift */,
 				14BBABB52BBAB2EC002E118C /* DetailsView.storyboard */,
-				14BBABB72BBABB8A002E118C /* FlavorCollectionViewCell.swift */,
+				14BBABB12BBAB267002E118C /* DetailsViewController.swift */,
 				14BBABB82BBABB8A002E118C /* FlavorCollectionViewCell.xib */,
-				14BBABBC2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.swift */,
+				14BBABB72BBABB8A002E118C /* FlavorCollectionViewCell.swift */,
 				14BBABBD2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib */,
+				14BBABBC2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.swift */,
 			);
 			path = DetailsView;
 			sourceTree = "<group>";
@@ -266,6 +272,9 @@
 		14BBABC02BBAF0F6002E118C /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				53FA68C52BBE9B9000E71FF4 /* LINESeedKR-Bd.otf */,
+				53FA68C72BBE9B9000E71FF4 /* LINESeedKR-Rg.otf */,
+				53FA68C62BBE9B9000E71FF4 /* LINESeedKR-Th.otf */,
 				14BBABCD2BBAF413002E118C /* BaskinRabbinsB.ttf */,
 				14BBABC62BBAF3BF002E118C /* BaskinRabbinsR.ttf */,
 			);
@@ -377,11 +386,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				148BD1652BBA8399008036AC /* Assets.xcassets in Resources */,
+				53FA68C82BBE9B9000E71FF4 /* LINESeedKR-Bd.otf in Resources */,
 				148BD1682BBA8399008036AC /* Base in Resources */,
 				149DFB162BBE667300F177A3 /* CollectionViewCell.xib in Resources */,
 				149DFB192BBE667300F177A3 /* testStoryboard.storyboard in Resources */,
 				149DFB0D2BBE65A700F177A3 /* ProductCollectionViewCell.xib in Resources */,
+				53FA68CA2BBE9B9000E71FF4 /* LINESeedKR-Rg.otf in Resources */,
 				149DFB0A2BBE65A700F177A3 /* MenuView.storyboard in Resources */,
+				53FA68C92BBE9B9000E71FF4 /* LINESeedKR-Th.otf in Resources */,
 				14BBABCE2BBAF413002E118C /* BaskinRabbinsB.ttf in Resources */,
 				14BBABB92BBABB8A002E118C /* FlavorCollectionViewCell.xib in Resources */,
 				14BBABBF2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib in Resources */,

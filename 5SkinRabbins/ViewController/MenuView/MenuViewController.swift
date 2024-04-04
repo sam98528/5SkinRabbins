@@ -13,10 +13,8 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    
     var things: [Any] = []
     
-    // 테스트 다시 
     // 각 카테고리별 상품 배열
     var iceCreams: [IceCream] = IceCream.iceCream
     var cakes: [Cake] = Cake.cake
