@@ -10,16 +10,7 @@ struct Cake {
     var price : Int
     // 이미지
     var image : UIImage
-    // 가격 표기 변경 함수
-    func formattedPrice() -> String {
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .decimal
-            return formatter.string(from: NSNumber(value: price)) ?? ""
-        }
 }
-
-
-
 extension Cake {
     static var cake: [Cake] = [
         Cake(koreanName: "한송이 가득 도쿄바나나", englishName: "A Bunch of Tokyo Banana", price: 29000, image: UIImage(named: "A Bunch of Tokyo Banana")! ),
