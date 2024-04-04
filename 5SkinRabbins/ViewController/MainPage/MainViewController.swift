@@ -56,7 +56,7 @@ class MainViewController: UIViewController {
 }
 //배너이미지 배열부분
 var nowPage: Int = 0
-let dataArray: Array<UIImage> = [UIImage(named: "Banner1")!, UIImage(named: "Banner2")!, UIImage(named: "Banner3")!, UIImage(named: "Banner4")!, UIImage(named: "Banner5")!]
+let bannerArray: Array<UIImage> = [UIImage(named: "Banner1")!, UIImage(named: "Banner2")!, UIImage(named: "Banner3")!, UIImage(named: "Banner4")!, UIImage(named: "Banner5")!]
 
 
 
@@ -93,12 +93,12 @@ extension MainViewController {
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArray.count
+        return bannerArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = MainPageCollectionView.dequeueReusableCell(withReuseIdentifier: "BannerCell", for: indexPath) as! CollectionViewCell
-        cell.ImageView.image = dataArray[indexPath.row]
+        cell.ImageView.image = bannerArray[indexPath.row]
         return cell
     }
     
@@ -110,13 +110,14 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         nowPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
     }
     
+    
     //배너부분 돌아가는거
     func bannerTime() {
         let _: Timer = Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { (Timer) in self.bannerMove()
         }
     }
     func bannerMove() {
-        if nowPage == dataArray.count-1 {
+        if nowPage == bannerArray.count - 1 {
             MainPageCollectionView.scrollToItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, at:.right, animated: true)
             nowPage = 0
             return
@@ -124,9 +125,5 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         nowPage += 1
         MainPageCollectionView.scrollToItem(at: NSIndexPath(item: nowPage, section: 0) as IndexPath, at:.right, animated: true)
     }
+    
 }
-
-
-
-
-
