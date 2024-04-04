@@ -15,20 +15,16 @@ struct IceCream {
     var price : Int
     // 이미지
     var image : UIImage
-    // 가격 표기 변경 함수
-    func formattedPrice() -> String {
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .decimal
-            return formatter.string(from: NSNumber(value: price)) ?? ""
-        }
+    // 콘인지 컵인지
+    // 1 이면 콘 ,0 이면 컵
+    var isCorn : Bool
 }
 
 extension IceCream {
-    static var iceCream : [IceCream] = [
-        IceCream(koreanName: "파인트", englishName: "TEST", choice: 2, flavor: [], price: 1234, image: UIImage(named: "31 Yogurt")!),
-        IceCream(koreanName: "파인트", englishName: "TEST", choice: 2, flavor: [], price: 1234, image: UIImage(named: "31 Yogurt")!),
-        IceCream(koreanName: "파인트", englishName: "TEST", choice: 2, flavor: [], price: 1234, image: UIImage(named: "31 Yogurt")!),
-        IceCream(koreanName: "파인트", englishName: "TEST", choice: 2, flavor: [], price: 1234, image: UIImage(named: "31 Yogurt")!),
+    /*
+    static var data : [IceCream] = [
+        IceCream(name: "싱글 컵", choice: 1, flavor: [], price: 4700, image: UIImage(), isCorn: true)
     
     ]
+    */
 }
