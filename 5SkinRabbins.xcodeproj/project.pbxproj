@@ -20,6 +20,9 @@
 		148BD1932BBA86F0008036AC /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD1922BBA86F0008036AC /* Coffee.swift */; };
 		148BD1952BBA89F4008036AC /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD1942BBA89F4008036AC /* Beverage.swift */; };
 		148BD1972BBA8B28008036AC /* Cake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD1962BBA8B28008036AC /* Cake.swift */; };
+		39B3D2C52BBC1E89000F61BE /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3D2C32BBC1E89000F61BE /* CollectionViewCell.swift */; };
+		39B948FD2BBAAAAC00A67D22 /* MainPageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39B948FC2BBAAAAC00A67D22 /* MainPageStoryboard.storyboard */; };
+		39B949212BBACF8000A67D22 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B949202BBACF8000A67D22 /* MainViewController.swift */; };
 		148EDE502BBBD7350051E8D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148EDE4F2BBBD7350051E8D6 /* ViewController.swift */; };
 		14BBABB42BBAB267002E118C /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BBABB12BBAB267002E118C /* DetailsViewController.swift */; };
 		14BBABB62BBAB2EC002E118C /* DetailsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABB52BBAB2EC002E118C /* DetailsView.storyboard */; };
@@ -74,6 +77,9 @@
 		148BD1922BBA86F0008036AC /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		148BD1942BBA89F4008036AC /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		148BD1962BBA8B28008036AC /* Cake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cake.swift; sourceTree = "<group>"; };
+		39B3D2C32BBC1E89000F61BE /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		39B948FC2BBAAAAC00A67D22 /* MainPageStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainPageStoryboard.storyboard; sourceTree = "<group>"; };
+		39B949202BBACF8000A67D22 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		148EDE4F2BBBD7350051E8D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		14BBABB12BBAB267002E118C /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		14BBABB52BBAB2EC002E118C /* DetailsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailsView.storyboard; sourceTree = "<group>"; };
@@ -176,6 +182,7 @@
 	      FBE6D7132BBCF3C6007FEC35 /* PaymentPage */,
 				148EDE4F2BBBD7350051E8D6 /* ViewController.swift */,
 				148BD1612BBA8398008036AC /* Main.storyboard */,
+				39B948FB2BBAAA7400A67D22 /* MainPage */,
 				53C011AF2BBBDC2F007E465A /* MenuView */,
 				14BBABBB2BBABB94002E118C /* DetailsView */,
 			);
@@ -202,6 +209,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		39B948FB2BBAAA7400A67D22 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				39B948FC2BBAAAAC00A67D22 /* MainPageStoryboard.storyboard */,
+				39B949202BBACF8000A67D22 /* MainViewController.swift */,
+				39B3D2C32BBC1E89000F61BE /* CollectionViewCell.swift */,
+			);
+			path = MainPage;
 		14BBABBB2BBABB94002E118C /* DetailsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,6 +364,7 @@
 				14BBABBF2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib in Resources */,
 				14BBABC82BBAF3BF002E118C /* BaskinRabbinsR.ttf in Resources */,
 				148BD1632BBA8398008036AC /* Base in Resources */,
+				39B948FD2BBAAAAC00A67D22 /* MainPageStoryboard.storyboard in Resources */,
 				FBE6D7172BBCF424007FEC35 /* PaymentStoryboard.storyboard in Resources */,
 				14BBABB62BBAB2EC002E118C /* DetailsView.storyboard in Resources */,
 			);
@@ -387,9 +403,11 @@
 				148BD18F2BBA861F008036AC /* Flavor.swift in Sources */,
 				FBE6D7152BBCF401007FEC35 /* PaymentViewController.swift in Sources */,
 				148BD15E2BBA8398008036AC /* SceneDelegate.swift in Sources */,
+				39B949212BBACF8000A67D22 /* MainViewController.swift in Sources */,
 				14BBABBA2BBABB8A002E118C /* FlavorCollectionViewCell.swift in Sources */,
 				148BD1932BBA86F0008036AC /* Coffee.swift in Sources */,
 				148BD1952BBA89F4008036AC /* Beverage.swift in Sources */,
+				39B3D2C52BBC1E89000F61BE /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
