@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
-        window!.rootViewController = UIStoryboard(name: "MenuView", bundle: nil).instantiateInitialViewController()
+        window!.rootViewController = UIStoryboard(name: "DetailsView", bundle: nil).instantiateInitialViewController()
         /*
         for fontFamily in UIFont.familyNames {
             for fontName in UIFont.fontNames(forFamilyName: fontFamily) {
