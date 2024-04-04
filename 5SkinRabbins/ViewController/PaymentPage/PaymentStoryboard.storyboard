@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <navigationItem title="장바구니" id="54v-lS-jQa">
+                                    <navigationItem title="주문내역" id="54v-lS-jQa">
                                         <barButtonItem key="leftBarButtonItem" title="  &lt;" id="j8B-3e-SWK">
                                             <color key="tintColor" systemColor="systemPinkColor"/>
                                         </barButtonItem>

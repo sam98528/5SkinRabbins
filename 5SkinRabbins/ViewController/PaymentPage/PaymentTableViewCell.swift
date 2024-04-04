@@ -11,6 +11,9 @@ class PaymentTableViewCell: UITableViewCell {
     //셀 삭제 "X" 버튼
     var deleteButtonAction: (() -> Void)?
     
+    // totalPrice
+    var updateTotalAmount: (() -> Void)?
+    
     @IBAction func xTapped(_ sender: Any) {
         deleteButtonAction?()
     }
@@ -28,17 +31,21 @@ class PaymentTableViewCell: UITableViewCell {
             cntLabel.text = "\(cnt)"
             minusButton.isEnabled = cnt > 1
             minusButton.tintColor = cnt > 1 ? .black : .gray
+            updateTotalAmount?()
+            updatePriceLabel()
         }
     }
 
     @IBAction func plusTapped(_ sender: Any) {
         plusButtonAction?()
-        updatePriceLabel()
+        updatePriceLabel() // payPriceLabel 값 업데이트
+        updateTotalAmount?()
     }
     
     @IBAction func minusTapped(_ sender: Any) {
         minusButtonAction?()
         updatePriceLabel()
+        updateTotalAmount?()
     }
     
     var thingPrice:Int = 0 //thing.price 값 저장

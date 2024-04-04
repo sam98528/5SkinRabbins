@@ -25,6 +25,11 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             self?.deleteThing(at: indexPath) // 셀 삭제 메서드 호출
         }
         
+        //총 금액 업데이트
+        cell.updateTotalAmount = { [weak self] in
+            self?.updateTotalAmount()
+        }
+        
         if let iceCream = things[indexPath.row] as? IceCream {
             cell.thingPrice = iceCream.price // thingPrice 값을 iceCream.price로 설정
         } else if let coffee = things[indexPath.row] as? Coffee {
@@ -63,7 +68,6 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.plusButtonAction = {
                 cell.cnt += 1
             }
-            
         } else if let thing = things[indexPath.row] as? Coffee {
             // coffee
             cell.payNameLabel.text = thing.koreanName
@@ -95,11 +99,6 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         updateTotalAmount() // 총 금액 갱신
     }
     
-    private func updateTotalAmount() {
-        let formattedAmount = formatCurrency(amount: totalAmount)
-        totalPriceLabel?.text = "총 결제금액  \(formattedAmount)원"
-    }
-    
     //총 금액 구하기
     private var totalAmount: Int {
         var total = 0
@@ -115,6 +114,20 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         }
         return total
+    }
+    
+    private func updateTotalAmount() {
+        var total = 0
+        
+        for indexPath in tableView.indexPathsForVisibleRows ?? [] {
+            let cell = tableView.cellForRow(at: indexPath) as? PaymentTableViewCell
+            let itemPriceText = cell?.payPriceLabel.text ?? "0" // payPriceLabel의 텍스트 가져오기
+            let itemPrice = Int(itemPriceText.replacingOccurrences(of: "원", with: "")) ?? 0
+            total += itemPrice
+        }
+        
+        let formattedAmount = formatCurrency(amount: total)
+        totalPriceLabel?.text = "총 결제금액  \(formattedAmount)원"
     }
     
     // 총 금액에 쉼표 표시하는 함수
@@ -223,7 +236,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
                      flavor: [
                         Flavor(name: "바닐라", image: UIImage(named: "Vanilla")!),
                         Flavor(name: "월넛", image: UIImage(named:"Walnut")!)],
-                     price: 452,
+                     price: 100,
                      image: UIImage(named: "Vanilla")!,
                      isCorn: true))
         
@@ -234,7 +247,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
                      flavor: [
                         Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
                         Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
-                     price: 452,
+                     price: 100,
                      image: UIImage(named: "New York CheeseCake")!,
                      isCorn: true))
         
@@ -245,7 +258,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
                      flavor: [
                         Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
                         Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
-                     price: 452,
+                     price: 300,
                      image: UIImage(named: "New York CheeseCake")!,
                      isCorn: true))
         
@@ -256,7 +269,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
                      flavor: [
                         Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
                         Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
-                     price: 452,
+                     price: 400,
                      image: UIImage(named: "New York CheeseCake")!,
                      isCorn: true))
         
@@ -267,40 +280,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
                      flavor: [
                         Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
                         Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
-                     price: 452,
-                     image: UIImage(named: "New York CheeseCake")!,
-                     isCorn: true))
-        
-        things.append(
-            IceCream(koreanName: "패밀리",
-                     EnglishName: "family",
-                     choice: 4,
-                     flavor: [
-                        Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
-                        Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
-                     price: 452,
-                     image: UIImage(named: "New York CheeseCake")!,
-                     isCorn: true))
-        
-        things.append(
-            IceCream(koreanName: "패밀리",
-                     EnglishName: "family",
-                     choice: 4,
-                     flavor: [
-                        Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
-                        Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
-                     price: 452,
-                     image: UIImage(named: "New York CheeseCake")!,
-                     isCorn: true))
-        
-        things.append(
-            IceCream(koreanName: "패밀리",
-                     EnglishName: "family",
-                     choice: 4,
-                     flavor: [
-                        Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
-                        Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
-                     price: 452,
+                     price: 200,
                      image: UIImage(named: "New York CheeseCake")!,
                      isCorn: true))
         
