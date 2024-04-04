@@ -80,7 +80,12 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         default:
             break
         }
-    }
+        
+        // 컬렉션 뷰의 셀을 최상단으로 스크롤
+         let indexPath = IndexPath(item: 0, section: 0)
+         collectionView.scrollToItem(at: indexPath, at: .top, animated: false)
+     }
+    
     
     // 컬렉션 뷰 셀 수 설정
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -183,24 +188,34 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
 }
 
-extension UIButton {
-  func addBadge(number: Int) {
-    let badgeLabel = UILabel(frame: CGRect(x: self.frame.size.width - 15, y: -5, width: 20, height: 20))
-    badgeLabel.backgroundColor = .red
-    badgeLabel.textColor = .white
-    badgeLabel.textAlignment = .center
-    badgeLabel.layer.cornerRadius = badgeLabel.bounds.size.width / 2
-    badgeLabel.layer.masksToBounds = true
-    badgeLabel.text = "\(number)"
-    badgeLabel.font = UIFont.systemFont(ofSize: 12)
-    // Remove previous badge views
-    for subview in self.subviews {
-      if subview.tag == 99 {
-        subview.removeFromSuperview()
-      }
+ // 뱃지 기능 추가, 애니메이션 효과
+ extension UIButton {
+     func addBadge(number: Int) {
+         let badgeLabel = UILabel(frame: CGRect(x: self.frame.size.width - 16, y: -8, width: 28, height: 28))
+         badgeLabel.layer.borderWidth = 1.0 // 스트로크 두께 설정
+         badgeLabel.layer.borderColor = UIColor(red: 0.34, green: 0.29, blue: 0.24, alpha: 0.6).cgColor
+         badgeLabel.backgroundColor = UIColor(hex: 0x575152)
+         badgeLabel.textColor = .white
+         badgeLabel.textAlignment = .center
+         badgeLabel.layer.cornerRadius = badgeLabel.bounds.size.width / 2
+         badgeLabel.layer.masksToBounds = true
+         badgeLabel.text = "\(number)"
+         badgeLabel.font = UIFont.systemFont(ofSize: 14)
+         // Add new badge view with animation
+         badgeLabel.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+         self.addSubview(badgeLabel)
+         UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: [], animations: {
+             badgeLabel.transform = .identity
+         }, completion: nil)
+     }
+ }
+
+// hex 코드 사용 추가
+extension UIColor {
+    convenience init(hex: UInt32, alpha: CGFloat = 1.0) {
+        let red = CGFloat((hex & 0xFF0000) >> 16) / 255.0
+        let green = CGFloat((hex & 0x00FF00) >> 8) / 255.0
+        let blue = CGFloat(hex & 0x0000FF) / 255.0
+        self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
-    // Add new badge view
-    badgeLabel.tag = 99
-    self.addSubview(badgeLabel)
-  }
 }

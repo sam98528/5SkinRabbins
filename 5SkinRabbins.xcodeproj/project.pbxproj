@@ -43,9 +43,10 @@
 		14BBABBF2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABBD2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib */; };
 		14BBABC82BBAF3BF002E118C /* BaskinRabbinsR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABC62BBAF3BF002E118C /* BaskinRabbinsR.ttf */; };
 		14BBABCE2BBAF413002E118C /* BaskinRabbinsB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABCD2BBAF413002E118C /* BaskinRabbinsB.ttf */; };
-		53FA68C82BBE9B9000E71FF4 /* LINESeedKR-Bd.otf in Resources */ = {isa = PBXBuildFile; fileRef = 53FA68C52BBE9B9000E71FF4 /* LINESeedKR-Bd.otf */; };
-		53FA68C92BBE9B9000E71FF4 /* LINESeedKR-Th.otf in Resources */ = {isa = PBXBuildFile; fileRef = 53FA68C62BBE9B9000E71FF4 /* LINESeedKR-Th.otf */; };
-		53FA68CA2BBE9B9000E71FF4 /* LINESeedKR-Rg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 53FA68C72BBE9B9000E71FF4 /* LINESeedKR-Rg.otf */; };
+		53FA68CE2BBEC47F00E71FF4 /* LINESeedKR-Th.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53FA68CB2BBEC47F00E71FF4 /* LINESeedKR-Th.ttf */; };
+		53FA68CF2BBEC47F00E71FF4 /* LINESeedKR-Rg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53FA68CC2BBEC47F00E71FF4 /* LINESeedKR-Rg.ttf */; };
+		53FA68D02BBEC47F00E71FF4 /* LINESeedKR-Bd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53FA68CD2BBEC47F00E71FF4 /* LINESeedKR-Bd.ttf */; };
+		53FA68D22BBEC4B800E71FF4 /* YANGJIN.otf in Resources */ = {isa = PBXBuildFile; fileRef = 53FA68D12BBEC4B700E71FF4 /* YANGJIN.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,9 +107,10 @@
 		14BBABBD2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedFlavorCollectionViewCell.xib; sourceTree = "<group>"; };
 		14BBABC62BBAF3BF002E118C /* BaskinRabbinsR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaskinRabbinsR.ttf; sourceTree = "<group>"; };
 		14BBABCD2BBAF413002E118C /* BaskinRabbinsB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaskinRabbinsB.ttf; sourceTree = "<group>"; };
-		53FA68C52BBE9B9000E71FF4 /* LINESeedKR-Bd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Bd.otf"; sourceTree = "<group>"; };
-		53FA68C62BBE9B9000E71FF4 /* LINESeedKR-Th.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Th.otf"; sourceTree = "<group>"; };
-		53FA68C72BBE9B9000E71FF4 /* LINESeedKR-Rg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Rg.otf"; sourceTree = "<group>"; };
+		53FA68CB2BBEC47F00E71FF4 /* LINESeedKR-Th.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Th.ttf"; sourceTree = "<group>"; };
+		53FA68CC2BBEC47F00E71FF4 /* LINESeedKR-Rg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Rg.ttf"; sourceTree = "<group>"; };
+		53FA68CD2BBEC47F00E71FF4 /* LINESeedKR-Bd.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Bd.ttf"; sourceTree = "<group>"; };
+		53FA68D12BBEC4B700E71FF4 /* YANGJIN.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = YANGJIN.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,9 +274,10 @@
 		14BBABC02BBAF0F6002E118C /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				53FA68C52BBE9B9000E71FF4 /* LINESeedKR-Bd.otf */,
-				53FA68C72BBE9B9000E71FF4 /* LINESeedKR-Rg.otf */,
-				53FA68C62BBE9B9000E71FF4 /* LINESeedKR-Th.otf */,
+				53FA68CD2BBEC47F00E71FF4 /* LINESeedKR-Bd.ttf */,
+				53FA68CC2BBEC47F00E71FF4 /* LINESeedKR-Rg.ttf */,
+				53FA68CB2BBEC47F00E71FF4 /* LINESeedKR-Th.ttf */,
+				53FA68D12BBEC4B700E71FF4 /* YANGJIN.otf */,
 				14BBABCD2BBAF413002E118C /* BaskinRabbinsB.ttf */,
 				14BBABC62BBAF3BF002E118C /* BaskinRabbinsR.ttf */,
 			);
@@ -385,21 +388,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53FA68D02BBEC47F00E71FF4 /* LINESeedKR-Bd.ttf in Resources */,
 				148BD1652BBA8399008036AC /* Assets.xcassets in Resources */,
-				53FA68C82BBE9B9000E71FF4 /* LINESeedKR-Bd.otf in Resources */,
 				148BD1682BBA8399008036AC /* Base in Resources */,
 				149DFB162BBE667300F177A3 /* CollectionViewCell.xib in Resources */,
 				149DFB192BBE667300F177A3 /* testStoryboard.storyboard in Resources */,
 				149DFB0D2BBE65A700F177A3 /* ProductCollectionViewCell.xib in Resources */,
-				53FA68CA2BBE9B9000E71FF4 /* LINESeedKR-Rg.otf in Resources */,
 				149DFB0A2BBE65A700F177A3 /* MenuView.storyboard in Resources */,
-				53FA68C92BBE9B9000E71FF4 /* LINESeedKR-Th.otf in Resources */,
 				14BBABCE2BBAF413002E118C /* BaskinRabbinsB.ttf in Resources */,
+				53FA68D22BBEC4B800E71FF4 /* YANGJIN.otf in Resources */,
 				14BBABB92BBABB8A002E118C /* FlavorCollectionViewCell.xib in Resources */,
 				14BBABBF2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib in Resources */,
+				53FA68CF2BBEC47F00E71FF4 /* LINESeedKR-Rg.ttf in Resources */,
 				149DFB222BBE673200F177A3 /* PaymentTableViewCell.xib in Resources */,
 				14BBABC82BBAF3BF002E118C /* BaskinRabbinsR.ttf in Resources */,
 				148BD1632BBA8398008036AC /* Base in Resources */,
+				53FA68CE2BBEC47F00E71FF4 /* LINESeedKR-Th.ttf in Resources */,
 				14BBABB62BBAB2EC002E118C /* DetailsView.storyboard in Resources */,
 				149DFB202BBE673200F177A3 /* PaymentStoryboard.storyboard in Resources */,
 				149DFB172BBE667300F177A3 /* MainPageStoryboard.storyboard in Resources */,
