@@ -71,16 +71,40 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.payNameLabel.text = thing.koreanName
             cell.payPriceLabel.text = "\(thing.price)원"
             cell.payImageView.image = thing.image
+            cell.payDetailLabel.text = ""
+            //버튼
+            cell.minusButtonAction = {
+                if cell.cnt > 1 { cell.cnt -= 1 }
+            }
+            cell.plusButtonAction = {
+                cell.cnt += 1
+            }
         } else if let thing = things[indexPath.row] as? Cake {
             // cake
             cell.payNameLabel.text = thing.koreanName
             cell.payPriceLabel.text = "\(thing.price)원"
             cell.payImageView.image = thing.image
+            cell.payDetailLabel.text = ""
+            //버튼
+            cell.minusButtonAction = {
+                if cell.cnt > 1 { cell.cnt -= 1 }
+            }
+            cell.plusButtonAction = {
+                cell.cnt += 1
+            }
         } else if let thing = things[indexPath.row] as? Beverage {
             //beverage
             cell.payNameLabel.text = thing.koreanName
             cell.payPriceLabel.text = "\(thing.price)원"
             cell.payImageView.image = thing.image
+            cell.payDetailLabel.text = ""
+            //버튼
+            cell.minusButtonAction = {
+                if cell.cnt > 1 { cell.cnt -= 1 }
+            }
+            cell.plusButtonAction = {
+                cell.cnt += 1
+            }
         }
         
         return cell
@@ -198,57 +222,6 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             footerView.heightAnchor.constraint(equalToConstant: 150) // 필요한 높이로 설정
         ])
         updateTotalAmount() //총 금액 초기화
-        
-        
-        things.append(
-            IceCream(koreanName: "파인트",
-                     englishName: "pint",
-                     choice: 3,
-                     flavor: [
-                        Flavor(name: "바닐라", image: UIImage(named: "Vanilla")!),
-                        Flavor(name: "월넛", image: UIImage(named:"Walnut")!)],
-                     price: 100,
-                     image: UIImage(named: "Vanilla")!))
-        
-        things.append(
-            IceCream(koreanName: "패밀리",
-                     englishName: "family",
-                     choice: 4,
-                     flavor: [
-                        Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
-                        Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
-                     price: 100,
-                     image: UIImage(named: "New York CheeseCake")!))
-        
-        things.append(
-            IceCream(koreanName: "패밀리",
-                     englishName: "family",
-                     choice: 4,
-                     flavor: [
-                        Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
-                        Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
-                     price: 300,
-                     image: UIImage(named: "New York CheeseCake")!))
-        
-        things.append(
-            IceCream(koreanName: "패밀리",
-                     englishName: "family",
-                     choice: 4,
-                     flavor: [
-                        Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
-                        Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
-                     price: 400,
-                     image: UIImage(named: "New York CheeseCake")!))
-        
-        things.append(
-            IceCream(koreanName: "패밀리",
-                     englishName: "family",
-                     choice: 4,
-                     flavor: [
-                        Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
-                        Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
-                     price: 200,
-                     image: UIImage(named: "New York CheeseCake")!))
         
         tableView.delegate = self
         tableView.dataSource = self
