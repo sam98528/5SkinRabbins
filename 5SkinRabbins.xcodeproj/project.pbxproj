@@ -21,12 +21,9 @@
 		148BD1932BBA86F0008036AC /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD1922BBA86F0008036AC /* Coffee.swift */; };
 		148BD1952BBA89F4008036AC /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD1942BBA89F4008036AC /* Beverage.swift */; };
 		148BD1972BBA8B28008036AC /* Cake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD1962BBA8B28008036AC /* Cake.swift */; };
-		39B3D2B62BBB9912000F61BE /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3D2B52BBB9912000F61BE /* testViewController.swift */; };
 		39B3D2C52BBC1E89000F61BE /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3D2C32BBC1E89000F61BE /* CollectionViewCell.swift */; };
-		39B3D2C62BBC1E89000F61BE /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B3D2C42BBC1E89000F61BE /* CollectionViewCell.xib */; };
 		39B948FD2BBAAAAC00A67D22 /* MainPageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39B948FC2BBAAAAC00A67D22 /* MainPageStoryboard.storyboard */; };
 		39B949212BBACF8000A67D22 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B949202BBACF8000A67D22 /* MainViewController.swift */; };
-		39DEFD472BBB89AB0081EB5B /* testStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39DEFD462BBB89AB0081EB5B /* testStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,12 +62,9 @@
 		148BD1922BBA86F0008036AC /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		148BD1942BBA89F4008036AC /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		148BD1962BBA8B28008036AC /* Cake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cake.swift; sourceTree = "<group>"; };
-		39B3D2B52BBB9912000F61BE /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		39B3D2C32BBC1E89000F61BE /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		39B3D2C42BBC1E89000F61BE /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		39B948FC2BBAAAAC00A67D22 /* MainPageStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainPageStoryboard.storyboard; sourceTree = "<group>"; };
 		39B949202BBACF8000A67D22 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		39DEFD462BBB89AB0081EB5B /* testStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = testStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,10 +178,7 @@
 			children = (
 				39B948FC2BBAAAAC00A67D22 /* MainPageStoryboard.storyboard */,
 				39B949202BBACF8000A67D22 /* MainViewController.swift */,
-				39DEFD462BBB89AB0081EB5B /* testStoryboard.storyboard */,
-				39B3D2B52BBB9912000F61BE /* testViewController.swift */,
 				39B3D2C32BBC1E89000F61BE /* CollectionViewCell.swift */,
-				39B3D2C42BBC1E89000F61BE /* CollectionViewCell.xib */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -296,9 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39DEFD472BBB89AB0081EB5B /* testStoryboard.storyboard in Resources */,
 				148BD1652BBA8399008036AC /* Assets.xcassets in Resources */,
-				39B3D2C62BBC1E89000F61BE /* CollectionViewCell.xib in Resources */,
 				148BD1682BBA8399008036AC /* Base in Resources */,
 				148BD1632BBA8398008036AC /* Base in Resources */,
 				39B948FD2BBAAAAC00A67D22 /* MainPageStoryboard.storyboard in Resources */,
@@ -334,7 +323,6 @@
 				148BD15E2BBA8398008036AC /* SceneDelegate.swift in Sources */,
 				39B949212BBACF8000A67D22 /* MainViewController.swift in Sources */,
 				148BD1932BBA86F0008036AC /* Coffee.swift in Sources */,
-				39B3D2B62BBB9912000F61BE /* testViewController.swift in Sources */,
 				148BD1952BBA89F4008036AC /* Beverage.swift in Sources */,
 				39B3D2C52BBC1E89000F61BE /* CollectionViewCell.swift in Sources */,
 			);

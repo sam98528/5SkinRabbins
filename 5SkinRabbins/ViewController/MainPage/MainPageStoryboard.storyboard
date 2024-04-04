@@ -217,10 +217,10 @@
                         <outlet property="Coffee" destination="0hI-2Y-U78" id="3sh-Xd-EPE"/>
                         <outlet property="CoffeeImage" destination="wL4-fH-2rv" id="YxJ-fz-ej0"/>
                         <outlet property="CoffeeLabel" destination="qPa-Wa-7xl" id="5Gz-YD-TXO"/>
-                        <outlet property="CollectionView" destination="pDM-ce-4iv" id="fHA-ya-JVm"/>
                         <outlet property="IceCreamCake" destination="eHo-Cx-HqO" id="1R7-4a-7V1"/>
                         <outlet property="IceCreamCakeImage" destination="9sq-GF-I4d" id="7zk-wc-Fo6"/>
                         <outlet property="IceCreamCakeLabel" destination="6Bt-jU-Wgz" id="KCM-xA-164"/>
+                        <outlet property="MainPageCollectionView" destination="pDM-ce-4iv" id="cl1-9c-v46"/>
                         <outlet property="Quart" destination="giu-GL-UAk" id="anT-OA-IxU"/>
                         <outlet property="QuartImage" destination="hB8-HL-Iid" id="cAj-JU-kXJ"/>
                         <outlet property="QuartLabel" destination="h09-Mc-fhS" id="RIb-hs-Hhk"/>
