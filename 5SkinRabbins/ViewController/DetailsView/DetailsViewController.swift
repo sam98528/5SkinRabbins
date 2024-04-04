@@ -1,3 +1,10 @@
+//
+//  DetailsViewController.swift
+//  5SkinRabbins
+//
+//  Created by Sam.Lee on 4/1/24.
+//
+
 import UIKit
 
 class DetailsViewController: UIViewController  {
@@ -113,9 +120,8 @@ extension DetailsViewController : UICollectionViewDataSource, UICollectionViewDe
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let page = Int(targetContentOffset.pointee.x / self.flavorCollectionView.frame.width)
         self.pageControl.currentPage = page
-
-
     }
+    
     
 }
 
@@ -226,3 +232,4 @@ extension DetailsViewController {
         
     }
 }
+

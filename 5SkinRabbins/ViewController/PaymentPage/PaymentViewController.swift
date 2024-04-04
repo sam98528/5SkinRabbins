@@ -7,7 +7,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var things: [Any] = []
     var totalPriceLabel: UILabel?
-    
+    let font = "BRR"
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return things.count
     }
@@ -18,7 +18,6 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.payPriceLabel.font = UIFont.boldSystemFont(ofSize: 14)
         cell.plusButton.tintColor = .black
         cell.minusButton.tintColor = .gray
-        
         //셀 삭제
         cell.deleteButtonAction = { [weak self] in
             self?.deleteThing(at: indexPath) // 셀 삭제 메서드 호출
@@ -71,17 +70,17 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             // coffee
             cell.payNameLabel.text = thing.koreanName
             cell.payPriceLabel.text = "\(thing.price)원"
-            cell.payImageView.image = nil
+            cell.payImageView.image = thing.image
         } else if let thing = things[indexPath.row] as? Cake {
             // cake
             cell.payNameLabel.text = thing.koreanName
             cell.payPriceLabel.text = "\(thing.price)원"
-            cell.payImageView.image = nil
+            cell.payImageView.image = thing.image
         } else if let thing = things[indexPath.row] as? Beverage {
             //beverage
             cell.payNameLabel.text = thing.koreanName
             cell.payPriceLabel.text = "\(thing.price)원"
-            cell.payImageView.image = nil
+            cell.payImageView.image = thing.image
         }
         
         return cell
@@ -186,7 +185,8 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        self.title = "주문 내역"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: font, size: 18)!, NSAttributedString.Key.foregroundColor:UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)]
         //footerView 수정
         let footerView = createFooterView()
         view.addSubview(footerView)
@@ -202,58 +202,53 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         
         things.append(
             IceCream(koreanName: "파인트",
-                     EnglishName: "pint",
+                     englishName: "pint",
                      choice: 3,
                      flavor: [
                         Flavor(name: "바닐라", image: UIImage(named: "Vanilla")!),
                         Flavor(name: "월넛", image: UIImage(named:"Walnut")!)],
                      price: 100,
-                     image: UIImage(named: "Vanilla")!,
-                     isCorn: true))
+                     image: UIImage(named: "Vanilla")!))
         
         things.append(
             IceCream(koreanName: "패밀리",
-                     EnglishName: "family",
+                     englishName: "family",
                      choice: 4,
                      flavor: [
                         Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
                         Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
                      price: 100,
-                     image: UIImage(named: "New York CheeseCake")!,
-                     isCorn: true))
+                     image: UIImage(named: "New York CheeseCake")!))
         
         things.append(
             IceCream(koreanName: "패밀리",
-                     EnglishName: "family",
+                     englishName: "family",
                      choice: 4,
                      flavor: [
                         Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
                         Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
                      price: 300,
-                     image: UIImage(named: "New York CheeseCake")!,
-                     isCorn: true))
+                     image: UIImage(named: "New York CheeseCake")!))
         
         things.append(
             IceCream(koreanName: "패밀리",
-                     EnglishName: "family",
+                     englishName: "family",
                      choice: 4,
                      flavor: [
                         Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
                         Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
                      price: 400,
-                     image: UIImage(named: "New York CheeseCake")!,
-                     isCorn: true))
+                     image: UIImage(named: "New York CheeseCake")!))
         
         things.append(
             IceCream(koreanName: "패밀리",
-                     EnglishName: "family",
+                     englishName: "family",
                      choice: 4,
                      flavor: [
                         Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
                         Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
                      price: 200,
-                     image: UIImage(named: "New York CheeseCake")!,
-                     isCorn: true))
+                     image: UIImage(named: "New York CheeseCake")!))
         
         tableView.delegate = self
         tableView.dataSource = self

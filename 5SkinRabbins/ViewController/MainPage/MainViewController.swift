@@ -30,6 +30,9 @@ class MainViewController: UIViewController {
         self.MainPageCollectionView.dataSource = self
         bannerTime()
         
+        MainPageCollectionView.layer.cornerRadius = 20
+        MainPageCollectionView.clipsToBounds = true
+        
         IceCreamCakeImage.image = UIImage(named: "Cake1")
         CoffeeImage.image = UIImage(named: "Coffee")
         BeverageImage.image = UIImage(named: "Beverage")
@@ -38,6 +41,10 @@ class MainViewController: UIViewController {
         CoffeeLabel.font = UIFont.boldSystemFont(ofSize: 20)
         BeverageLabel.font = UIFont.boldSystemFont(ofSize: 20)
         QuartLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        let backBarButtonItem = UIBarButtonItem(title: "돌아가기", style: .plain, target: self, action: nil) // title 부분 수정
+        backBarButtonItem.tintColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+        
         
         //이미지누르면 이동하게 하는거
         let IceCreamCakeRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(IceCreamCakefucn(_:)))
@@ -61,31 +68,46 @@ let bannerArray: Array<UIImage> = [UIImage(named: "Banner1")!, UIImage(named: "B
 
 
 //다른스토리보드로 넘어가는것 연결한 부분
-extension MainViewController {
+extension MainViewController {		
     
     //케이크페이지로 넘어가는부분
     @objc func IceCreamCakefucn(_ gesture: UITapGestureRecognizer) {
-        let storyboard: UIStoryboard = UIStoryboard(name: "testStoryboard", bundle: nil)
-        let viewcontroller = storyboard.instantiateViewController(withIdentifier: "testStoryboard")
-        navigationController?.pushViewController(viewcontroller, animated: true)
+        let storyboard: UIStoryboard? = UIStoryboard(name: "MenuView", bundle: Bundle.main)
+        guard let vc = storyboard?.instantiateViewController(identifier: "MenuViewController") as? MenuViewController else {
+            return
+        }
+        vc.selectedIndex = 1
+        //vc.modalPresentationStyle = .automatic
+        //self.present(vc, animated: true)
+        navigationController?.modalPresentationStyle = .overFullScreen
+        navigationController?.pushViewController(vc, animated: true)
     }
     //커피페이지로 넘어가는부분
     @objc func Coffeefunc(_ gesture: UITapGestureRecognizer) {
-        let storyboard2: UIStoryboard = UIStoryboard(name: "testStoryboard", bundle: nil)
-        let viewcontroller = storyboard2.instantiateViewController(withIdentifier: "testStoryboard")
-        navigationController?.pushViewController(viewcontroller, animated: true)
+        let storyboard: UIStoryboard? = UIStoryboard(name: "MenuView", bundle: Bundle.main)
+        guard let vc = storyboard?.instantiateViewController(identifier: "MenuViewController") as? MenuViewController else {
+            return
+        }
+        vc.selectedIndex = 3
+        navigationController?.pushViewController(vc, animated: true)
     }
     //음료페이지로 넘어가는부분
     @objc func Beveragefunc(_ gesture: UITapGestureRecognizer) {
-        let storyboard3: UIStoryboard = UIStoryboard(name: "testStoryboard", bundle: nil)
-        let viewcontroller = storyboard3.instantiateViewController(withIdentifier: "testStoryboard")
-        navigationController?.pushViewController(viewcontroller, animated: true)
+        let storyboard: UIStoryboard? = UIStoryboard(name: "MenuView", bundle: Bundle.main)
+        guard let vc = storyboard?.instantiateViewController(identifier: "MenuViewController") as? MenuViewController else {
+            return
+        }
+        vc.selectedIndex = 2
+        navigationController?.pushViewController(vc, animated: true)
     }
     //아이스크림으로 넘어가는부분
     @objc func Quartfunc(_ gesture: UITapGestureRecognizer) {
-        let storyboard4: UIStoryboard = UIStoryboard(name: "testStoryboard", bundle: nil)
-        let viewcontroller = storyboard4.instantiateViewController(withIdentifier: "testStoryboard")
-        navigationController?.pushViewController(viewcontroller, animated: true)
+        let storyboard: UIStoryboard? = UIStoryboard(name: "MenuView", bundle: Bundle.main)
+        guard let vc = storyboard?.instantiateViewController(identifier: "MenuViewController") as? MenuViewController else {
+            return
+        }
+        vc.selectedIndex = 0
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
