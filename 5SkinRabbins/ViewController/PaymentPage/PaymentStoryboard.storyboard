@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Payment View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="PaymentViewController" customModule="_SkinRabbins" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="pvH-uS-Em2">
+                                <rect key="frame" x="0.0" y="121" width="390" height="723"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="723" id="IMV-uZ-W3x"/>
+                                </constraints>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcf-82-LjH">
+                                <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="주문내역" id="54v-lS-jQa">
+                                        <barButtonItem key="leftBarButtonItem" image="chevron.left" catalog="system" id="j8B-3e-SWK">
+                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pvH-uS-Em2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="9Yq-Ib-73y"/>
+                            <constraint firstItem="pvH-uS-Em2" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Gbe-MU-ntF"/>
+                            <constraint firstItem="pvH-uS-Em2" firstAttribute="leading" secondItem="Hcf-82-LjH" secondAttribute="leading" id="H7E-1g-ZbL"/>
+                            <constraint firstItem="pvH-uS-Em2" firstAttribute="top" secondItem="Hcf-82-LjH" secondAttribute="bottom" constant="30" id="WIh-v8-SH7"/>
+                            <constraint firstItem="pvH-uS-Em2" firstAttribute="trailing" secondItem="Hcf-82-LjH" secondAttribute="trailing" id="cCj-rO-E0f"/>
+                            <constraint firstItem="Hcf-82-LjH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="ewm-al-Nev"/>
+                            <constraint firstAttribute="bottom" secondItem="pvH-uS-Em2" secondAttribute="bottom" id="tme-yV-uIS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="pvH-uS-Em2" id="jpU-7h-zxR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-229.23076923076923" y="31.990521327014218"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.left" catalog="system" width="97" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
