@@ -1,22 +1,22 @@
-////
-////  SelectedFlavorCollectionViewCell.swift
-////  5SkinRabbins
-////
-////  Created by Sam.Lee on 4/1/24.
-////
 //
-//import UIKit
+//  SelectedFlavorCollectionViewCell.swift
+//  5SkinRabbins
 //
-//class SelectedFlavorCollectionViewCell: UICollectionViewCell {
+//  Created by Sam.Lee on 4/1/24.
 //
-//    @IBOutlet weak var selctedFlavorImageView: UIImageView!
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
-//    static let identifier = "SelectedFlavorCollectionViewCell"
-//    
-//    static func nib() -> UINib {
-//        return UINib(nibName: "SelectedFlavorCollectionViewCell", bundle: nil)
-//    }
-//}
+
+import UIKit
+
+class SelectedFlavorCollectionViewCell: UICollectionViewCell {
+
+    @IBOutlet weak var selctedFlavorImageView: UIImageView!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    static let identifier = "SelectedFlavorCollectionViewCell"
+    
+    static func nib() -> UINib {
+        return UINib(nibName: "SelectedFlavorCollectionViewCell", bundle: nil)
+    }
+}
