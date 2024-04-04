@@ -110,7 +110,8 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
             guard let vc = storyboard?.instantiateViewController(identifier: "DetailsViewController") as? DetailsViewController else {
                 return
             }
-            
+            vc.selectedMenu = iceCreams[indexPath.row]
+            vc.delegate = self
             vc.modalPresentationStyle = .automatic
             vc.modalTransitionStyle = .coverVertical
             self.present(vc, animated: true,completion: nil)
@@ -183,6 +184,15 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     func updateCartBadge() {
         cartButton.addBadge(number: things.count)
     }
+}
+
+extension MenuViewController : FlavorDelegate {
+    func finishedFlavorEditing(iceCream: IceCream) {
+        things.append(iceCream)
+        updateCartBadge()
+    }
+    
+    
 }
 
 extension UIButton {

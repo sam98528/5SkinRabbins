@@ -7,17 +7,26 @@
 
 import UIKit
 
+protocol FlavorDelegate {
+    func finishedFlavorEditing(iceCream : IceCream)
+    
+}
+
+
 class DetailsViewController: UIViewController  {
     let fontB = "BRB"
     let fontR = "BRR"
     
     var selectedFlavor : [Flavor] = []
-    var selectedMenu : IceCream = IceCream(koreanName: "",englishName: "", choice: 2, flavor: [], price: 123, image: UIImage())
+    var selectedMenu : IceCream?
     
     
     var currentPage: Int = 0
     
+    var delegate : FlavorDelegate?
     
+    
+    @IBOutlet weak var dismissButton: UIBarButtonItem!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var selectedMenuButton: UIButton!
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -27,6 +36,36 @@ class DetailsViewController: UIViewController  {
     @IBOutlet weak var flavorCollectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBAction func dismissButtonClicked(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
+    @IBAction func cancelButtonClicked(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
+    
+    @IBAction func confirmButtonClicked(_ sender: Any) {
+        var check = true
+        for (index,element) in selectedFlavor.enumerated(){
+            if element.name == "" {
+                check = false
+                break
+            }
+        }
+        if !check {
+            var alert = UIAlertController(title: "경고", message:
+                                            "\(selectedFlavor.count)가지 맛을 채워주세요!", preferredStyle: .alert)
+            var cancel = UIAlertAction(title: "확인", style: .destructive, handler: nil)
+            alert.addAction(cancel)
+            present(alert, animated: true, completion: nil)
+        }else{
+            selectedMenu!.flavor = selectedFlavor
+            self.delegate?.finishedFlavorEditing(iceCream: selectedMenu!)
+            self.dismiss(animated: true)
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -82,6 +121,7 @@ extension DetailsViewController : UICollectionViewDataSource, UICollectionViewDe
             for (index,flavor) in selectedFlavor.enumerated() {
                 if flavor.image == UIImage(named: "icecream_line") {
                     selectedFlavor[index].image = Flavor.flavors[indexPath.row].image
+                    selectedFlavor[index].name = Flavor.flavors[indexPath.row].name
                     selectedFlavorCollectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
                     break
                 }
@@ -147,79 +187,88 @@ extension DetailsViewController {
     }
     
     func configureData(){
-        let choice = selectedMenu.choice
+        let choice = selectedMenu?.choice ?? 0
         selectedFlavor = []
         for _ in 0..<choice{
             selectedFlavor.append(Flavor(name: "", image: UIImage(named: "icecream_line")!))
         }
     }
-    
 }
 
 extension DetailsViewController {
     var items: [UIAction] {
-        
-        let single = UIAction(
-            title: "싱글",
-            image: UIImage(named: "Cherry Water Blast")!,
+        let singleCorn = UIAction(
+            title: "싱글 콘",
+            image: UIImage(named: "singleCorn")!,
             handler: {[unowned self] _ in
-                self.selectedMenuButton.setImage(UIImage(named: "Cherry Water Blast")!, for: .normal)
-                self.selectedMenu.choice = 1
+                self.selectedMenuButton.setImage(UIImage(named: "singleCorn")!, for: .normal)
+                self.selectedMenu = IceCream(koreanName: "싱글 콘", englishName: "Single Corn", choice: 1, flavor: [], price: 4700, image: UIImage(named: "singleCorn")!)
                 self.configureData()
                 self.selectedFlavorCollectionView.reloadData()
             })
         
-        let double = UIAction(
-            title: "더블",
-            image: UIImage(named: "Cherry Water Blast")!,
+        let singleCup = UIAction(
+            title: "싱글 컵",
+            image: UIImage(named: "singleCup")!,
             handler: {[unowned self] _ in
-                self.selectedMenuButton.setImage(UIImage(named: "Cherry Water Blast")!, for: .normal)
-                self.selectedMenu.choice = 2
+                self.selectedMenuButton.setImage(UIImage(named: "singleCup")!, for: .normal)
+                self.selectedMenu = IceCream(koreanName: "싱글 컵", englishName: "Single Cup", choice: 1, flavor: [], price: 4700, image: UIImage(named: "singleCup")!)
+                self.configureData()
+                self.selectedFlavorCollectionView.reloadData()
+            })
+        let double = UIAction(
+            title: "더블 콘",
+            image: UIImage(named: "doubleCorn")!,
+            handler: {[unowned self] _ in
+                self.selectedMenuButton.setImage(UIImage(named: "doubleCorn")!, for: .normal)
+                self.selectedMenu = IceCream(koreanName: "더블 콘", englishName: "Double Corn", choice: 2, flavor: [], price: 7300, image: UIImage(named: "doubleCorn")!)
                 self.configureData()
                 self.selectedFlavorCollectionView.reloadData()
             })
         
         let pint = UIAction(
             title: "파인트",
-            image: UIImage(named: "Cherry Water Blast")!,
+            image: UIImage(named: "pint")!,
             handler: {[unowned self] _ in
-                self.selectedMenuButton.setImage(UIImage(named: "Cherry Water Blast")!, for: .normal)
-                self.selectedMenu.choice = 3
+                self.selectedMenuButton.setImage(UIImage(named: "pint")!, for: .normal)
+                self.selectedMenu = IceCream(koreanName: "파인트", englishName: "Pint", choice: 3, flavor: [], price: 9800, image: UIImage(named: "pint")!)
                 self.configureData()
                 self.selectedFlavorCollectionView.reloadData()
             })
         
-        let quater = UIAction(
+        let quarter = UIAction(
             title: "쿼터",
-            image: UIImage(named: "Cherry Water Blast")!,
+            image: UIImage(named: "quarter")!,
             handler: {[unowned self] _ in
-                self.selectedMenuButton.setImage(UIImage(named: "Cherry Water Blast")!, for: .normal)
-                self.selectedMenu.choice = 4
-                self.configureData()
-                self.selectedFlavorCollectionView.reloadData()
-            })
-        
-        let halfGallon = UIAction(
-            title: "패밀리",
-            image: UIImage(named: "Cherry Water Blast")!,
-            handler: {[unowned self] _ in
-                self.selectedMenuButton.setImage(UIImage(named: "Cherry Water Blast")!, for: .normal)
-                self.selectedMenu.choice = 5
+                self.selectedMenuButton.setImage(UIImage(named: "quarter")!, for: .normal)
+                self.selectedMenu = IceCream(koreanName: "쿼터", englishName: "Quarter", choice: 4, flavor: [], price: 18500, image: UIImage(named: "quarter")!)
                 self.configureData()
                 self.selectedFlavorCollectionView.reloadData()
             })
         
         let family = UIAction(
-            title: "하브갤런",
-            image: UIImage(named: "Cherry Water Blast")!,
+            title: "패밀리",
+            image: UIImage(named: "family")!,
             handler: {[unowned self] _ in
-                self.selectedMenuButton.setImage(UIImage(named: "Cherry Water Blast")!, for: .normal)
-                self.selectedMenu.choice = 6
+                self.selectedMenuButton.setImage(UIImage(named: "family")!, for: .normal)
+                self.selectedMenu = IceCream(koreanName: "패밀리", englishName: "Family", choice: 5, flavor: [], price: 26000, image: UIImage(named: "family")!)
                 self.configureData()
                 self.selectedFlavorCollectionView.reloadData()
             })
         
-        let Items = [single, double, pint, quater, halfGallon, family]
+        let halfGallon = UIAction(
+            title: "하프갤런",
+            image: UIImage(named: "halfGallon")!,
+            handler: {[unowned self] _ in
+                self.selectedMenuButton.setImage(UIImage(named: "halfGallon")!, for: .normal)
+                self.selectedMenu = IceCream(koreanName: "하프 갤런", englishName: "Half-Gallon", choice: 6, flavor: [], price: 31500, image: UIImage(named: "halfGallon")!)
+                self.configureData()
+                self.selectedFlavorCollectionView.reloadData()
+            })
+        
+      
+        
+        let Items = [singleCorn,singleCup, double, pint, quarter, family, halfGallon]
         
         return Items
     }

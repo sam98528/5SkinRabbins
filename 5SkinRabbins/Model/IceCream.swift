@@ -25,10 +25,13 @@ struct IceCream {
 
 extension IceCream {
     static var iceCream : [IceCream] = [
-        IceCream(koreanName: "파인트", englishName: "TEST", choice: 2, flavor: [], price: 1234, image: UIImage(named: "31 Yogurt")!),
-        IceCream(koreanName: "파인트", englishName: "TEST", choice: 2, flavor: [], price: 1234, image: UIImage(named: "31 Yogurt")!),
-        IceCream(koreanName: "파인트", englishName: "TEST", choice: 2, flavor: [], price: 1234, image: UIImage(named: "31 Yogurt")!),
-        IceCream(koreanName: "파인트", englishName: "TEST", choice: 2, flavor: [], price: 1234, image: UIImage(named: "31 Yogurt")!),
+        IceCream(koreanName: "싱글 콘", englishName: "Single Corn", choice: 1, flavor: [], price: 4700, image: UIImage(named: "singleCorn")!),
+        IceCream(koreanName: "싱글 컵", englishName: "Single Cup", choice: 1, flavor: [], price: 4700, image: UIImage(named: "singleCup")!),
+        IceCream(koreanName: "더블 콘", englishName: "Double Corn", choice: 2, flavor: [], price: 7300, image: UIImage(named: "doubleCorn")!),
+        IceCream(koreanName: "파인트", englishName: "Pint", choice: 3, flavor: [], price: 9800, image: UIImage(named: "pint")!),
+        IceCream(koreanName: "쿼터", englishName: "Quarter", choice: 4, flavor: [], price: 18500, image: UIImage(named: "quarter")!),
+        IceCream(koreanName: "패밀리", englishName: "Family", choice: 5, flavor: [], price: 26000, image: UIImage(named: "family")!),
+        IceCream(koreanName: "하프 갤런", englishName: "Half-Gallon", choice: 6, flavor: [], price: 31500, image: UIImage(named: "halfGallon")!),
     
     ]
 }
