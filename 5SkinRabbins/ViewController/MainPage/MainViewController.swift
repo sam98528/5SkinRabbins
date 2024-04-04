@@ -74,6 +74,9 @@ extension MainViewController {
             return
         }
         vc.selectedIndex = 1
+        //vc.modalPresentationStyle = .automatic
+        //self.present(vc, animated: true)
+        navigationController?.modalPresentationStyle = .overFullScreen
         navigationController?.pushViewController(vc, animated: true)
     }
     //커피페이지로 넘어가는부분

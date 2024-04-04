@@ -13,6 +13,10 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    
+    var things: [Any] = []
+    
+    
     // 각 카테고리별 상품 배열
     var iceCreams: [IceCream] = IceCream.iceCream
     var cakes: [Cake] = Cake.cake
@@ -26,11 +30,12 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         guard let vc = storyboard?.instantiateViewController(identifier: "PaymentViewController") as? PaymentViewController else {
             return
         }
+        vc.things = self.things
         navigationController?.pushViewController(vc, animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        paymentButton.tintColor = UIColor(red: 1.00, green: 0.49, blue: 0.59, alpha: 1.00)
         // UICollectionViewFlowLayout을 사용하여 컬렉션 뷰의 레이아웃 설정
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
@@ -111,13 +116,16 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
             self.present(vc, animated: true,completion: nil)
         case 1:
             // 케이크 상품 선택 시 동작
-            print(cakes[indexPath.row].koreanName)
+            //print(cakes[indexPath.row].koreanName)
+            things.append(cakes[indexPath.row])
         case 2:
             // 음료 상품 선택 시 동작
-            print(beverages[indexPath.row].koreanName)
+            //print(beverages[indexPath.row].koreanName)
+            things.append(cakes[indexPath.row])
         case 3:
             // 커피 상품 선택 시 동작
-            print(coffees[indexPath.row].koreanName)
+            //print(coffees[indexPath.row].koreanName)
+            things.append(cakes[indexPath.row])
         default:
             print("error")
         }
