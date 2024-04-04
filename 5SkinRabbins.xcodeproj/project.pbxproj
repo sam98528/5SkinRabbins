@@ -20,9 +20,6 @@
 		148BD1932BBA86F0008036AC /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD1922BBA86F0008036AC /* Coffee.swift */; };
 		148BD1952BBA89F4008036AC /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD1942BBA89F4008036AC /* Beverage.swift */; };
 		148BD1972BBA8B28008036AC /* Cake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD1962BBA8B28008036AC /* Cake.swift */; };
-		39B3D2C52BBC1E89000F61BE /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3D2C32BBC1E89000F61BE /* CollectionViewCell.swift */; };
-		39B948FD2BBAAAAC00A67D22 /* MainPageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39B948FC2BBAAAAC00A67D22 /* MainPageStoryboard.storyboard */; };
-		39B949212BBACF8000A67D22 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B949202BBACF8000A67D22 /* MainViewController.swift */; };
 		148EDE502BBBD7350051E8D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148EDE4F2BBBD7350051E8D6 /* ViewController.swift */; };
 		14BBABB42BBAB267002E118C /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BBABB12BBAB267002E118C /* DetailsViewController.swift */; };
 		14BBABB62BBAB2EC002E118C /* DetailsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABB52BBAB2EC002E118C /* DetailsView.storyboard */; };
@@ -32,10 +29,6 @@
 		14BBABBF2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABBD2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib */; };
 		14BBABC82BBAF3BF002E118C /* BaskinRabbinsR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABC62BBAF3BF002E118C /* BaskinRabbinsR.ttf */; };
 		14BBABCE2BBAF413002E118C /* BaskinRabbinsB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABCD2BBAF413002E118C /* BaskinRabbinsB.ttf */; };
-		FBE6D7152BBCF401007FEC35 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6D7142BBCF401007FEC35 /* PaymentViewController.swift */; };
-		FBE6D7172BBCF424007FEC35 /* PaymentStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBE6D7162BBCF424007FEC35 /* PaymentStoryboard.storyboard */; };
-		FBE6D71A2BBCF467007FEC35 /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE6D7182BBCF467007FEC35 /* PaymentTableViewCell.swift */; };
-		FBE6D71B2BBCF467007FEC35 /* PaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBE6D7192BBCF467007FEC35 /* PaymentTableViewCell.xib */; };
 		539B9BCD2BBC28A7000FE615 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539B9BCB2BBC28A7000FE615 /* ProductCollectionViewCell.swift */; };
 		539B9BCE2BBC28A7000FE615 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 539B9BCC2BBC28A7000FE615 /* ProductCollectionViewCell.xib */; };
 		53C011B12BBBDC6F007E465A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C011B02BBBDC6F007E465A /* MenuViewController.swift */; };
@@ -77,9 +70,6 @@
 		148BD1922BBA86F0008036AC /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		148BD1942BBA89F4008036AC /* Beverage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		148BD1962BBA8B28008036AC /* Cake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cake.swift; sourceTree = "<group>"; };
-		39B3D2C32BBC1E89000F61BE /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		39B948FC2BBAAAAC00A67D22 /* MainPageStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainPageStoryboard.storyboard; sourceTree = "<group>"; };
-		39B949202BBACF8000A67D22 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		148EDE4F2BBBD7350051E8D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		14BBABB12BBAB267002E118C /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		14BBABB52BBAB2EC002E118C /* DetailsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailsView.storyboard; sourceTree = "<group>"; };
@@ -89,10 +79,6 @@
 		14BBABBD2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedFlavorCollectionViewCell.xib; sourceTree = "<group>"; };
 		14BBABC62BBAF3BF002E118C /* BaskinRabbinsR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaskinRabbinsR.ttf; sourceTree = "<group>"; };
 		14BBABCD2BBAF413002E118C /* BaskinRabbinsB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaskinRabbinsB.ttf; sourceTree = "<group>"; };
-		FBE6D7142BBCF401007FEC35 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
-		FBE6D7162BBCF424007FEC35 /* PaymentStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaymentStoryboard.storyboard; sourceTree = "<group>"; };
-		FBE6D7182BBCF467007FEC35 /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
-		FBE6D7192BBCF467007FEC35 /* PaymentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentTableViewCell.xib; sourceTree = "<group>"; };
 		539B9BCB2BBC28A7000FE615 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		539B9BCC2BBC28A7000FE615 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		53C011B02BBBDC6F007E465A /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -179,10 +165,8 @@
 		148BD18B2BBA84EA008036AC /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-	      FBE6D7132BBCF3C6007FEC35 /* PaymentPage */,
 				148EDE4F2BBBD7350051E8D6 /* ViewController.swift */,
 				148BD1612BBA8398008036AC /* Main.storyboard */,
-				39B948FB2BBAAA7400A67D22 /* MainPage */,
 				53C011AF2BBBDC2F007E465A /* MenuView */,
 				14BBABBB2BBABB94002E118C /* DetailsView */,
 			);
@@ -209,14 +193,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		39B948FB2BBAAA7400A67D22 /* MainPage */ = {
-			isa = PBXGroup;
-			children = (
-				39B948FC2BBAAAAC00A67D22 /* MainPageStoryboard.storyboard */,
-				39B949202BBACF8000A67D22 /* MainViewController.swift */,
-				39B3D2C32BBC1E89000F61BE /* CollectionViewCell.swift */,
-			);
-			path = MainPage;
 		14BBABBB2BBABB94002E118C /* DetailsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,15 +215,16 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		FBE6D7132BBCF3C6007FEC35 /* PaymentPage */ = {
+		53C011AF2BBBDC2F007E465A /* MenuView */ = {
 			isa = PBXGroup;
 			children = (
-				FBE6D7142BBCF401007FEC35 /* PaymentViewController.swift */,
-				FBE6D7162BBCF424007FEC35 /* PaymentStoryboard.storyboard */,
-				FBE6D7182BBCF467007FEC35 /* PaymentTableViewCell.swift */,
-				FBE6D7192BBCF467007FEC35 /* PaymentTableViewCell.xib */,
+				53C011B02BBBDC6F007E465A /* MenuViewController.swift */,
+				53C011B22BBBDCAA007E465A /* MenuView.storyboard */,
+				539B9BCB2BBC28A7000FE615 /* ProductCollectionViewCell.swift */,
+				539B9BCC2BBC28A7000FE615 /* ProductCollectionViewCell.xib */,
 			);
-			path = PaymentPage;
+			name = MenuView;
+			path = ../MenuView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,12 +337,9 @@
 				53C011B32BBBDCAA007E465A /* MenuView.storyboard in Resources */,
 				14BBABCE2BBAF413002E118C /* BaskinRabbinsB.ttf in Resources */,
 				14BBABB92BBABB8A002E118C /* FlavorCollectionViewCell.xib in Resources */,
-				FBE6D71B2BBCF467007FEC35 /* PaymentTableViewCell.xib in Resources */,
 				14BBABBF2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib in Resources */,
 				14BBABC82BBAF3BF002E118C /* BaskinRabbinsR.ttf in Resources */,
 				148BD1632BBA8398008036AC /* Base in Resources */,
-				39B948FD2BBAAAAC00A67D22 /* MainPageStoryboard.storyboard in Resources */,
-				FBE6D7172BBCF424007FEC35 /* PaymentStoryboard.storyboard in Resources */,
 				14BBABB62BBAB2EC002E118C /* DetailsView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,17 +371,13 @@
 				148BD1912BBA8666008036AC /* IceCream.swift in Sources */,
 				148EDE502BBBD7350051E8D6 /* ViewController.swift in Sources */,
 				148BD15C2BBA8398008036AC /* AppDelegate.swift in Sources */,
-        FBE6D71A2BBCF467007FEC35 /* PaymentTableViewCell.swift in Sources */,
 				539B9BCD2BBC28A7000FE615 /* ProductCollectionViewCell.swift in Sources */,
 				53C011B12BBBDC6F007E465A /* MenuViewController.swift in Sources */,
 				148BD18F2BBA861F008036AC /* Flavor.swift in Sources */,
-				FBE6D7152BBCF401007FEC35 /* PaymentViewController.swift in Sources */,
 				148BD15E2BBA8398008036AC /* SceneDelegate.swift in Sources */,
-				39B949212BBACF8000A67D22 /* MainViewController.swift in Sources */,
 				14BBABBA2BBABB8A002E118C /* FlavorCollectionViewCell.swift in Sources */,
 				148BD1932BBA86F0008036AC /* Coffee.swift in Sources */,
 				148BD1952BBA89F4008036AC /* Beverage.swift in Sources */,
-				39B3D2C52BBC1E89000F61BE /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
