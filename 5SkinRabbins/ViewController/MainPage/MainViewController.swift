@@ -7,22 +7,35 @@ class MainViewController: UIViewController {
     
     
     
-    @IBAction func toggleDarkMode(_ sender: Any) {
-        if #available(iOS 13.0, *) {
-            if let window = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-                if let window = window.windows.first {
-                    // 초기화면 다크 모드 상태
-                    let isDarkMode = window.overrideUserInterfaceStyle == .dark
-                    UserDefaults.standard.set(isDarkMode, forKey: "isDarkMode")
-                    // Dark Mode 상태에 따라 이미지 업데이트
-                    let imageName = isDarkMode ? "Light" : "Dark"
-                    darkModeSwitchButton.setImage(UIImage(named: imageName), for: .normal)
-                    // Dark Mode 상태 토글
-                    window.overrideUserInterfaceStyle = isDarkMode ? .light : .dark
-                }
+  
+    @IBAction func darkModeButtonTapped(_ sender: UIButton) {
+            if self.overrideUserInterfaceStyle == .light {
+                UserDefaults.standard.set("Dark", forKey: "Appearance")
+            } else {
+                UserDefaults.standard.set("Light", forKey: "Appearance")
+            }
+            AppearanceCheck(self)
+        }
+
+        override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            if UserDefaults.standard.string(forKey: "Appearance") == nil {
+                // UserDefaults에 Appearance 값이 없으면(처음 실행되는 경우) 기본값을 설정합니다.
+                UserDefaults.standard.set("Light", forKey: "Appearance")
+            }
+            AppearanceCheck(self)
+        }
+
+        func AppearanceCheck(_ ViewController: UIViewController) {
+            guard let appearance = UserDefaults.standard.string(forKey: "Appearance") else { return }
+            if appearance == "Dark" {
+                ViewController.overrideUserInterfaceStyle = .dark
+                darkModeSwitchButton.setImage(UIImage(named: "Dark"), for: .normal)
+            } else {
+                ViewController.overrideUserInterfaceStyle = .light
+                darkModeSwitchButton.setImage(UIImage(named: "Light"), for: .normal)
             }
         }
-    }
     
     
     //이미지랑 View종류
@@ -81,10 +94,6 @@ class MainViewController: UIViewController {
         Quart.font = UIFont(name: "LINESeedSansKR-Regular", size: 12)
         Quart.textColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
        
-        //다크모드 유저디폴트값 만들기
-        let isDarkMode = traitCollection.userInterfaceStyle == .dark
-        let darkModeImageName = isDarkMode ? "Dark" : "Light"
-        darkModeSwitchButton.setImage(UIImage(named: darkModeImageName), for: .normal)
         
         let backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: nil)
         backBarButtonItem.tintColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
