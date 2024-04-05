@@ -318,7 +318,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         var footerView = UIView()
         let footerHeight: CGFloat = 150
         footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: footerHeight))
-        footerView.backgroundColor = .clear
+        footerView.backgroundColor = UIColor.systemBackground
             
         let label = UILabel()
         let formattedAmount = formatCurrency(amount: totalAmount)
