@@ -39,7 +39,19 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         //titleLabel 폰트 설정
         titleLabel.font = yangJinFont
-       
+        
+        switch selectedIndex{
+        case 0:
+            titleLabel.text = "Ice Cream"
+        case 1:
+            titleLabel.text = "Ice Cream Cake"
+        case 2:
+            titleLabel.text = "Beverage"
+        case 3:
+            titleLabel.text = "Coffee"
+        default:
+            return
+        }
         //cartButton 컬러 설정
         cartButton.tintColor = UIColor(red: 1.00, green: 0.49, blue: 0.59, alpha: 1.00)
         
@@ -228,7 +240,8 @@ extension UIColor {
         let green = CGFloat((hex & 0x00FF00) >> 8) / 255.0
         let blue = CGFloat(hex & 0x0000FF) / 255.0
         self.init(red: red, green: green, blue: blue, alpha: alpha)
-      
+    }
+}
 extension MenuViewController : FlavorDelegate {
     func finishedFlavorEditing(iceCream: IceCream) {
         things.append(iceCream)
