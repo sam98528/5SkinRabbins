@@ -45,10 +45,12 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         flowLayout.itemSize = CGSize(width: Int(collectionView.frame.size.width / 2 - 20) , height: Int(collectionView.frame.size.height / 3) - 20)
         collectionView.collectionViewLayout = flowLayout
         
-        let backBarButtonItem = UIBarButtonItem(title: "돌아가기", style: .plain, target: self, action: nil) // title 부분 수정
+        let backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: nil)
         backBarButtonItem.tintColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
+        backBarButtonItem.imageInsets = UIEdgeInsets(top: 0, left: 10, bottom: 50, right: 50)
         self.navigationItem.backBarButtonItem = backBarButtonItem
-        
+        self.navigationController?.navigationBar.backIndicatorImage = UIImage()
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
         
         // 컬렉션 뷰 설정
         setupCollectionView()
@@ -110,7 +112,8 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
             guard let vc = storyboard?.instantiateViewController(identifier: "DetailsViewController") as? DetailsViewController else {
                 return
             }
-            
+            vc.selectedMenu = iceCreams[indexPath.row]
+            vc.delegate = self
             vc.modalPresentationStyle = .automatic
             vc.modalTransitionStyle = .coverVertical
             self.present(vc, animated: true,completion: nil)
@@ -183,6 +186,15 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     func updateCartBadge() {
         cartButton.addBadge(number: things.count)
     }
+}
+
+extension MenuViewController : FlavorDelegate {
+    func finishedFlavorEditing(iceCream: IceCream) {
+        things.append(iceCream)
+        updateCartBadge()
+    }
+    
+    
 }
 
 extension UIButton {
