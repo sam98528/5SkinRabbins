@@ -14,8 +14,9 @@ protocol FlavorDelegate {
 
 
 class DetailsViewController: UIViewController  {
-    let titleFont = "YANGJIN"
-    let labelFont = "LINESeedSansKR-Bold"
+    let fontB = "BRB"
+    let fontR = "BRR"
+    
     var selectedFlavor : [Flavor] = []
     var selectedMenu : IceCream?
     
@@ -46,16 +47,16 @@ class DetailsViewController: UIViewController  {
     
     @IBAction func confirmButtonClicked(_ sender: Any) {
         var check = true
-        for (_,element) in selectedFlavor.enumerated(){
+        for (index,element) in selectedFlavor.enumerated(){
             if element.name == "" {
                 check = false
                 break
             }
         }
         if !check {
-            let alert = UIAlertController(title: "경고", message:
+            var alert = UIAlertController(title: "경고", message:
                                             "\(selectedFlavor.count)가지 맛을 채워주세요!", preferredStyle: .alert)
-            let cancel = UIAlertAction(title: "확인", style: .destructive, handler: nil)
+            var cancel = UIAlertAction(title: "확인", style: .destructive, handler: nil)
             alert.addAction(cancel)
             present(alert, animated: true, completion: nil)
         }else{
@@ -141,7 +142,7 @@ extension DetailsViewController : UICollectionViewDataSource, UICollectionViewDe
             
             cell.flavorImageView.image = Flavor.flavors[indexPath.row].image
             cell.flavorNameLabel.text = Flavor.flavors[indexPath.row].name
-            cell.flavorNameLabel.font = UIFont(name: labelFont, size: 13)
+            cell.flavorNameLabel.font = UIFont(name: fontR, size: 13)
             return cell
         case selectedFlavorCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectedFlavorCollectionViewCell.identifier, for: indexPath) as! SelectedFlavorCollectionViewCell
@@ -171,17 +172,13 @@ extension DetailsViewController {
         confirmButton.clipsToBounds = true
         confirmButton.layer.borderColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 0.05).cgColor
         confirmButton.layer.borderWidth = 2
-        confirmButton.titleLabel?.font = UIFont(name: labelFont, size: 17)
         
         cancelButton.layer.cornerRadius = cancelButton.bounds.height / 2
         cancelButton.clipsToBounds = true
         cancelButton.layer.borderColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 0.05).cgColor
         cancelButton.layer.borderWidth = 2
-        cancelButton.titleLabel?.font = UIFont(name: labelFont, size: 17)
         
         titleLabel.textColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
-        titleLabel.font = UIFont(name: titleFont, size: 34)
-        titleLabel.text = "Flavor"
         navigationBar.shadowImage = UIImage()
         
         pageControl.numberOfPages = Int(ceil(Double(Flavor.flavors.count) / Double(9)))
