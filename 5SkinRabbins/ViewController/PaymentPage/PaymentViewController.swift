@@ -240,6 +240,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.register(nibName, forCellReuseIdentifier: "paymentCell")
         
         tableView.reloadData()
+        updateFooterView()
         
     }
     

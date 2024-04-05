@@ -170,7 +170,6 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
          cell.layer.cornerRadius = 8
          cell.layer.borderWidth = 1
          cell.layer.borderColor = UIColor(red: 0.932, green: 0.932, blue: 0.932, alpha: 1).cgColor
-     
         // 해당 카테고리의 상품으로 셀 구성
         switch segmentedControl.selectedSegmentIndex {
         case 0:
