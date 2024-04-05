@@ -6,7 +6,11 @@
 //
 import UIKit
 
-class MenuViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MenuViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, ThingsDelegate {
+    func thingsChanged() {
+        updateCartBadge()
+    }
+    
     
     @IBOutlet weak var cartButton: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -15,7 +19,6 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     let yangJinFont = UIFont(name: "YANGJIN", size: 34.0)
     
-    var things: [Any] = []
     
     // 각 카테고리별 상품 배열
     var iceCreams: [IceCream] = IceCream.iceCream
@@ -30,7 +33,7 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         guard let vc = storyboard?.instantiateViewController(identifier: "PaymentViewController") as? PaymentViewController else {
             return
         }
-        vc.things = self.things
+        vc.delegate = self
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -144,17 +147,17 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         case 1:
             // 케이크 상품 선택 시 동작
             //print(cakes[indexPath.row].koreanName)
-            things.append(cakes[indexPath.row])
+            Menu.things.append(cakes[indexPath.row])
             updateCartBadge()
         case 2:
             // 음료 상품 선택 시 동작
             //print(beverages[indexPath.row].koreanName)
-            things.append(beverages[indexPath.row])
+            Menu.things.append(beverages[indexPath.row])
             updateCartBadge()
         case 3:
             // 커피 상품 선택 시 동작
             //print(coffees[indexPath.row].koreanName)
-            things.append(coffees[indexPath.row])
+            Menu.things.append(coffees[indexPath.row])
             updateCartBadge()
         default:
             print("error")
@@ -207,7 +210,7 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         collectionView.reloadData()
     }
     func updateCartBadge() {
-        cartButton.addBadge(number: things.count)
+        cartButton.addBadge(number: Menu.things.count)
     }
 }
 
@@ -243,7 +246,7 @@ extension UIColor {
 }
 extension MenuViewController : FlavorDelegate {
     func finishedFlavorEditing(iceCream: IceCream) {
-        things.append(iceCream)
+        Menu.things.append(iceCream)
         updateCartBadge()
     }
     
