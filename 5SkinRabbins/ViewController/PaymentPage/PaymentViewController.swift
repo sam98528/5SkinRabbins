@@ -74,16 +74,40 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.payNameLabel.text = thing.koreanName
             cell.payPriceLabel.text = "\(thing.price)원"
             cell.payImageView.image = thing.image
+            cell.payDetailLabel.text = ""
+            //버튼
+            cell.minusButtonAction = {
+                if cell.cnt > 1 { cell.cnt -= 1 }
+            }
+            cell.plusButtonAction = {
+                cell.cnt += 1
+            }
         } else if let thing = things[indexPath.row] as? Cake {
             // cake
             cell.payNameLabel.text = thing.koreanName
             cell.payPriceLabel.text = "\(thing.price)원"
             cell.payImageView.image = thing.image
+            cell.payDetailLabel.text = ""
+            //버튼
+            cell.minusButtonAction = {
+                if cell.cnt > 1 { cell.cnt -= 1 }
+            }
+            cell.plusButtonAction = {
+                cell.cnt += 1
+            }
         } else if let thing = things[indexPath.row] as? Beverage {
             //beverage
             cell.payNameLabel.text = thing.koreanName
             cell.payPriceLabel.text = "\(thing.price)원"
             cell.payImageView.image = thing.image
+            cell.payDetailLabel.text = ""
+            //버튼
+            cell.minusButtonAction = {
+                if cell.cnt > 1 { cell.cnt -= 1 }
+            }
+            cell.plusButtonAction = {
+                cell.cnt += 1
+            }
         }
         
         return cell
@@ -190,6 +214,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         self.title = "주문 내역"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: font, size: 18)!, NSAttributedString.Key.foregroundColor:UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)]
+        
         //footerView 수정
         let footerView = createFooterView()
         view.addSubview(footerView)
@@ -202,56 +227,10 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         ])
         updateTotalAmount() //총 금액 초기화
         
-        
-        things.append(
-            IceCream(koreanName: "파인트",
-                     englishName: "pint",
-                     choice: 3,
-                     flavor: [
-                        Flavor(name: "바닐라", image: UIImage(named: "Vanilla")!),
-                        Flavor(name: "월넛", image: UIImage(named:"Walnut")!)],
-                     price: 100,
-                     image: UIImage(named: "Vanilla")!))
-        
-        things.append(
-            IceCream(koreanName: "패밀리",
-                     englishName: "family",
-                     choice: 4,
-                     flavor: [
-                        Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
-                        Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
-                     price: 100,
-                     image: UIImage(named: "New York CheeseCake")!))
-        
-        things.append(
-            IceCream(koreanName: "패밀리",
-                     englishName: "family",
-                     choice: 4,
-                     flavor: [
-                        Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
-                        Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
-                     price: 300,
-                     image: UIImage(named: "New York CheeseCake")!))
-        
-        things.append(
-            IceCream(koreanName: "패밀리",
-                     englishName: "family",
-                     choice: 4,
-                     flavor: [
-                        Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
-                        Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
-                     price: 400,
-                     image: UIImage(named: "New York CheeseCake")!))
-        
-        things.append(
-            IceCream(koreanName: "패밀리",
-                     englishName: "family",
-                     choice: 4,
-                     flavor: [
-                        Flavor(name: "망고 탱고", image: UIImage(named: "Mango Tango")!),
-                        Flavor(name: "뉴욕 치즈케이크", image: UIImage(named:"New York CheeseCake")!)],
-                     price: 200,
-                     image: UIImage(named: "New York CheeseCake")!))
+        //footerView에 가려지지 않게
+        let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: footerView.bounds.height, right: 0)
+        tableView.contentInset = contentInset
+        tableView.scrollIndicatorInsets = contentInset
         
         tableView.delegate = self
         tableView.dataSource = self
