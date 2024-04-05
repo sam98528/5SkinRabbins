@@ -14,8 +14,8 @@ protocol FlavorDelegate {
 
 
 class DetailsViewController: UIViewController  {
-    let fontB = "BRB"
-    let fontR = "BRR"
+    let titleFont = "OAGothic-ExtraBold"
+    let labelFont = "LINESeedSansKR-Bold"
     
     var selectedFlavor : [Flavor] = []
     var selectedMenu : IceCream?
@@ -47,16 +47,16 @@ class DetailsViewController: UIViewController  {
     
     @IBAction func confirmButtonClicked(_ sender: Any) {
         var check = true
-        for (index,element) in selectedFlavor.enumerated(){
+        for (_,element) in selectedFlavor.enumerated(){
             if element.name == "" {
                 check = false
                 break
             }
         }
         if !check {
-            var alert = UIAlertController(title: "경고", message:
+            let alert = UIAlertController(title: "경고", message:
                                             "\(selectedFlavor.count)가지 맛을 채워주세요!", preferredStyle: .alert)
-            var cancel = UIAlertAction(title: "확인", style: .destructive, handler: nil)
+            let cancel = UIAlertAction(title: "확인", style: .destructive, handler: nil)
             alert.addAction(cancel)
             present(alert, animated: true, completion: nil)
         }else{
@@ -142,7 +142,8 @@ extension DetailsViewController : UICollectionViewDataSource, UICollectionViewDe
             
             cell.flavorImageView.image = Flavor.flavors[indexPath.row].image
             cell.flavorNameLabel.text = Flavor.flavors[indexPath.row].name
-            cell.flavorNameLabel.font = UIFont(name: fontR, size: 13)
+            cell.flavorNameLabel.font = UIFont(name: labelFont, size: 13)
+            cell.flavorNameLabel.textColor = UIColor(red: 0.086, green: 0.086, blue: 0.086, alpha: 1)
             return cell
         case selectedFlavorCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectedFlavorCollectionViewCell.identifier, for: indexPath) as! SelectedFlavorCollectionViewCell
@@ -151,7 +152,7 @@ extension DetailsViewController : UICollectionViewDataSource, UICollectionViewDe
             cell.selctedFlavorImageView.backgroundColor = UIColor.white
             cell.layer.borderWidth = 3
             cell.clipsToBounds = true
-            cell.layer.borderColor = UIColor(red: 0.95, green: 0.82, blue: 0.82, alpha: 1.00).cgColor
+            cell.layer.borderColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1).cgColor
             return cell
         default:
             return UICollectionViewCell()
@@ -172,18 +173,24 @@ extension DetailsViewController {
         confirmButton.clipsToBounds = true
         confirmButton.layer.borderColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 0.05).cgColor
         confirmButton.layer.borderWidth = 2
+        confirmButton.titleLabel?.font = UIFont(name: labelFont, size: 17)
+        confirmButton.backgroundColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
         
         cancelButton.layer.cornerRadius = cancelButton.bounds.height / 2
         cancelButton.clipsToBounds = true
         cancelButton.layer.borderColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 0.05).cgColor
         cancelButton.layer.borderWidth = 2
+        cancelButton.titleLabel?.font = UIFont(name: labelFont, size: 17)
+        cancelButton.titleLabel?.textColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
         
-        titleLabel.textColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
+        titleLabel.textColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
+        titleLabel.font = UIFont(name: titleFont, size: 34)
+                titleLabel.text = "Flavor"
         navigationBar.shadowImage = UIImage()
         
         pageControl.numberOfPages = Int(ceil(Double(Flavor.flavors.count) / Double(9)))
         pageControl.pageIndicatorTintColor = UIColor.systemGray
-        pageControl.currentPageIndicatorTintColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
+        pageControl.currentPageIndicatorTintColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
         selectedMenuButton.setImage(selectedMenu?.image, for: .normal)
     }
     
