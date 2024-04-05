@@ -19,6 +19,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var BeverageLabel: UILabel!
     @IBOutlet weak var Quart: UILabel!
     @IBOutlet weak var QuartLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    
     
     //컬렉션뷰
     @IBOutlet weak var MainPageCollectionView: UICollectionView!
@@ -29,7 +31,10 @@ class MainViewController: UIViewController {
         self.MainPageCollectionView.delegate = self
         self.MainPageCollectionView.dataSource = self
         bannerTime()
-        
+        MainPageCollectionView.layer.cornerRadius = 8
+        MainPageCollectionView.clipsToBounds = true
+    
+        titleLabel.font = UIFont(name: "BRB", size: 40)
         IceCreamCakeImage.image = UIImage(named: "Cake1")
         CoffeeImage.image = UIImage(named: "Coffee")
         BeverageImage.image = UIImage(named: "Beverage")
