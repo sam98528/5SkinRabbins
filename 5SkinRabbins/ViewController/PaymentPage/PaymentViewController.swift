@@ -218,7 +218,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         
         super.viewDidLoad()
         self.title = "주문 내역"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: font, size: 18)!, NSAttributedString.Key.foregroundColor:UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: font, size: 22)!, NSAttributedString.Key.foregroundColor:UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)]
         
         //footerView 수정
         let footerView = createFooterView()
@@ -271,8 +271,8 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         button1.translatesAutoresizingMaskIntoConstraints = false
         footerView.addSubview(button1)
             
-        button1.setTitleColor(.systemPink, for: .normal)
-        button1.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button1.setTitleColor(UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1), for: .normal)
+        button1.titleLabel?.font = UIFont(name: "LINESeedSansKR-Bold", size: 17)
         button1.backgroundColor = .white
         button1.layer.cornerRadius = 10
         button1.layer.borderWidth = 0.5
@@ -285,8 +285,8 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         footerView.addSubview(button2)
         
         button2.setTitleColor(.white, for: .normal)
-        button2.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        button2.backgroundColor = .systemPink
+        button2.titleLabel?.font = UIFont(name: "LINESeedSansKR-Bold", size: 17)
+        button2.backgroundColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
         button2.layer.cornerRadius = 10
         
         NSLayoutConstraint.activate([
