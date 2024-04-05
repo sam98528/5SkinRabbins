@@ -23,23 +23,26 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var englishNameLabel: UILabel!
     
-    //LINESeedSansKR-Regular
-    //LINESeedSansKR-Thin
-    //LINESeedSansKR-Bold
-    //YANGJIN
-    // 폰트 설정
-    let lineFontB = UIFont(name: "LINESeedSansKR-Bold", size: 22.0)
-    let lineFontR = UIFont(name: "LINESeedSansKR-Regular", size: 12.0)
+    /* 폰트명
+    OAGothic-ExtraBold
+    LINESeedSansKR-Regular
+    LINESeedSansKR-Thin
+    LINESeedSansKR-Bold
+    */
     
      override func awakeFromNib() {
          super.awakeFromNib()
          
          // 셀 내 레이블에 폰트 일괄 적용
-         productNameLabel.font = lineFontB
-         productNameLabel.textColor = UIColor(hex: 0x222222)
-         englishNameLabel.font = lineFontR
-         productPriceLabel.font = lineFontB
-         productPriceLabel.textColor = UIColor(hex: 0x222222)
+         productNameLabel.font = UIFont(name: "LINESeedSansKR-Bold", size: 22)
+         productNameLabel.textColor = UIColor(red: 0.086, green: 0.086, blue: 0.086, alpha: 1)
+             
+         englishNameLabel.font = UIFont(name: "LINESeedSansKR-Regular", size: 12)
+         englishNameLabel.textColor = UIColor(red: 0.086, green: 0.086, blue: 0.086, alpha: 0.86)
+             
+             
+         productPriceLabel.font = UIFont(name: "LINESeedSansKR-Bold", size: 20)
+         productPriceLabel.textColor = UIColor(red: 0.086, green: 0.086, blue: 0.086, alpha: 1)
      }
     
     // IceCream 셀 설정

@@ -13,8 +13,6 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    let yangJinFont = UIFont(name: "YANGJIN", size: 34.0)
-    
     var things: [Any] = []
     
     // 각 카테고리별 상품 배열
@@ -38,7 +36,8 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewDidLoad()
         
         //titleLabel 폰트 설정
-        titleLabel.font = yangJinFont
+        titleLabel.font = UIFont(name: "OAGothic-ExtraBold", size: 34)
+        titleLabel.textColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
         
         switch selectedIndex{
         case 0:
@@ -53,7 +52,7 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
             return
         }
         //cartButton 컬러 설정
-        cartButton.tintColor = UIColor(red: 1.00, green: 0.49, blue: 0.59, alpha: 1.00)
+        cartButton.tintColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
         
         // UICollectionViewFlowLayout을 사용하여 컬렉션 뷰의 레이아웃 설정
         let flowLayout = UICollectionViewFlowLayout()
@@ -152,17 +151,14 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
             self.present(vc, animated: true,completion: nil)
         case 1:
             // 케이크 상품 선택 시 동작
-            //print(cakes[indexPath.row].koreanName)
             things.append(cakes[indexPath.row])
             updateCartBadge()
         case 2:
             // 음료 상품 선택 시 동작
-            //print(beverages[indexPath.row].koreanName)
             things.append(beverages[indexPath.row])
             updateCartBadge()
         case 3:
             // 커피 상품 선택 시 동작
-            //print(coffees[indexPath.row].koreanName)
             things.append(coffees[indexPath.row])
             updateCartBadge()
         default:
@@ -179,6 +175,7 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
          cell.layer.cornerRadius = 8
          cell.layer.borderWidth = 1
          cell.layer.borderColor = UIColor(red: 0.932, green: 0.932, blue: 0.932, alpha: 1).cgColor
+        
         // 해당 카테고리의 상품으로 셀 구성
         switch segmentedControl.selectedSegmentIndex {
         case 0:
@@ -226,7 +223,7 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
          let badgeLabel = UILabel(frame: CGRect(x: self.frame.size.width - 16, y: -8, width: 28, height: 28))
          badgeLabel.layer.borderWidth = 1.0 // 스트로크 두께 설정
          badgeLabel.layer.borderColor = UIColor(red: 0.34, green: 0.29, blue: 0.24, alpha: 0.6).cgColor
-         badgeLabel.backgroundColor = UIColor(hex: 0x575152)
+         badgeLabel.backgroundColor = UIColor(red: 0.242, green: 0.242, blue: 0.242, alpha: 1)
          badgeLabel.textColor = .white
          badgeLabel.textAlignment = .center
          badgeLabel.layer.cornerRadius = badgeLabel.bounds.size.width / 2
@@ -242,14 +239,6 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
      }
  }
 
-extension UIColor {
-    convenience init(hex: UInt32, alpha: CGFloat = 1.0) {
-        let red = CGFloat((hex & 0xFF0000) >> 16) / 255.0
-        let green = CGFloat((hex & 0x00FF00) >> 8) / 255.0
-        let blue = CGFloat(hex & 0x0000FF) / 255.0
-        self.init(red: red, green: green, blue: blue, alpha: alpha)
-    }
-}
 extension MenuViewController : FlavorDelegate {
     func finishedFlavorEditing(iceCream: IceCream) {
         things.append(iceCream)
