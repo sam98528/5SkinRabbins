@@ -121,7 +121,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     private func deleteThing(at indexPath: IndexPath) {
         guard !things.isEmpty else {
             // 장바구니가 비었을 때
-            updateFooterView(for: true)
+            EmptySubView()
             return
         }
             
@@ -135,27 +135,35 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // 모든 셀을 삭제한 후 장바구니가 비었습니다 메시지를 표시할 수도 있습니다.
         if things.isEmpty {
-            updateFooterView(for: true)
+            EmptySubView()
         }
     }
     
-    //장바구니가 비어있을 때
-    private func updateFooterView(for isEmpty: Bool) {
+    //장바구니가 비어있을 때 (서브 뷰로 변경)
+    private func EmptySubView() {
+        let isEmpty = things.isEmpty
         if isEmpty {
-            // 장바구니가 비어있을 때의 footerView
-            let emptyCartView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 50))
-            let messageLabel = UILabel(frame: emptyCartView.bounds)
-            messageLabel.textAlignment = .center
-            messageLabel.text = "장바구니가 비었습니다."
-            emptyCartView.addSubview(messageLabel)
-            tableView.tableFooterView = emptyCartView
+            // 장바구니가 비어있는 경우
+            let emptyCartView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height))
+                let messageLabel = UILabel() // 크기는 나중에 정의될 것입니다.
+                messageLabel.textAlignment = .center
+                messageLabel.text = "장바구니가 비었습니다."
+                messageLabel.textColor = .lightGray // 색상 변경
+                
+                emptyCartView.addSubview(messageLabel)
+                tableView.backgroundView = emptyCartView
+                tableView.separatorStyle = .none
+            
+                // Auto Layout을 사용하여 messageLabel을 화면 중앙에 배치합니다.
+                messageLabel.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    messageLabel.centerXAnchor.constraint(equalTo: emptyCartView.centerXAnchor),
+                    messageLabel.centerYAnchor.constraint(equalTo: emptyCartView.centerYAnchor, constant: -50)
+                ])
         } else {
-            // 장바구니에 물건이 있을 때의 footerView
-            let footerHeight: CGFloat = 150
-            let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: footerHeight))
-            // 이하 footerView의 내용 설정 로직 추가
-            // ...
-            tableView.tableFooterView = footerView
+            // 장바구니에 물건이 있는 경우
+            tableView.backgroundView = nil
+            tableView.separatorStyle = .singleLine
         }
     }
     
@@ -240,7 +248,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.register(nibName, forCellReuseIdentifier: "paymentCell")
         
         tableView.reloadData()
-        updateFooterView()
+        EmptySubView()
         
     }
     
@@ -307,7 +315,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             self.things.removeAll()
             self.tableView.reloadData()
             self.updateTotalAmount()
-            self.updateFooterView()
+            self.EmptySubView()
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
 
@@ -338,15 +346,10 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             self.things.removeAll()
             self.tableView.reloadData()
             self.updateTotalAmount()
-            self.updateFooterView()
+            self.EmptySubView()
         }
         alertController.addAction(confirmAction)
         present(alertController, animated: true, completion: nil)
-    }
-    
-    private func updateFooterView() {
-        let isEmpty = things.isEmpty
-        updateFooterView(for: isEmpty)
     }
 
 }
