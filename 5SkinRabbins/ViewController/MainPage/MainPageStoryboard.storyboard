@@ -29,7 +29,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="Light"/>
                                 <connections>
-                                    <action selector="darkModeButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="uMZ-rB-TPw"/>
+                                    <action selector="toggleDarkMode:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fiW-tZ-sJJ"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="5SkinRabbins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBC-qC-h1n">
