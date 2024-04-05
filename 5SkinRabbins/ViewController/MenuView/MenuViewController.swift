@@ -44,7 +44,7 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         case 0:
             titleLabel.text = "Ice Cream"
         case 1:
-            titleLabel.text = "Ice Cream Cake"
+            titleLabel.text = "Cake"
         case 2:
             titleLabel.text = "Beverage"
         case 3:
@@ -57,11 +57,16 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         // UICollectionViewFlowLayout을 사용하여 컬렉션 뷰의 레이아웃 설정
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        flowLayout.minimumLineSpacing = 12
-        flowLayout.minimumInteritemSpacing = 12
-        flowLayout.scrollDirection = .vertical
-        flowLayout.itemSize = CGSize(width: Int(collectionView.frame.size.width / 2 - 6 ) , height: Int(collectionView.frame.size.height / 2.8 ) )
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8) // 상하좌우 여백 설정
+        flowLayout.minimumLineSpacing = 12 // 행 간 최소 간격
+        flowLayout.minimumInteritemSpacing = 12 // 열 간 최소 간격
+        flowLayout.scrollDirection = .vertical // 스크롤 방향
+
+        // 셀 크기 설정
+        let itemWidth = (collectionView.bounds.width - flowLayout.sectionInset.left - flowLayout.sectionInset.right - flowLayout.minimumInteritemSpacing) / 2 // 한 행에 2개의 셀이 들어가도록 설정
+        let itemHeight = itemWidth * 1.4 // 가로:세로 비율
+        flowLayout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        
         collectionView.collectionViewLayout = flowLayout
         
         let backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: nil)
@@ -97,7 +102,7 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
             titleLabel.text = "Ice Cream"
         case 1:
             loadCakes()
-            titleLabel.text = "Ice Cream Cake"
+            titleLabel.text = "Cake"
         case 2:
             loadBeverages()
             titleLabel.text = "Beverage"
