@@ -10,10 +10,18 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // 폰트명 확인 하기
+        /*
+        for fontFamily in UIFont.familyNames {
+                 for fontName in UIFont.fontNames(forFamilyName: fontFamily) {
+                     print(fontName)
+                 }
+             }
+        */
+        
         return true
     }
 

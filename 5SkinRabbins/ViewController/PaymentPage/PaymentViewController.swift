@@ -18,7 +18,6 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.payPriceLabel.font = UIFont.boldSystemFont(ofSize: 14)
         cell.plusButton.tintColor = .black
         cell.minusButton.tintColor = .gray
-        
         //셀 삭제
         cell.deleteButtonAction = { [weak self] in
             self?.deleteThing(at: indexPath) // 셀 삭제 메서드 호출
@@ -55,11 +54,14 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             }
             cell.payDetailLabel.text = flavorText
             //이미지 (일단은 고른 맛에 첫번째 이미지로..)
+            /*
             if let firstFlavorImage = thing.flavor.first?.image {
                 cell.payImageView.image = firstFlavorImage
             } else {
                 cell.payImageView.image = nil
             }
+             */
+            cell.payImageView.image = thing.image
             //버튼
             cell.minusButtonAction = {
                 if cell.cnt > 1 { cell.cnt -= 1 }
@@ -71,17 +73,17 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             // coffee
             cell.payNameLabel.text = thing.koreanName
             cell.payPriceLabel.text = "\(thing.price)원"
-            cell.payImageView.image = nil
+            cell.payImageView.image = thing.image
         } else if let thing = things[indexPath.row] as? Cake {
             // cake
             cell.payNameLabel.text = thing.koreanName
             cell.payPriceLabel.text = "\(thing.price)원"
-            cell.payImageView.image = nil
+            cell.payImageView.image = thing.image
         } else if let thing = things[indexPath.row] as? Beverage {
             //beverage
             cell.payNameLabel.text = thing.koreanName
             cell.payPriceLabel.text = "\(thing.price)원"
-            cell.payImageView.image = nil
+            cell.payImageView.image = thing.image
         }
         
         return cell

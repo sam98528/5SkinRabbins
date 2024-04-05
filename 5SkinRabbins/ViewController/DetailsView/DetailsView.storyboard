@@ -39,6 +39,9 @@
                                     <navigationItem id="cgm-8Y-Uj7">
                                         <barButtonItem key="leftBarButtonItem" image="chevron.backward" catalog="system" id="QTt-gF-wJF">
                                             <color key="tintColor" systemColor="systemRedColor"/>
+                                            <connections>
+                                                <action selector="dismissButtonClicked:" destination="Y6W-OH-hqX" id="Hpr-Wx-zi1"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -55,6 +58,9 @@
                                         <color key="tintColor" red="0.90980386729999996" green="0.45490193369999998" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="취소"/>
+                                        <connections>
+                                            <action selector="cancelButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hiI-su-1I7"/>
+                                        </connections>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="o6f-HM-YPg">
                                         <rect key="frame" x="0.0" y="5" width="393" height="100"/>
@@ -76,6 +82,9 @@
                                         <color key="tintColor" red="0.98431372640000003" green="0.95686274770000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="담기"/>
+                                        <connections>
+                                            <action selector="confirmButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pdZ-dR-GgN"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.98431372640000003" green="0.95686274770000002" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -144,8 +153,10 @@
                     <connections>
                         <outlet property="cancelButton" destination="7YW-Qn-Okm" id="QFW-Jd-UXe"/>
                         <outlet property="confirmButton" destination="LT4-Qj-K7l" id="F2y-3T-zHs"/>
+                        <outlet property="dismissButton" destination="QTt-gF-wJF" id="2o7-s8-6cn"/>
                         <outlet property="flavorCollectionView" destination="dty-hv-KTw" id="tyC-CA-3CP"/>
                         <outlet property="navigationBar" destination="GCf-Tg-bqG" id="7FS-hX-BSU"/>
+                        <outlet property="navigationItem" destination="cgm-8Y-Uj7" id="gaV-Go-lFx"/>
                         <outlet property="pageControl" destination="Nve-cP-I5M" id="Mg1-D6-kkR"/>
                         <outlet property="selectedFlavorCollectionView" destination="o6f-HM-YPg" id="3fK-hh-O2x"/>
                         <outlet property="selectedMenuButton" destination="NNQ-ip-aFS" id="NZl-UV-H2d"/>
