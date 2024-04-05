@@ -17,7 +17,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.payNameLabel.font = UIFont.boldSystemFont(ofSize: 22)
         cell.payDetailLabel.font = UIFont.systemFont(ofSize: 15)
         cell.payPriceLabel.font = UIFont.boldSystemFont(ofSize: 22)
-        cell.cntLabel.font = UIFont.systemFont(ofSize: 23)
+        cell.cntLabel.font = UIFont.systemFont(ofSize: 22)
         
         cell.plusButton.titleLabel?.font = UIFont.systemFont(ofSize: 27)
         cell.minusButton.titleLabel?.font = UIFont.systemFont(ofSize: 27)
@@ -77,6 +77,9 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.plusButtonAction = {
                 cell.cnt += 1
             }
+            
+            cell.payNameLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 30).isActive = true // payNameLabel 상단 여백 설정
+            
         } else if let thing = things[indexPath.row] as? Coffee {
             // coffee
             cell.payNameLabel.text = thing.koreanName
@@ -94,7 +97,12 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             // 아이스크림이 아닌 셀을 레이아웃 변경
             cell.payDetailLabel.isHidden = true
             
-            // 이런 식으로 해주기 cell.payNameLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 50).isActive = true // payNameLabel 상단 여백 설정
+            cell.payNameLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 30).isActive = true // payNameLabel 상단 여백 설정
+            cell.payPriceLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 95).isActive = true
+            cell.plusButton.topAnchor.constraint(equalTo: cell.topAnchor, constant: 90).isActive = true
+            cell.minusButton.topAnchor.constraint(equalTo: cell.topAnchor, constant: 90).isActive = true
+            cell.cntLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 90).isActive = true
+            cell.payImageView.topAnchor.constraint(equalTo: cell.topAnchor, constant: 20).isActive = true
             
             
         } else if let thing = things[indexPath.row] as? Cake {
@@ -110,6 +118,17 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.plusButtonAction = {
                 cell.cnt += 1
             }
+            
+            // 아이스크림이 아닌 셀을 레이아웃 변경
+            cell.payDetailLabel.isHidden = true
+            
+            cell.payNameLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 30).isActive = true // payNameLabel 상단 여백 설정
+            cell.payPriceLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 95).isActive = true
+            cell.plusButton.topAnchor.constraint(equalTo: cell.topAnchor, constant: 90).isActive = true
+            cell.minusButton.topAnchor.constraint(equalTo: cell.topAnchor, constant: 90).isActive = true
+            cell.cntLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 90).isActive = true
+            cell.payImageView.topAnchor.constraint(equalTo: cell.topAnchor, constant: 20).isActive = true
+            
         } else if let thing = things[indexPath.row] as? Beverage {
             //beverage
             cell.payNameLabel.text = thing.koreanName
@@ -123,6 +142,16 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.plusButtonAction = {
                 cell.cnt += 1
             }
+            
+            // 아이스크림이 아닌 셀을 레이아웃 변경
+            cell.payDetailLabel.isHidden = true
+            
+            cell.payNameLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 30).isActive = true // payNameLabel 상단 여백 설정
+            cell.payPriceLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 95).isActive = true
+            cell.plusButton.topAnchor.constraint(equalTo: cell.topAnchor, constant: 90).isActive = true
+            cell.minusButton.topAnchor.constraint(equalTo: cell.topAnchor, constant: 90).isActive = true
+            cell.cntLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 90).isActive = true
+            cell.payImageView.topAnchor.constraint(equalTo: cell.topAnchor, constant: 20).isActive = true
         }
         
         return cell
@@ -134,7 +163,13 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //셀 높이 설정
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 220
+        if let thing = things[indexPath.row] as? IceCream {
+                // 아이스크림 셀인 경우
+                return 220
+            } else {
+                // 아이스크림이 아닌 경우
+                return 150 // 원하는 높이로 설정
+            }
     }
 
     //셀 삭제 메서드
@@ -283,9 +318,12 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         let label = UILabel()
         let formattedAmount = formatCurrency(amount: totalAmount)
         label.text = "총 결제금액  \(formattedAmount)원"
+        label.font = UIFont.boldSystemFont(ofSize: 25)
+        
         label.translatesAutoresizingMaskIntoConstraints = false
         footerView.addSubview(label)
         self.totalPriceLabel = label
+        
             
         let button1 = UIButton(type: .system)
         button1.setTitle("취소하기", for: .normal)
@@ -294,7 +332,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         footerView.addSubview(button1)
             
         button1.setTitleColor(.systemPink, for: .normal)
-        button1.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button1.titleLabel?.font = UIFont.boldSystemFont(ofSize: 22)
         button1.backgroundColor = .white
         button1.layer.cornerRadius = 10
         button1.layer.borderWidth = 0.5
@@ -307,12 +345,12 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         footerView.addSubview(button2)
         
         button2.setTitleColor(.white, for: .normal)
-        button2.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button2.titleLabel?.font = UIFont.boldSystemFont(ofSize: 22)
         button2.backgroundColor = .systemPink
         button2.layer.cornerRadius = 10
         
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: footerView.topAnchor, constant: 30),
+            label.topAnchor.constraint(equalTo: footerView.topAnchor, constant: 25),
             label.trailingAnchor.constraint(equalTo: footerView.trailingAnchor, constant: -30), // 오른쪽으로 정렬
             
             button1.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20),
