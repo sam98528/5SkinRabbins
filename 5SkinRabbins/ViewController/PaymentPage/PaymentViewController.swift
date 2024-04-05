@@ -166,7 +166,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //셀 높이 설정
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if let thing = things[indexPath.row] as? IceCream {
+        if let thing = Menu.things[indexPath.row] as? IceCream {
                 // 아이스크림 셀인 경우
                 return 220
             } else {
@@ -199,7 +199,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //장바구니가 비어있을 때 (서브 뷰로 변경)
     private func EmptySubView() {
-        let isEmpty = things.isEmpty
+        let isEmpty = Menu.things.isEmpty
         if isEmpty {
             // 장바구니가 비어있는 경우
             let emptyCartView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height))
@@ -318,7 +318,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         var footerView = UIView()
         let footerHeight: CGFloat = 150
         footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: footerHeight))
-        footerView.backgroundColor = .white
+        footerView.backgroundColor = .clear
             
         let label = UILabel()
         let formattedAmount = formatCurrency(amount: totalAmount)
