@@ -56,8 +56,8 @@ class MainViewController: UIViewController {
         
         MainPageCollectionView.layer.cornerRadius = 8
         MainPageCollectionView.clipsToBounds = true
-        
-        titleLabel.font = UIFont(name: "BRR", size: 40)
+        titleLabel.font = UIFont(name: "OAGothic-ExtraBold", size: 40)
+        titleLabel.textColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
         IceCreamCakeImage.image = UIImage(named: "Cake1")
         CoffeeImage.image = UIImage(named: "Coffee")
         BeverageImage.image = UIImage(named: "Beverage")
@@ -85,8 +85,6 @@ class MainViewController: UIViewController {
         let isDarkMode = traitCollection.userInterfaceStyle == .dark
         let darkModeImageName = isDarkMode ? "Dark" : "Light"
         darkModeSwitchButton.setImage(UIImage(named: darkModeImageName), for: .normal)
-        
-        
         
         let backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: nil)
         backBarButtonItem.tintColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)

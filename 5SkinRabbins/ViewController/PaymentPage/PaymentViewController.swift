@@ -1,15 +1,20 @@
 
 import UIKit
+protocol ThingsDelegate {
+    func thingsChanged()
+}
+
 
 class PaymentViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var things: [Any] = []
+    
+    var delegate : ThingsDelegate?
     var totalPriceLabel: UILabel?
-    let font = "BRR"
+    let font = "OAGothic-ExtraBold"
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return things.count
+        return Menu.things.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -28,18 +33,18 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             self?.updateTotalAmount()
         }
         
-        if let iceCream = things[indexPath.row] as? IceCream {
+        if let iceCream = Menu.things[indexPath.row] as? IceCream {
             cell.thingPrice = iceCream.price // thingPrice 값을 iceCream.price로 설정
-        } else if let coffee = things[indexPath.row] as? Coffee {
+        } else if let coffee = Menu.things[indexPath.row] as? Coffee {
             cell.thingPrice = coffee.price // thingPrice 값을 coffee.price로 설정
-        } else if let cake = things[indexPath.row] as? Cake {
+        } else if let cake = Menu.things[indexPath.row] as? Cake {
             cell.thingPrice = cake.price // thingPrice 값을 cake.price로 설정
-        } else if let beverage = things[indexPath.row] as? Beverage {
+        } else if let beverage = Menu.things[indexPath.row] as? Beverage {
             cell.thingPrice = beverage.price // thingPrice 값을 beverage.price로 설정
         }
         
         // ice cream
-        if let thing = things[indexPath.row] as? IceCream {
+        if let thing = Menu.things[indexPath.row] as? IceCream {
             // 이름
             cell.payNameLabel.text = thing.koreanName
             // 가격
@@ -69,7 +74,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.plusButtonAction = {
                 cell.cnt += 1
             }
-        } else if let thing = things[indexPath.row] as? Coffee {
+        } else if let thing = Menu.things[indexPath.row] as? Coffee {
             // coffee
             cell.payNameLabel.text = thing.koreanName
             cell.payPriceLabel.text = "\(thing.price)원"
@@ -82,7 +87,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.plusButtonAction = {
                 cell.cnt += 1
             }
-        } else if let thing = things[indexPath.row] as? Cake {
+        } else if let thing = Menu.things[indexPath.row] as? Cake {
             // cake
             cell.payNameLabel.text = thing.koreanName
             cell.payPriceLabel.text = "\(thing.price)원"
@@ -95,7 +100,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.plusButtonAction = {
                 cell.cnt += 1
             }
-        } else if let thing = things[indexPath.row] as? Beverage {
+        } else if let thing = Menu.things[indexPath.row] as? Beverage {
             //beverage
             cell.payNameLabel.text = thing.koreanName
             cell.payPriceLabel.text = "\(thing.price)원"
@@ -119,22 +124,22 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //셀 삭제 메서드
     private func deleteThing(at indexPath: IndexPath) {
-        guard !things.isEmpty else {
+        guard !Menu.things.isEmpty else {
             // 장바구니가 비었을 때
             updateFooterView(for: true)
             return
         }
             
-        guard indexPath.row < things.count else {
+        guard indexPath.row < Menu.things.count else {
             return // 배열의 유효하지 않은 인덱스에 대한 처리
         }
             
-        things.remove(at: indexPath.row) // 데이터 배열에서 해당 항목 삭제
+        Menu.things.remove(at: indexPath.row) // 데이터 배열에서 해당 항목 삭제
         tableView.deleteRows(at: [indexPath], with: .left) // 테이블 뷰에서 해당 셀 삭제
         updateTotalAmount() // 총 금액 갱신
         
         // 모든 셀을 삭제한 후 장바구니가 비었습니다 메시지를 표시할 수도 있습니다.
-        if things.isEmpty {
+        if Menu.things.isEmpty {
             updateFooterView(for: true)
         }
     }
@@ -162,7 +167,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     //총 금액 구하기
     private var totalAmount: Int {
         var total = 0
-        for thing in things {
+        for thing in Menu.things {
             if let iceCream = thing as? IceCream {
                 total += iceCream.price
             } else if let coffee = thing as? Coffee {
@@ -213,7 +218,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         
         super.viewDidLoad()
         self.title = "주문 내역"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: font, size: 18)!, NSAttributedString.Key.foregroundColor:UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: font, size: 22)!, NSAttributedString.Key.foregroundColor:UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)]
         
         //footerView 수정
         let footerView = createFooterView()
@@ -243,7 +248,9 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         updateFooterView()
         
     }
-    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.delegate?.thingsChanged()
+    }
     //footerView
     private func createFooterView() -> UIView {
         var footerView = UIView()
@@ -264,8 +271,8 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         button1.translatesAutoresizingMaskIntoConstraints = false
         footerView.addSubview(button1)
             
-        button1.setTitleColor(.systemPink, for: .normal)
-        button1.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button1.setTitleColor(UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1), for: .normal)
+        button1.titleLabel?.font = UIFont(name: "LINESeedSansKR-Bold", size: 17)
         button1.backgroundColor = .white
         button1.layer.cornerRadius = 10
         button1.layer.borderWidth = 0.5
@@ -278,8 +285,8 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         footerView.addSubview(button2)
         
         button2.setTitleColor(.white, for: .normal)
-        button2.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        button2.backgroundColor = .systemPink
+        button2.titleLabel?.font = UIFont(name: "LINESeedSansKR-Bold", size: 17)
+        button2.backgroundColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
         button2.layer.cornerRadius = 10
         
         NSLayoutConstraint.activate([
@@ -304,7 +311,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         let alertController = UIAlertController(title: "", message: "주문을 취소하시겠습니까?", preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "확인", style: .destructive) { _ in
             // 확인 버튼을 눌렀을 때 장바구니를 비움
-            self.things.removeAll()
+            Menu.things.removeAll()
             self.tableView.reloadData()
             self.updateTotalAmount()
             self.updateFooterView()
@@ -335,7 +342,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         let alertController = UIAlertController(title: "", message: "결제가 완료되었습니다.", preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "확인", style: .default) { _ in
             // 결제가 완료되었으므로 장바구니를 비우고 화면을 업데이트합니다.
-            self.things.removeAll()
+            Menu.things.removeAll()
             self.tableView.reloadData()
             self.updateTotalAmount()
             self.updateFooterView()
@@ -345,7 +352,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     private func updateFooterView() {
-        let isEmpty = things.isEmpty
+        let isEmpty = Menu.things.isEmpty
         updateFooterView(for: isEmpty)
     }
 
