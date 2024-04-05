@@ -15,7 +15,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "paymentCell", for: indexPath) as! PaymentTableViewCell
         cell.payNameLabel.font = UIFont.boldSystemFont(ofSize: 22)
-        cell.payDetailLabel.font = UIFont.systemFont(ofSize: 17)
+        cell.payDetailLabel.font = UIFont.systemFont(ofSize: 15)
         cell.payPriceLabel.font = UIFont.boldSystemFont(ofSize: 22)
         cell.cntLabel.font = UIFont.systemFont(ofSize: 23)
         
@@ -127,7 +127,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //셀 높이 설정
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 220
     }
 
     //셀 삭제 메서드
