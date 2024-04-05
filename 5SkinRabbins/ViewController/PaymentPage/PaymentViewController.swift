@@ -54,11 +54,14 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             }
             cell.payDetailLabel.text = flavorText
             //이미지 (일단은 고른 맛에 첫번째 이미지로..)
+            /*
             if let firstFlavorImage = thing.flavor.first?.image {
                 cell.payImageView.image = firstFlavorImage
             } else {
                 cell.payImageView.image = nil
             }
+             */
+            cell.payImageView.image = thing.image
             //버튼
             cell.minusButtonAction = {
                 if cell.cnt > 1 { cell.cnt -= 1 }

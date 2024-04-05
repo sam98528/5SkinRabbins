@@ -52,9 +52,12 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         flowLayout.itemSize = CGSize(width: Int(collectionView.frame.size.width / 2 - 18) , height: Int(collectionView.frame.size.height / 3) - 20)
         collectionView.collectionViewLayout = flowLayout
         
-        let backBarButtonItem = UIBarButtonItem(title: "돌아가기", style: .plain, target: self, action: nil) // title 부분 수정
+        let backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: nil)
         backBarButtonItem.tintColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
+        backBarButtonItem.imageInsets = UIEdgeInsets(top: 0, left: 10, bottom: 50, right: 50)
         self.navigationItem.backBarButtonItem = backBarButtonItem
+        self.navigationController?.navigationBar.backIndicatorImage = UIImage()
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
         
         // 컬렉션 뷰 설정
         setupCollectionView()
@@ -121,7 +124,8 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
             guard let vc = storyboard?.instantiateViewController(identifier: "DetailsViewController") as? DetailsViewController else {
                 return
             }
-            
+            vc.selectedMenu = iceCreams[indexPath.row]
+            vc.delegate = self
             vc.modalPresentationStyle = .automatic
             vc.modalTransitionStyle = .coverVertical
             self.present(vc, animated: true,completion: nil)
@@ -218,12 +222,18 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
      }
  }
 
-// hex 코드 사용 추가
 extension UIColor {
     convenience init(hex: UInt32, alpha: CGFloat = 1.0) {
         let red = CGFloat((hex & 0xFF0000) >> 16) / 255.0
         let green = CGFloat((hex & 0x00FF00) >> 8) / 255.0
         let blue = CGFloat(hex & 0x0000FF) / 255.0
         self.init(red: red, green: green, blue: blue, alpha: alpha)
+      
+extension MenuViewController : FlavorDelegate {
+    func finishedFlavorEditing(iceCream: IceCream) {
+        things.append(iceCream)
+        updateCartBadge()
     }
+    
+    
 }
