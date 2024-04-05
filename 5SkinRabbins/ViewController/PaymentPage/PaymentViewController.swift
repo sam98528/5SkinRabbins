@@ -14,10 +14,18 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "paymentCell", for: indexPath) as! PaymentTableViewCell
-        cell.payNameLabel.font = UIFont.boldSystemFont(ofSize: 14)
-        cell.payPriceLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        cell.payNameLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        cell.payDetailLabel.font = UIFont.systemFont(ofSize: 17)
+        cell.payPriceLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        cell.cntLabel.font = UIFont.systemFont(ofSize: 23)
+        
+        cell.plusButton.titleLabel?.font = UIFont.systemFont(ofSize: 27)
+        cell.minusButton.titleLabel?.font = UIFont.systemFont(ofSize: 27)
         cell.plusButton.tintColor = .black
         cell.minusButton.tintColor = .gray
+        
+        cell.payDetailLabel.numberOfLines = 0
+        
         //셀 삭제
         cell.deleteButtonAction = { [weak self] in
             self?.deleteThing(at: indexPath) // 셀 삭제 메서드 호출
@@ -117,6 +125,11 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    //셀 높이 설정
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+
     //셀 삭제 메서드
     private func deleteThing(at indexPath: IndexPath) {
         guard !things.isEmpty else {
@@ -145,10 +158,11 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         if isEmpty {
             // 장바구니가 비어있는 경우
             let emptyCartView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height))
-                let messageLabel = UILabel() // 크기는 나중에 정의될 것입니다.
+                let messageLabel = UILabel()
                 messageLabel.textAlignment = .center
                 messageLabel.text = "장바구니가 비었습니다."
-                messageLabel.textColor = .lightGray // 색상 변경
+                messageLabel.textColor = .lightGray
+                messageLabel.font = UIFont.systemFont(ofSize: 23)
                 
                 emptyCartView.addSubview(messageLabel)
                 tableView.backgroundView = emptyCartView
