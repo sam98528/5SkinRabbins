@@ -57,11 +57,11 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         // UICollectionViewFlowLayout을 사용하여 컬렉션 뷰의 레이아웃 설정
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        flowLayout.minimumLineSpacing = 16
-        flowLayout.minimumInteritemSpacing = 15
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        flowLayout.minimumLineSpacing = 12
+        flowLayout.minimumInteritemSpacing = 12
         flowLayout.scrollDirection = .vertical
-        flowLayout.itemSize = CGSize(width: Int(collectionView.frame.size.width / 2 - 18) , height: Int(collectionView.frame.size.height / 3) - 20)
+        flowLayout.itemSize = CGSize(width: Int(collectionView.frame.size.width / 2 - 6 ) , height: Int(collectionView.frame.size.height / 2.8 ) )
         collectionView.collectionViewLayout = flowLayout
         
         let backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: nil)
@@ -71,7 +71,11 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.navigationController?.navigationBar.backIndicatorImage = UIImage()
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
         
-        // 컬렉션 뷰 설정
+        // 네비게이션 바 디자인 설정
+        navigationController?.navigationBar.shadowImage = UIImage() // 네비게이션 바 아래 선 제거
+        navigationController?.navigationBar.barTintColor = .white // 네비게이션 바 배경 컬러
+        
+        // 컬렉션 뷰 데이터 불러오기
         setupCollectionView()
         // 초기에는 세그먼트 인덱스 0으로 설정하고 아이스크림 상품을 로드
         segmentedControl.selectedSegmentIndex = selectedIndex
