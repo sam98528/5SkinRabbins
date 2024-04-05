@@ -8,6 +8,7 @@ class PaymentTableViewCell: UITableViewCell {
     @IBOutlet weak var payDetailLabel: UILabel!
     @IBOutlet weak var payPriceLabel: UILabel!
     
+    
     //셀 삭제 "X" 버튼
     var deleteButtonAction: (() -> Void)?
     

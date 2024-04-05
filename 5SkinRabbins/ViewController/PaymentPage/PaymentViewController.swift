@@ -19,10 +19,18 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "paymentCell", for: indexPath) as! PaymentTableViewCell
-        cell.payNameLabel.font = UIFont.boldSystemFont(ofSize: 14)
-        cell.payPriceLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        cell.payNameLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        cell.payDetailLabel.font = UIFont.systemFont(ofSize: 15)
+        cell.payPriceLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        cell.cntLabel.font = UIFont.systemFont(ofSize: 22)
+        
+        cell.plusButton.titleLabel?.font = UIFont.systemFont(ofSize: 27)
+        cell.minusButton.titleLabel?.font = UIFont.systemFont(ofSize: 27)
         cell.plusButton.tintColor = .black
         cell.minusButton.tintColor = .gray
+        
+        cell.payDetailLabel.numberOfLines = 0
+        
         //셀 삭제
         cell.deleteButtonAction = { [weak self] in
             self?.deleteThing(at: indexPath) // 셀 삭제 메서드 호출
@@ -74,6 +82,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.plusButtonAction = {
                 cell.cnt += 1
             }
+            cell.payNameLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 30).isActive = true // payNameLabel 상단 여백 설정
         } else if let thing = Menu.things[indexPath.row] as? Coffee {
             // coffee
             cell.payNameLabel.text = thing.koreanName
@@ -87,6 +96,18 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.plusButtonAction = {
                 cell.cnt += 1
             }
+            
+            // 아이스크림이 아닌 셀을 레이아웃 변경
+            cell.payDetailLabel.isHidden = true
+            
+            cell.payNameLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 30).isActive = true // payNameLabel 상단 여백 설정
+            cell.payPriceLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 95).isActive = true
+            cell.plusButton.topAnchor.constraint(equalTo: cell.topAnchor, constant: 90).isActive = true
+            cell.minusButton.topAnchor.constraint(equalTo: cell.topAnchor, constant: 90).isActive = true
+            cell.cntLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 90).isActive = true
+            cell.payImageView.topAnchor.constraint(equalTo: cell.topAnchor, constant: 20).isActive = true
+            
+            
         } else if let thing = Menu.things[indexPath.row] as? Cake {
             // cake
             cell.payNameLabel.text = thing.koreanName
@@ -100,6 +121,17 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.plusButtonAction = {
                 cell.cnt += 1
             }
+            
+            // 아이스크림이 아닌 셀을 레이아웃 변경
+            cell.payDetailLabel.isHidden = true
+            
+            cell.payNameLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 30).isActive = true // payNameLabel 상단 여백 설정
+            cell.payPriceLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 95).isActive = true
+            cell.plusButton.topAnchor.constraint(equalTo: cell.topAnchor, constant: 90).isActive = true
+            cell.minusButton.topAnchor.constraint(equalTo: cell.topAnchor, constant: 90).isActive = true
+            cell.cntLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 90).isActive = true
+            cell.payImageView.topAnchor.constraint(equalTo: cell.topAnchor, constant: 20).isActive = true
+            
         } else if let thing = Menu.things[indexPath.row] as? Beverage {
             //beverage
             cell.payNameLabel.text = thing.koreanName
@@ -113,6 +145,16 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.plusButtonAction = {
                 cell.cnt += 1
             }
+            
+            // 아이스크림이 아닌 셀을 레이아웃 변경
+            cell.payDetailLabel.isHidden = true
+            
+            cell.payNameLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 30).isActive = true // payNameLabel 상단 여백 설정
+            cell.payPriceLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 95).isActive = true
+            cell.plusButton.topAnchor.constraint(equalTo: cell.topAnchor, constant: 90).isActive = true
+            cell.minusButton.topAnchor.constraint(equalTo: cell.topAnchor, constant: 90).isActive = true
+            cell.cntLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 90).isActive = true
+            cell.payImageView.topAnchor.constraint(equalTo: cell.topAnchor, constant: 20).isActive = true
         }
         
         return cell
@@ -122,11 +164,22 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    //셀 높이 설정
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if let thing = things[indexPath.row] as? IceCream {
+                // 아이스크림 셀인 경우
+                return 220
+            } else {
+                // 아이스크림이 아닌 경우
+                return 150 // 원하는 높이로 설정
+            }
+    }
+
     //셀 삭제 메서드
     private func deleteThing(at indexPath: IndexPath) {
         guard !Menu.things.isEmpty else {
             // 장바구니가 비었을 때
-            updateFooterView(for: true)
+            EmptySubView()
             return
         }
             
@@ -140,27 +193,36 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         
         // 모든 셀을 삭제한 후 장바구니가 비었습니다 메시지를 표시할 수도 있습니다.
         if Menu.things.isEmpty {
-            updateFooterView(for: true)
+            EmptySubView()
         }
     }
     
-    //장바구니가 비어있을 때
-    private func updateFooterView(for isEmpty: Bool) {
+    //장바구니가 비어있을 때 (서브 뷰로 변경)
+    private func EmptySubView() {
+        let isEmpty = things.isEmpty
         if isEmpty {
-            // 장바구니가 비어있을 때의 footerView
-            let emptyCartView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 50))
-            let messageLabel = UILabel(frame: emptyCartView.bounds)
-            messageLabel.textAlignment = .center
-            messageLabel.text = "장바구니가 비었습니다."
-            emptyCartView.addSubview(messageLabel)
-            tableView.tableFooterView = emptyCartView
+            // 장바구니가 비어있는 경우
+            let emptyCartView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: tableView.bounds.height))
+                let messageLabel = UILabel()
+                messageLabel.textAlignment = .center
+                messageLabel.text = "장바구니가 비었습니다."
+                messageLabel.textColor = .lightGray
+                messageLabel.font = UIFont.systemFont(ofSize: 23)
+                
+                emptyCartView.addSubview(messageLabel)
+                tableView.backgroundView = emptyCartView
+                tableView.separatorStyle = .none
+            
+                // Auto Layout을 사용하여 messageLabel을 화면 중앙에 배치합니다.
+                messageLabel.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    messageLabel.centerXAnchor.constraint(equalTo: emptyCartView.centerXAnchor),
+                    messageLabel.centerYAnchor.constraint(equalTo: emptyCartView.centerYAnchor, constant: -50)
+                ])
         } else {
-            // 장바구니에 물건이 있을 때의 footerView
-            let footerHeight: CGFloat = 150
-            let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: footerHeight))
-            // 이하 footerView의 내용 설정 로직 추가
-            // ...
-            tableView.tableFooterView = footerView
+            // 장바구니에 물건이 있는 경우
+            tableView.backgroundView = nil
+            tableView.separatorStyle = .singleLine
         }
     }
     
@@ -245,7 +307,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.register(nibName, forCellReuseIdentifier: "paymentCell")
         
         tableView.reloadData()
-        updateFooterView()
+        EmptySubView()
         
     }
     override func viewDidDisappear(_ animated: Bool) {
@@ -261,9 +323,12 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         let label = UILabel()
         let formattedAmount = formatCurrency(amount: totalAmount)
         label.text = "총 결제금액  \(formattedAmount)원"
+        label.font = UIFont.boldSystemFont(ofSize: 25)
+        
         label.translatesAutoresizingMaskIntoConstraints = false
         footerView.addSubview(label)
         self.totalPriceLabel = label
+        
             
         let button1 = UIButton(type: .system)
         button1.setTitle("취소하기", for: .normal)
@@ -290,7 +355,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
         button2.layer.cornerRadius = 10
         
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: footerView.topAnchor, constant: 30),
+            label.topAnchor.constraint(equalTo: footerView.topAnchor, constant: 25),
             label.trailingAnchor.constraint(equalTo: footerView.trailingAnchor, constant: -30), // 오른쪽으로 정렬
             
             button1.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20),
@@ -314,7 +379,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             Menu.things.removeAll()
             self.tableView.reloadData()
             self.updateTotalAmount()
-            self.updateFooterView()
+            self.EmptySubView()
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
 
@@ -345,15 +410,11 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             Menu.things.removeAll()
             self.tableView.reloadData()
             self.updateTotalAmount()
-            self.updateFooterView()
+            self.EmptySubView()
         }
         alertController.addAction(confirmAction)
         present(alertController, animated: true, completion: nil)
     }
     
-    private func updateFooterView() {
-        let isEmpty = Menu.things.isEmpty
-        updateFooterView(for: isEmpty)
-    }
 
 }
