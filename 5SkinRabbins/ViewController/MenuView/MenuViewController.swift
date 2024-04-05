@@ -44,7 +44,7 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         case 0:
             titleLabel.text = "Ice Cream"
         case 1:
-            titleLabel.text = "Ice Cream Cake"
+            titleLabel.text = "Cake"
         case 2:
             titleLabel.text = "Beverage"
         case 3:
@@ -57,11 +57,16 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         // UICollectionViewFlowLayout을 사용하여 컬렉션 뷰의 레이아웃 설정
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        flowLayout.minimumLineSpacing = 16
-        flowLayout.minimumInteritemSpacing = 15
-        flowLayout.scrollDirection = .vertical
-        flowLayout.itemSize = CGSize(width: Int(collectionView.frame.size.width / 2 - 18) , height: Int(collectionView.frame.size.height / 3) - 20)
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8) // 상하좌우 여백 설정
+        flowLayout.minimumLineSpacing = 12 // 행 간 최소 간격
+        flowLayout.minimumInteritemSpacing = 12 // 열 간 최소 간격
+        flowLayout.scrollDirection = .vertical // 스크롤 방향
+
+        // 셀 크기 설정
+        let itemWidth = (collectionView.bounds.width - flowLayout.sectionInset.left - flowLayout.sectionInset.right - flowLayout.minimumInteritemSpacing) / 2 // 한 행에 2개의 셀이 들어가도록 설정
+        let itemHeight = itemWidth * 1.4 // 가로:세로 비율
+        flowLayout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        
         collectionView.collectionViewLayout = flowLayout
         
         let backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: nil)
@@ -71,7 +76,11 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.navigationController?.navigationBar.backIndicatorImage = UIImage()
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
         
-        // 컬렉션 뷰 설정
+        // 네비게이션 바 디자인 설정
+        navigationController?.navigationBar.shadowImage = UIImage() // 네비게이션 바 아래 선 제거
+        navigationController?.navigationBar.barTintColor = .white // 네비게이션 바 배경 컬러
+        
+        // 컬렉션 뷰 데이터 불러오기
         setupCollectionView()
         // 초기에는 세그먼트 인덱스 0으로 설정하고 아이스크림 상품을 로드
         segmentedControl.selectedSegmentIndex = selectedIndex
@@ -93,7 +102,7 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
             titleLabel.text = "Ice Cream"
         case 1:
             loadCakes()
-            titleLabel.text = "Ice Cream Cake"
+            titleLabel.text = "Cake"
         case 2:
             loadBeverages()
             titleLabel.text = "Beverage"
