@@ -41,12 +41,10 @@
 		14BBABBA2BBABB8A002E118C /* FlavorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BBABB72BBABB8A002E118C /* FlavorCollectionViewCell.swift */; };
 		14BBABBE2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BBABBC2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.swift */; };
 		14BBABBF2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABBD2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib */; };
-		14BBABC82BBAF3BF002E118C /* BaskinRabbinsR.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABC62BBAF3BF002E118C /* BaskinRabbinsR.ttf */; };
-		14BBABCE2BBAF413002E118C /* BaskinRabbinsB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 14BBABCD2BBAF413002E118C /* BaskinRabbinsB.ttf */; };
+		530DFA152BBFCECA0060C5F6 /* OAGothic-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 530DFA142BBFCECA0060C5F6 /* OAGothic-ExtraBold.ttf */; };
 		53FA68CE2BBEC47F00E71FF4 /* LINESeedKR-Th.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53FA68CB2BBEC47F00E71FF4 /* LINESeedKR-Th.ttf */; };
 		53FA68CF2BBEC47F00E71FF4 /* LINESeedKR-Rg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53FA68CC2BBEC47F00E71FF4 /* LINESeedKR-Rg.ttf */; };
 		53FA68D02BBEC47F00E71FF4 /* LINESeedKR-Bd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53FA68CD2BBEC47F00E71FF4 /* LINESeedKR-Bd.ttf */; };
-		53FA68D22BBEC4B800E71FF4 /* YANGJIN.otf in Resources */ = {isa = PBXBuildFile; fileRef = 53FA68D12BBEC4B700E71FF4 /* YANGJIN.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,12 +103,10 @@
 		14BBABB82BBABB8A002E118C /* FlavorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlavorCollectionViewCell.xib; sourceTree = "<group>"; };
 		14BBABBC2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedFlavorCollectionViewCell.swift; sourceTree = "<group>"; };
 		14BBABBD2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedFlavorCollectionViewCell.xib; sourceTree = "<group>"; };
-		14BBABC62BBAF3BF002E118C /* BaskinRabbinsR.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaskinRabbinsR.ttf; sourceTree = "<group>"; };
-		14BBABCD2BBAF413002E118C /* BaskinRabbinsB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BaskinRabbinsB.ttf; sourceTree = "<group>"; };
+		530DFA142BBFCECA0060C5F6 /* OAGothic-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OAGothic-ExtraBold.ttf"; sourceTree = "<group>"; };
 		53FA68CB2BBEC47F00E71FF4 /* LINESeedKR-Th.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Th.ttf"; sourceTree = "<group>"; };
 		53FA68CC2BBEC47F00E71FF4 /* LINESeedKR-Rg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Rg.ttf"; sourceTree = "<group>"; };
 		53FA68CD2BBEC47F00E71FF4 /* LINESeedKR-Bd.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LINESeedKR-Bd.ttf"; sourceTree = "<group>"; };
-		53FA68D12BBEC4B700E71FF4 /* YANGJIN.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = YANGJIN.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,9 +273,7 @@
 				53FA68CD2BBEC47F00E71FF4 /* LINESeedKR-Bd.ttf */,
 				53FA68CC2BBEC47F00E71FF4 /* LINESeedKR-Rg.ttf */,
 				53FA68CB2BBEC47F00E71FF4 /* LINESeedKR-Th.ttf */,
-				53FA68D12BBEC4B700E71FF4 /* YANGJIN.otf */,
-				14BBABCD2BBAF413002E118C /* BaskinRabbinsB.ttf */,
-				14BBABC62BBAF3BF002E118C /* BaskinRabbinsR.ttf */,
+				530DFA142BBFCECA0060C5F6 /* OAGothic-ExtraBold.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -395,13 +389,11 @@
 				149DFB192BBE667300F177A3 /* testStoryboard.storyboard in Resources */,
 				149DFB0D2BBE65A700F177A3 /* ProductCollectionViewCell.xib in Resources */,
 				149DFB0A2BBE65A700F177A3 /* MenuView.storyboard in Resources */,
-				14BBABCE2BBAF413002E118C /* BaskinRabbinsB.ttf in Resources */,
-				53FA68D22BBEC4B800E71FF4 /* YANGJIN.otf in Resources */,
 				14BBABB92BBABB8A002E118C /* FlavorCollectionViewCell.xib in Resources */,
+				530DFA152BBFCECA0060C5F6 /* OAGothic-ExtraBold.ttf in Resources */,
 				14BBABBF2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.xib in Resources */,
 				53FA68CF2BBEC47F00E71FF4 /* LINESeedKR-Rg.ttf in Resources */,
 				149DFB222BBE673200F177A3 /* PaymentTableViewCell.xib in Resources */,
-				14BBABC82BBAF3BF002E118C /* BaskinRabbinsR.ttf in Resources */,
 				148BD1632BBA8398008036AC /* Base in Resources */,
 				53FA68CE2BBEC47F00E71FF4 /* LINESeedKR-Th.ttf in Resources */,
 				14BBABB62BBAB2EC002E118C /* DetailsView.storyboard in Resources */,
