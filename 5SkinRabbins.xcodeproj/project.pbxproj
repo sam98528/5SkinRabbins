@@ -28,11 +28,8 @@
 		149DFB0C2BBE65A700F177A3 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149DFB072BBE65A700F177A3 /* ProductCollectionViewCell.swift */; };
 		149DFB0D2BBE65A700F177A3 /* ProductCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 149DFB082BBE65A700F177A3 /* ProductCollectionViewCell.xib */; };
 		149DFB152BBE667300F177A3 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149DFB0E2BBE667300F177A3 /* CollectionViewCell.swift */; };
-		149DFB162BBE667300F177A3 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 149DFB0F2BBE667300F177A3 /* CollectionViewCell.xib */; };
 		149DFB172BBE667300F177A3 /* MainPageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 149DFB102BBE667300F177A3 /* MainPageStoryboard.storyboard */; };
 		149DFB182BBE667300F177A3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149DFB112BBE667300F177A3 /* MainViewController.swift */; };
-		149DFB192BBE667300F177A3 /* testStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 149DFB122BBE667300F177A3 /* testStoryboard.storyboard */; };
-		149DFB1A2BBE667300F177A3 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149DFB132BBE667300F177A3 /* testViewController.swift */; };
 		149DFB202BBE673200F177A3 /* PaymentStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 149DFB1B2BBE673200F177A3 /* PaymentStoryboard.storyboard */; };
 		149DFB212BBE673200F177A3 /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149DFB1C2BBE673200F177A3 /* PaymentTableViewCell.swift */; };
 		149DFB222BBE673200F177A3 /* PaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 149DFB1D2BBE673200F177A3 /* PaymentTableViewCell.xib */; };
@@ -92,11 +89,8 @@
 		149DFB072BBE65A700F177A3 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		149DFB082BBE65A700F177A3 /* ProductCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCollectionViewCell.xib; sourceTree = "<group>"; };
 		149DFB0E2BBE667300F177A3 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		149DFB0F2BBE667300F177A3 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		149DFB102BBE667300F177A3 /* MainPageStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainPageStoryboard.storyboard; sourceTree = "<group>"; };
 		149DFB112BBE667300F177A3 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		149DFB122BBE667300F177A3 /* testStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = testStoryboard.storyboard; sourceTree = "<group>"; };
-		149DFB132BBE667300F177A3 /* testViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		149DFB1B2BBE673200F177A3 /* PaymentStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PaymentStoryboard.storyboard; sourceTree = "<group>"; };
 		149DFB1C2BBE673200F177A3 /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
 		149DFB1D2BBE673200F177A3 /* PaymentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentTableViewCell.xib; sourceTree = "<group>"; };
@@ -239,12 +233,9 @@
 		149DFB142BBE667300F177A3 /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
-				149DFB0F2BBE667300F177A3 /* CollectionViewCell.xib */,
 				149DFB0E2BBE667300F177A3 /* CollectionViewCell.swift */,
 				149DFB102BBE667300F177A3 /* MainPageStoryboard.storyboard */,
 				149DFB112BBE667300F177A3 /* MainViewController.swift */,
-				149DFB122BBE667300F177A3 /* testStoryboard.storyboard */,
-				149DFB132BBE667300F177A3 /* testViewController.swift */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -391,8 +382,6 @@
 				53FA68D02BBEC47F00E71FF4 /* LINESeedKR-Bd.ttf in Resources */,
 				148BD1652BBA8399008036AC /* Assets.xcassets in Resources */,
 				148BD1682BBA8399008036AC /* Base in Resources */,
-				149DFB162BBE667300F177A3 /* CollectionViewCell.xib in Resources */,
-				149DFB192BBE667300F177A3 /* testStoryboard.storyboard in Resources */,
 				149DFB0D2BBE65A700F177A3 /* ProductCollectionViewCell.xib in Resources */,
 				149DFB0A2BBE65A700F177A3 /* MenuView.storyboard in Resources */,
 				14BBABB92BBABB8A002E118C /* FlavorCollectionViewCell.xib in Resources */,
@@ -431,7 +420,6 @@
 			files = (
 				14BBABBE2BBAD04F002E118C /* SelectedFlavorCollectionViewCell.swift in Sources */,
 				148BD1972BBA8B28008036AC /* Cake.swift in Sources */,
-				149DFB1A2BBE667300F177A3 /* testViewController.swift in Sources */,
 				14BBABB42BBAB267002E118C /* DetailsViewController.swift in Sources */,
 				148BD1912BBA8666008036AC /* IceCream.swift in Sources */,
 				148EDE502BBBD7350051E8D6 /* ViewController.swift in Sources */,
