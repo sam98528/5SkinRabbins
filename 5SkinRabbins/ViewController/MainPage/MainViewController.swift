@@ -33,15 +33,20 @@ class MainViewController: UIViewController {
         bannerTime()
         MainPageCollectionView.layer.cornerRadius = 8
         MainPageCollectionView.clipsToBounds = true
-        titleLabel.font = UIFont(name: "BRB", size: 40)
+        titleLabel.font = UIFont(name: "OAGothic-ExtraBold", size: 40)
+        titleLabel.textColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
         IceCreamCakeImage.image = UIImage(named: "Cake1")
         CoffeeImage.image = UIImage(named: "Coffee")
         BeverageImage.image = UIImage(named: "Beverage")
         QuartImage.image = UIImage(named: "Quart")
-        IceCreamCakeLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        CoffeeLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        BeverageLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        QuartLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        
+        [IceCreamCakeLabel,CoffeeLabel,BeverageLabel,QuartLabel].map{
+            $0.font = UIFont(name:"LINESeedSansKR-Bold",size: 20)
+        }
+        [IceCreamCake,Coffee,Beverage,Quart].map{
+            $0.font = UIFont(name:"LINESeedSansKR-Regular",size: 12)
+        }
+        
         let backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: nil)
         backBarButtonItem.tintColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
         

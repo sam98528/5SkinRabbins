@@ -97,7 +97,7 @@ extension DetailsViewController : UICollectionViewDataSource, UICollectionViewDe
         flavorCollectionView.register(FlavorCollectionViewCell.nib(), forCellWithReuseIdentifier: FlavorCollectionViewCell.identifier)
         
         let flavorFlowLayout = UICollectionViewFlowLayout()
-        flavorFlowLayout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        flavorFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         flavorFlowLayout.minimumLineSpacing = 1
         flavorFlowLayout.minimumInteritemSpacing = 0
         flavorFlowLayout.scrollDirection = .horizontal
