@@ -41,10 +41,12 @@ class MainViewController: UIViewController {
         CoffeeLabel.font = UIFont.boldSystemFont(ofSize: 20)
         BeverageLabel.font = UIFont.boldSystemFont(ofSize: 20)
         QuartLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        let backBarButtonItem = UIBarButtonItem(title: "돌아가기", style: .plain, target: self, action: nil) // title 부분 수정
+        let backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: nil)
         backBarButtonItem.tintColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
-        self.navigationItem.backBarButtonItem = backBarButtonItem
         
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+        self.navigationController?.navigationBar.backIndicatorImage = UIImage()
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
         
         //이미지누르면 이동하게 하는거
         let IceCreamCakeRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(IceCreamCakefucn(_:)))

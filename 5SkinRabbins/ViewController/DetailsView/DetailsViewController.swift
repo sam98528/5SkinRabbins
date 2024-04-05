@@ -184,6 +184,7 @@ extension DetailsViewController {
         pageControl.numberOfPages = Int(ceil(Double(Flavor.flavors.count) / Double(9)))
         pageControl.pageIndicatorTintColor = UIColor.systemGray
         pageControl.currentPageIndicatorTintColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
+        selectedMenuButton.setImage(selectedMenu?.image, for: .normal)
     }
     
     func configureData(){

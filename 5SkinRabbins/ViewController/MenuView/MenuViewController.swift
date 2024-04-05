@@ -45,10 +45,12 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         flowLayout.itemSize = CGSize(width: Int(collectionView.frame.size.width / 2 - 20) , height: Int(collectionView.frame.size.height / 3) - 20)
         collectionView.collectionViewLayout = flowLayout
         
-        let backBarButtonItem = UIBarButtonItem(title: "돌아가기", style: .plain, target: self, action: nil) // title 부분 수정
+        let backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: nil)
         backBarButtonItem.tintColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
+        backBarButtonItem.imageInsets = UIEdgeInsets(top: 0, left: 10, bottom: 50, right: 50)
         self.navigationItem.backBarButtonItem = backBarButtonItem
-        
+        self.navigationController?.navigationBar.backIndicatorImage = UIImage()
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
         
         // 컬렉션 뷰 설정
         setupCollectionView()
