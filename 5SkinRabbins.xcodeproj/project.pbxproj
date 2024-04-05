@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		141348952BBFD0EE00C59322 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141348942BBFD0EE00C59322 /* Menu.swift */; };
+		141348972BBFDC8700C59322 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141348962BBFDC8700C59322 /* Utils.swift */; };
 		148BD15C2BBA8398008036AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD15B2BBA8398008036AC /* AppDelegate.swift */; };
 		148BD15E2BBA8398008036AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148BD15D2BBA8398008036AC /* SceneDelegate.swift */; };
 		148BD1632BBA8398008036AC /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 148BD1622BBA8398008036AC /* Base */; };
@@ -65,6 +67,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		141348942BBFD0EE00C59322 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		141348962BBFDC8700C59322 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		148BD1582BBA8398008036AC /* 5SkinRabbins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 5SkinRabbins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		148BD15B2BBA8398008036AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		148BD15D2BBA8398008036AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,10 +193,10 @@
 		148BD18B2BBA84EA008036AC /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				149DFB1F2BBE673200F177A3 /* PaymentPage */,
 				149DFB142BBE667300F177A3 /* MainPage */,
 				149DFB092BBE65A700F177A3 /* MenuView */,
 				14BBABBB2BBABB94002E118C /* DetailsView */,
+				149DFB1F2BBE673200F177A3 /* PaymentPage */,
 				148EDE4F2BBBD7350051E8D6 /* ViewController.swift */,
 				148BD1612BBA8398008036AC /* Main.storyboard */,
 			);
@@ -207,6 +211,7 @@
 				148BD1922BBA86F0008036AC /* Coffee.swift */,
 				148BD1942BBA89F4008036AC /* Beverage.swift */,
 				148BD1962BBA8B28008036AC /* Cake.swift */,
+				141348942BBFD0EE00C59322 /* Menu.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				14BBABC02BBAF0F6002E118C /* Font */,
+				141348962BBFDC8700C59322 /* Utils.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -434,9 +440,11 @@
 				149DFB0C2BBE65A700F177A3 /* ProductCollectionViewCell.swift in Sources */,
 				148BD18F2BBA861F008036AC /* Flavor.swift in Sources */,
 				149DFB0B2BBE65A700F177A3 /* MenuViewController.swift in Sources */,
+				141348952BBFD0EE00C59322 /* Menu.swift in Sources */,
 				149DFB182BBE667300F177A3 /* MainViewController.swift in Sources */,
 				148BD15E2BBA8398008036AC /* SceneDelegate.swift in Sources */,
 				149DFB152BBE667300F177A3 /* CollectionViewCell.swift in Sources */,
+				141348972BBFDC8700C59322 /* Utils.swift in Sources */,
 				14BBABBA2BBABB8A002E118C /* FlavorCollectionViewCell.swift in Sources */,
 				148BD1932BBA86F0008036AC /* Coffee.swift in Sources */,
 				149DFB212BBE673200F177A3 /* PaymentTableViewCell.swift in Sources */,

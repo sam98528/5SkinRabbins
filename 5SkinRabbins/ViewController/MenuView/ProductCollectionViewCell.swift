@@ -50,7 +50,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         productImageView.image = product.image
         productNameLabel.text = product.koreanName
         englishNameLabel.text = product.englishName
-        productPriceLabel.text = "\(product.formattedPrice()) 원"
+        productPriceLabel.text = "\(product.formattedPrice())원"
     }
     
     // Cake 셀 설정
@@ -58,7 +58,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         productImageView.image = product.image
         productNameLabel.text = product.koreanName
         englishNameLabel.text = product.englishName
-        productPriceLabel.text = "\(product.formattedPrice()) 원"
+        productPriceLabel.text = "\(product.formattedPrice())원"
     }
     
     // Beverage 셀 설정
@@ -66,7 +66,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         productImageView.image = product.image
         productNameLabel.text = product.koreanName
         englishNameLabel.text = product.englishName
-        productPriceLabel.text = "\(product.formattedPrice()) 원"
+        productPriceLabel.text = "\(product.formattedPrice())원"
     }
     
     // Coffee 셀 설정
@@ -74,6 +74,6 @@ class ProductCollectionViewCell: UICollectionViewCell {
         productImageView.image = product.image
         productNameLabel.text = product.koreanName
         englishNameLabel.text = product.englishName
-        productPriceLabel.text = "\(product.formattedPrice()) 원"
+        productPriceLabel.text = "\(product.formattedPrice())원"
     }
 }
