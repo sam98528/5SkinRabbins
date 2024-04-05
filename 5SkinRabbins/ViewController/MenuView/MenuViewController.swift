@@ -13,9 +13,9 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    let yangJinFont = UIFont(name: "YANGJIN", size: 34.0)
     
     var things: [Any] = []
-    
     
     // 각 카테고리별 상품 배열
     var iceCreams: [IceCream] = IceCream.iceCream
@@ -33,16 +33,23 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         vc.things = self.things
         navigationController?.pushViewController(vc, animated: true)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //titleLabel 폰트 설정
+        titleLabel.font = yangJinFont
+       
+        //cartButton 컬러 설정
         cartButton.tintColor = UIColor(red: 1.00, green: 0.49, blue: 0.59, alpha: 1.00)
+        
         // UICollectionViewFlowLayout을 사용하여 컬렉션 뷰의 레이아웃 설정
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        flowLayout.minimumLineSpacing = 20
+        flowLayout.minimumLineSpacing = 16
         flowLayout.minimumInteritemSpacing = 15
         flowLayout.scrollDirection = .vertical
-        flowLayout.itemSize = CGSize(width: Int(collectionView.frame.size.width / 2 - 20) , height: Int(collectionView.frame.size.height / 3) - 20)
+        flowLayout.itemSize = CGSize(width: Int(collectionView.frame.size.width / 2 - 18) , height: Int(collectionView.frame.size.height / 3) - 20)
         collectionView.collectionViewLayout = flowLayout
         
         let backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: nil)
@@ -57,7 +64,7 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         // 초기에는 세그먼트 인덱스 0으로 설정하고 아이스크림 상품을 로드
         segmentedControl.selectedSegmentIndex = selectedIndex
         loadIceCreams()
-    }
+      }
     
     // 컬렉션 뷰 데이터 소스 설정
     func setupCollectionView() {
@@ -84,7 +91,12 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         default:
             break
         }
-    }
+        
+        // 컬렉션 뷰의 셀을 최상단으로 스크롤
+         let indexPath = IndexPath(item: 0, section: 0)
+         collectionView.scrollToItem(at: indexPath, at: .top, animated: false)
+     }
+    
     
     // 컬렉션 뷰 셀 수 설정
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -188,6 +200,35 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
 }
 
+ // 뱃지 기능 추가, 애니메이션 효과
+ extension UIButton {
+     func addBadge(number: Int) {
+         let badgeLabel = UILabel(frame: CGRect(x: self.frame.size.width - 16, y: -8, width: 28, height: 28))
+         badgeLabel.layer.borderWidth = 1.0 // 스트로크 두께 설정
+         badgeLabel.layer.borderColor = UIColor(red: 0.34, green: 0.29, blue: 0.24, alpha: 0.6).cgColor
+         badgeLabel.backgroundColor = UIColor(hex: 0x575152)
+         badgeLabel.textColor = .white
+         badgeLabel.textAlignment = .center
+         badgeLabel.layer.cornerRadius = badgeLabel.bounds.size.width / 2
+         badgeLabel.layer.masksToBounds = true
+         badgeLabel.text = "\(number)"
+         badgeLabel.font = UIFont.systemFont(ofSize: 14)
+         // Add new badge view with animation
+         badgeLabel.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+         self.addSubview(badgeLabel)
+         UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: [], animations: {
+             badgeLabel.transform = .identity
+         }, completion: nil)
+     }
+ }
+
+extension UIColor {
+    convenience init(hex: UInt32, alpha: CGFloat = 1.0) {
+        let red = CGFloat((hex & 0xFF0000) >> 16) / 255.0
+        let green = CGFloat((hex & 0x00FF00) >> 8) / 255.0
+        let blue = CGFloat(hex & 0x0000FF) / 255.0
+        self.init(red: red, green: green, blue: blue, alpha: alpha)
+      
 extension MenuViewController : FlavorDelegate {
     func finishedFlavorEditing(iceCream: IceCream) {
         things.append(iceCream)
@@ -195,26 +236,4 @@ extension MenuViewController : FlavorDelegate {
     }
     
     
-}
-
-extension UIButton {
-  func addBadge(number: Int) {
-    let badgeLabel = UILabel(frame: CGRect(x: self.frame.size.width - 15, y: -5, width: 20, height: 20))
-    badgeLabel.backgroundColor = .red
-    badgeLabel.textColor = .white
-    badgeLabel.textAlignment = .center
-    badgeLabel.layer.cornerRadius = badgeLabel.bounds.size.width / 2
-    badgeLabel.layer.masksToBounds = true
-    badgeLabel.text = "\(number)"
-    badgeLabel.font = UIFont.systemFont(ofSize: 12)
-    // Remove previous badge views
-    for subview in self.subviews {
-      if subview.tag == 99 {
-        subview.removeFromSuperview()
-      }
-    }
-    // Add new badge view
-    badgeLabel.tag = 99
-    self.addSubview(badgeLabel)
-  }
 }
