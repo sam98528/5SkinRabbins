@@ -252,5 +252,4 @@ extension MenuViewController : FlavorDelegate {
         updateCartBadge()
     }
     
-    
 }
