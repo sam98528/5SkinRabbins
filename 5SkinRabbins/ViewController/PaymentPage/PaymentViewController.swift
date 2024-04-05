@@ -94,7 +94,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
             // 아이스크림이 아닌 셀을 레이아웃 변경
             cell.payDetailLabel.isHidden = true
             
-            // 이런 식으로 해주면 됨.. cell.payNameLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 50).isActive = true // payNameLabel 상단 여백 설정
+            // 이런 식으로 해주기 cell.payNameLabel.topAnchor.constraint(equalTo: cell.topAnchor, constant: 50).isActive = true // payNameLabel 상단 여백 설정
             
             
         } else if let thing = things[indexPath.row] as? Cake {
