@@ -223,7 +223,18 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
 
 // 뱃지 기능 추가, 애니메이션 효과
 extension UIButton {
+    
     func addBadge(number: Int) {
+        // 뱃지가 0이면 숨김 처리
+        if number == 0 {
+            // 현재 버튼에 뱃지가 있다면 제거
+            for subview in self.subviews {
+                if subview is UILabel {
+                    subview.removeFromSuperview()
+                }
+            }
+            return
+        }
         let badgeLabel = UILabel(frame: CGRect(x: self.frame.size.width - 16, y: -8, width: 28, height: 28))
         badgeLabel.layer.borderWidth = 1.0 // 스트로크 두께 설정
         badgeLabel.layer.borderColor = UIColor(red: 0.34, green: 0.29, blue: 0.24, alpha: 0.6).cgColor

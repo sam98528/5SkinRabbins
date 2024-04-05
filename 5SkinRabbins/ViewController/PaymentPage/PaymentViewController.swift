@@ -166,7 +166,7 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //셀 높이 설정
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if let thing = Menu.things[indexPath.row] as? IceCream {
+        if let _ = Menu.things[indexPath.row] as? IceCream {
                 // 아이스크림 셀인 경우
                 return 220
             } else {
