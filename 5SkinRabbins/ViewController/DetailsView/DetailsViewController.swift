@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol FlavorDelegate {
     func finishedFlavorEditing(iceCream : IceCream)
@@ -14,8 +15,8 @@ protocol FlavorDelegate {
 
 
 class DetailsViewController: UIViewController  {
-    let fontB = "BRB"
-    let fontR = "BRR"
+    let titleFont = "OAGothic-ExtraBold"
+    let labelFont = "LINESeedSansKR-Bold"
     
     var selectedFlavor : [Flavor] = []
     var selectedMenu : IceCream?
@@ -47,16 +48,16 @@ class DetailsViewController: UIViewController  {
     
     @IBAction func confirmButtonClicked(_ sender: Any) {
         var check = true
-        for (index,element) in selectedFlavor.enumerated(){
+        for (_,element) in selectedFlavor.enumerated(){
             if element.name == "" {
                 check = false
                 break
             }
         }
         if !check {
-            var alert = UIAlertController(title: "경고", message:
+            let alert = UIAlertController(title: "경고", message:
                                             "\(selectedFlavor.count)가지 맛을 채워주세요!", preferredStyle: .alert)
-            var cancel = UIAlertAction(title: "확인", style: .destructive, handler: nil)
+            let cancel = UIAlertAction(title: "확인", style: .destructive, handler: nil)
             alert.addAction(cancel)
             present(alert, animated: true, completion: nil)
         }else{
@@ -97,7 +98,7 @@ extension DetailsViewController : UICollectionViewDataSource, UICollectionViewDe
         flavorCollectionView.register(FlavorCollectionViewCell.nib(), forCellWithReuseIdentifier: FlavorCollectionViewCell.identifier)
         
         let flavorFlowLayout = UICollectionViewFlowLayout()
-        flavorFlowLayout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        flavorFlowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         flavorFlowLayout.minimumLineSpacing = 1
         flavorFlowLayout.minimumInteritemSpacing = 0
         flavorFlowLayout.scrollDirection = .horizontal
@@ -142,7 +143,8 @@ extension DetailsViewController : UICollectionViewDataSource, UICollectionViewDe
             
             cell.flavorImageView.image = Flavor.flavors[indexPath.row].image
             cell.flavorNameLabel.text = Flavor.flavors[indexPath.row].name
-            cell.flavorNameLabel.font = UIFont(name: fontR, size: 13)
+            cell.flavorNameLabel.font = UIFont(name: labelFont, size: 13)
+            cell.flavorNameLabel.textColor = UIColor(named: "customLabelColor")
             return cell
         case selectedFlavorCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectedFlavorCollectionViewCell.identifier, for: indexPath) as! SelectedFlavorCollectionViewCell
@@ -151,7 +153,7 @@ extension DetailsViewController : UICollectionViewDataSource, UICollectionViewDe
             cell.selctedFlavorImageView.backgroundColor = UIColor.white
             cell.layer.borderWidth = 3
             cell.clipsToBounds = true
-            cell.layer.borderColor = UIColor(red: 0.95, green: 0.82, blue: 0.82, alpha: 1.00).cgColor
+            cell.layer.borderColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1).cgColor
             return cell
         default:
             return UICollectionViewCell()
@@ -172,19 +174,29 @@ extension DetailsViewController {
         confirmButton.clipsToBounds = true
         confirmButton.layer.borderColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 0.05).cgColor
         confirmButton.layer.borderWidth = 2
+        confirmButton.titleLabel?.font = UIFont(name: labelFont, size: 17)
+        confirmButton.backgroundColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
         
         cancelButton.layer.cornerRadius = cancelButton.bounds.height / 2
         cancelButton.clipsToBounds = true
         cancelButton.layer.borderColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 0.05).cgColor
         cancelButton.layer.borderWidth = 2
+        cancelButton.titleLabel?.font = UIFont(name: labelFont, size: 17)
+        cancelButton.titleLabel?.textColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
         
-        titleLabel.textColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
-        navigationBar.shadowImage = UIImage()
+        titleLabel.textColor = UIColor(named: "largeTitleColor")
+        titleLabel.font = UIFont(name: titleFont, size: 34)
+                titleLabel.text = "Flavor"
+
+        
         
         pageControl.numberOfPages = Int(ceil(Double(Flavor.flavors.count) / Double(9)))
         pageControl.pageIndicatorTintColor = UIColor.systemGray
-        pageControl.currentPageIndicatorTintColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
+        pageControl.currentPageIndicatorTintColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
         selectedMenuButton.setImage(selectedMenu?.image, for: .normal)
+        
+        self.navigationBar.standardAppearance.shadowColor = UIColor.clear
+        self.navigationBar.standardAppearance.backgroundColor = UIColor(named: "navigationColor")
     }
     
     func configureData(){

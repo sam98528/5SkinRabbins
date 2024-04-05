@@ -4,7 +4,27 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-        
+    
+    
+    
+    @IBAction func toggleDarkMode(_ sender: Any) {
+        if #available(iOS 13.0, *) {
+            if let window = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                if let window = window.windows.first {
+                    // 초기화면 다크 모드 상태
+                    let isDarkMode = window.overrideUserInterfaceStyle == .dark
+                    UserDefaults.standard.set(isDarkMode, forKey: "isDarkMode")
+                    // Dark Mode 상태에 따라 이미지 업데이트
+                    let imageName = isDarkMode ? "Light" : "Dark"
+                    darkModeSwitchButton.setImage(UIImage(named: imageName), for: .normal)
+                    // Dark Mode 상태 토글
+                    window.overrideUserInterfaceStyle = isDarkMode ? .light : .dark
+                }
+            }
+        }
+    }
+    
+    
     //이미지랑 View종류
     @IBOutlet weak var IceCreamCakeImage: UIImageView!
     @IBOutlet weak var CoffeeImage: UIImageView!
@@ -24,6 +44,8 @@ class MainViewController: UIViewController {
     
     //컬렉션뷰
     @IBOutlet weak var MainPageCollectionView: UICollectionView!
+    //다크모드버튼
+    @IBOutlet weak var darkModeSwitchButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -31,23 +53,47 @@ class MainViewController: UIViewController {
         self.MainPageCollectionView.delegate = self
         self.MainPageCollectionView.dataSource = self
         bannerTime()
+        
         MainPageCollectionView.layer.cornerRadius = 8
         MainPageCollectionView.clipsToBounds = true
-        titleLabel.font = UIFont(name: "BRB", size: 40)
+        titleLabel.font = UIFont(name: "OAGothic-ExtraBold", size: 40)
+        titleLabel.textColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
         IceCreamCakeImage.image = UIImage(named: "Cake1")
         CoffeeImage.image = UIImage(named: "Coffee")
         BeverageImage.image = UIImage(named: "Beverage")
         QuartImage.image = UIImage(named: "Quart")
-        IceCreamCakeLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        CoffeeLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        BeverageLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        QuartLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        
+        //레이블에 폰트색상,사이즈 지정
+        IceCreamCakeLabel.font = UIFont(name: "LINESeedSansKR-Bold", size: 18)
+        IceCreamCakeLabel.textColor = UIColor(red: 0.086, green: 0.086, blue: 0.086, alpha: 1)
+        CoffeeLabel.font = UIFont(name: "LINESeedSansKR-Bold", size: 18)
+        CoffeeLabel.textColor = UIColor(red: 0.086, green: 0.086, blue: 0.086, alpha: 1)
+        BeverageLabel.font = UIFont(name: "LINESeedSansKR-Bold", size: 18)
+        BeverageLabel.textColor = UIColor(red: 0.086, green: 0.086, blue: 0.086, alpha: 1)
+        QuartLabel.font = UIFont(name: "LINESeedSansKR-Bold", size: 18)
+        QuartLabel.textColor = UIColor(red: 0.086, green: 0.086, blue: 0.086, alpha: 1)
+        IceCreamCake.font = UIFont(name: "LINESeedSansKR-Regular", size: 12)
+        IceCreamCake.textColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
+        Coffee.font = UIFont(name: "LINESeedSansKR-Regular", size: 12)
+        Coffee.textColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
+        Beverage.font = UIFont(name: "LINESeedSansKR-Regular", size: 12)
+        Beverage.textColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
+        Quart.font = UIFont(name: "LINESeedSansKR-Regular", size: 12)
+        Quart.textColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
+       
+        //다크모드 유저디폴트값 만들기
+        let isDarkMode = traitCollection.userInterfaceStyle == .dark
+        let darkModeImageName = isDarkMode ? "Dark" : "Light"
+        darkModeSwitchButton.setImage(UIImage(named: darkModeImageName), for: .normal)
+        
         let backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: nil)
         backBarButtonItem.tintColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
         
         self.navigationItem.backBarButtonItem = backBarButtonItem
         self.navigationController?.navigationBar.backIndicatorImage = UIImage()
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
+        
+        
         
         //이미지누르면 이동하게 하는거
         let IceCreamCakeRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(IceCreamCakefucn(_:)))
@@ -71,7 +117,7 @@ let bannerArray: Array<UIImage> = [UIImage(named: "Banner1")!, UIImage(named: "B
 
 
 //다른스토리보드로 넘어가는것 연결한 부분
-extension MainViewController {		
+extension MainViewController {
     
     //케이크페이지로 넘어가는부분
     @objc func IceCreamCakefucn(_ gesture: UITapGestureRecognizer) {

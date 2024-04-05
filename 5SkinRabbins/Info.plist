@@ -4,12 +4,10 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>YANGJIN.otf</string>
+		<string>OAGothic-ExtraBold.ttf</string>
 		<string>LINESeedKR-Bd.ttf</string>
 		<string>LINESeedKR-Rg.ttf</string>
 		<string>LINESeedKR-Th.ttf</string>
-		<string>BaskinRabbinsB.ttf</string>
-		<string>BaskinRabbinsR.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
