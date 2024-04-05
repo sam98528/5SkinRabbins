@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KFd-Yr-DW9">
-                        <rect key="frame" x="12" y="34" width="240" height="240"/>
+                        <rect key="frame" x="20" y="52" width="240" height="240"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="240" id="VIM-2w-lSN"/>
                             <constraint firstAttribute="height" constant="240" id="WHs-bk-ehj"/>
@@ -29,8 +29,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="9sf-QQ-Hno">
-                        <rect key="frame" x="8" y="12" width="148" height="58"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9sf-QQ-Hno">
+                        <rect key="frame" x="8" y="12" width="148" height="62"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="productNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaV-Mm-wkU">
                                 <rect key="frame" x="0.0" y="0.0" width="138.66666666666666" height="43.333333333333336"/>
@@ -39,7 +39,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="englishNameLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAS-nd-4BC">
-                                <rect key="frame" x="0.0" y="43.333333333333336" width="91.666666666666671" height="14.666666666666664"/>
+                                <rect key="frame" x="0.0" y="47.333333333333336" width="91.666666666666671" height="14.666666666666664"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -50,10 +50,10 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="KFd-Yr-DW9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="4os-ic-pdd"/>
+                <constraint firstItem="KFd-Yr-DW9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="4os-ic-pdd"/>
                 <constraint firstItem="9sf-QQ-Hno" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="4yw-U6-JA3"/>
                 <constraint firstItem="03H-Vg-asu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="G7O-cs-NNF"/>
-                <constraint firstItem="KFd-Yr-DW9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="34" id="VKV-hn-KS3"/>
+                <constraint firstItem="KFd-Yr-DW9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="52" id="VKV-hn-KS3"/>
                 <constraint firstItem="9sf-QQ-Hno" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="WPe-Ob-Crg"/>
                 <constraint firstAttribute="bottom" secondItem="03H-Vg-asu" secondAttribute="bottom" constant="12" id="oab-qt-mLO"/>
                 <constraint firstAttribute="trailing" secondItem="9sf-QQ-Hno" secondAttribute="trailing" constant="8" id="yKH-BU-O1V"/>

@@ -34,6 +34,13 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+        // 그라데이션을 통해 하단으로 갈수록 어둡게 처리
+               let gradientLayer = CAGradientLayer()
+               gradientLayer.frame = view.bounds
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.4).cgColor] // 그라데이션 색상 설정
+               gradientLayer.locations = [0.7, 1.0] // 그라데이션의 위치 조정
+               view.layer.addSublayer(gradientLayer)
         
         //titleLabel 폰트 설정
         titleLabel.font = UIFont(name: "OAGothic-ExtraBold", size: 34)
