@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 protocol FlavorDelegate {
     func finishedFlavorEditing(iceCream : IceCream)
@@ -143,7 +144,7 @@ extension DetailsViewController : UICollectionViewDataSource, UICollectionViewDe
             cell.flavorImageView.image = Flavor.flavors[indexPath.row].image
             cell.flavorNameLabel.text = Flavor.flavors[indexPath.row].name
             cell.flavorNameLabel.font = UIFont(name: labelFont, size: 13)
-            cell.flavorNameLabel.textColor = UIColor(red: 0.086, green: 0.086, blue: 0.086, alpha: 1)
+            cell.flavorNameLabel.textColor = UIColor(named: "customLabelColor")
             return cell
         case selectedFlavorCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectedFlavorCollectionViewCell.identifier, for: indexPath) as! SelectedFlavorCollectionViewCell
@@ -183,15 +184,19 @@ extension DetailsViewController {
         cancelButton.titleLabel?.font = UIFont(name: labelFont, size: 17)
         cancelButton.titleLabel?.textColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
         
-        titleLabel.textColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
+        titleLabel.textColor = UIColor(named: "largeTitleColor")
         titleLabel.font = UIFont(name: titleFont, size: 34)
                 titleLabel.text = "Flavor"
-        navigationBar.shadowImage = UIImage()
+
+        
         
         pageControl.numberOfPages = Int(ceil(Double(Flavor.flavors.count) / Double(9)))
         pageControl.pageIndicatorTintColor = UIColor.systemGray
         pageControl.currentPageIndicatorTintColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
         selectedMenuButton.setImage(selectedMenu?.image, for: .normal)
+        
+        self.navigationBar.standardAppearance.shadowColor = UIColor.clear
+        self.navigationBar.standardAppearance.backgroundColor = UIColor(named: "navigationColor")
     }
     
     func configureData(){
