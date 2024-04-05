@@ -216,9 +216,6 @@ class PaymentViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-
-        
         self.title = "주문 내역"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: font, size: 18)!, NSAttributedString.Key.foregroundColor:UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)]
         
