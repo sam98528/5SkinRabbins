@@ -4,6 +4,7 @@
 //
 //  Created by Jeong-bok Lee on 4/2/24.
 //
+
 import UIKit
 
 class MenuViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, ThingsDelegate {
@@ -37,13 +38,27 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 그라데이션을 통해 하단으로 갈수록 어둡게 처리
+        setupGradientLayer()
+        setupTitleLabel()
+        setupCartButton()
+        setupCollectionViewLayout()
+        setupNavigationBar()
+        setupCollectionView()
+        segmentedControl.selectedSegmentIndex = selectedIndex
+        loadIceCreams()
+    }
+    
+    // 그라데이션 설정
+    private func setupGradientLayer() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
-        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.4).cgColor] // 그라데이션 색상 설정
-        gradientLayer.locations = [0.7, 1.0] // 그라데이션의 위치 조정
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.4).cgColor]
+        gradientLayer.locations = [0.7, 1.0]
         view.layer.addSublayer(gradientLayer)
-        //titleLabel 폰트 설정
+    }
+    
+    // titleLabel 설정
+    private func setupTitleLabel() {
         titleLabel.font = UIFont(name: "OAGothic-ExtraBold", size: 34)
         titleLabel.textColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
         switch selectedIndex{
@@ -58,40 +73,44 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         default:
             return
         }
-        //cartButton 컬러 설정
-        cartButton.tintColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
-        // UICollectionViewFlowLayout을 사용하여 컬렉션 뷰의 레이아웃 설정
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8) // 상하좌우 여백 설정
-        flowLayout.minimumLineSpacing = 12 // 행 간 최소 간격
-        flowLayout.minimumInteritemSpacing = 12 // 열 간 최소 간격
-        flowLayout.scrollDirection = .vertical // 스크롤 방향
-        // 셀 크기 설정
-        let itemWidth = (collectionView.bounds.width - flowLayout.sectionInset.left - flowLayout.sectionInset.right - flowLayout.minimumInteritemSpacing) / 2 // 한 행에 2개의 셀이 들어가도록 설정
-        let itemHeight = itemWidth * 1.4 // 가로:세로 비율
-        flowLayout.itemSize = CGSize(width: itemWidth, height: itemHeight)
-        collectionView.collectionViewLayout = flowLayout
-        let backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: nil)
-        backBarButtonItem.tintColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
-        backBarButtonItem.imageInsets = UIEdgeInsets(top: 0, left: 10, bottom: 50, right: 50)
-        self.navigationItem.backBarButtonItem = backBarButtonItem
-        self.navigationController?.navigationBar.backIndicatorImage = UIImage()
-        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
-        // 네비게이션 바 디자인 설정
-        navigationController?.navigationBar.shadowImage = UIImage() // 네비게이션 바 아래 선 제거
-        navigationController?.navigationBar.barTintColor = UIColor.systemBackground // 네비게이션 바 배경 컬러
-        // 컬렉션 뷰 데이터 불러오기
-        setupCollectionView()
-        // 초기에는 세그먼트 인덱스 0으로 설정하고 아이스크림 상품을 로드
-        segmentedControl.selectedSegmentIndex = selectedIndex
-        loadIceCreams()
     }
     
-    // 컬렉션 뷰 데이터 소스 설정
-    func setupCollectionView() {
+    // cartButton 설정
+    private func setupCartButton() {
+        cartButton.tintColor = UIColor(red: 1, green: 0.334, blue: 0.466, alpha: 1)
+    }
+    
+    // UICollectionViewFlowLayout 설정
+    private func setupCollectionViewLayout() {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        flowLayout.minimumLineSpacing = 12
+        flowLayout.minimumInteritemSpacing = 12
+        flowLayout.scrollDirection = .vertical
+        let itemWidth = (collectionView.bounds.width - flowLayout.sectionInset.left - flowLayout.sectionInset.right - flowLayout.minimumInteritemSpacing) / 2
+        let itemHeight = itemWidth * 1.4
+        flowLayout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        collectionView.collectionViewLayout = flowLayout
+    }
+    
+    // Navigation Bar 설정
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.barTintColor = .systemBackground
+        
+        let backBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: nil, action: nil)
+        backBarButtonItem.tintColor = UIColor(red: 0.98, green: 0.42, blue: 0.51, alpha: 1.00)
+        backBarButtonItem.imageInsets = UIEdgeInsets(top: 0, left: 10, bottom: 50, right: 50)
+        navigationItem.backBarButtonItem = backBarButtonItem
+        navigationController?.navigationBar.backIndicatorImage = UIImage()
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
+    }
+    
+    // UICollectionView 데이터 소스 설정
+    private func setupCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
-        self.collectionView.register(ProductCollectionViewCell.nib(), forCellWithReuseIdentifier: ProductCollectionViewCell.identifier)
+        collectionView.register(ProductCollectionViewCell.nib(), forCellWithReuseIdentifier: ProductCollectionViewCell.identifier)
     }
     
     // 세그먼트 값 변경 시 동작
@@ -117,7 +136,6 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
         let indexPath = IndexPath(item: 0, section: 0)
         collectionView.scrollToItem(at: indexPath, at: .top, animated: false)
     }
-    
     
     // 컬렉션 뷰 셀 수 설정
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
